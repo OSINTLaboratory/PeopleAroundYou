@@ -1,5 +1,5 @@
-# PeopleAroundYou
-OSIT tool to find connection between people
+# View
+Онлайн-кинозал, сервис для просмотра фильмов
 
 ## **Platform**
 ## **Tests**
@@ -18,6 +18,6 @@ OSIT tool to find connection between people
 [Олійник Юлія](https://github.com/Yulia02)
 
 ## License
-Copyright (c) 2020 OSINTLaboratory
+Copyright (c) 2020 WWWLaboratory
 
 This software is [MIT licensed](./LICENSE).
