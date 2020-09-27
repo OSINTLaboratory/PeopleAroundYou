@@ -1,9 +1,7 @@
 'use strict';
 
-const Core = require('./app/core');
 const Http = require('./app/interfaces/http');
 const Interfaces = require('./app/interfaces');
-const Db = require('./app/interfaces/db');
 
 // Класс обьеденяющий работу всех интерфейсов в приложение
 class App {
