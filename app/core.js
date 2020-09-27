@@ -1,6 +1,5 @@
 'use strict';
 
-const Db = require('./core/db');
 const CustomError = require('./core/error');
 const Logging = require('./core/logging');
 const Utils = require('./core/utils');
@@ -33,12 +32,6 @@ Core.config = {
     return Config.create(confFile);
   }
 }
-
-Core.db = {
-  open: (config) => {
-    return new Db(config);
-  }
-};
 
 Core.log = {
   info: (text) => {
