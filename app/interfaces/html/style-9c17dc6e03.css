@@ -43,7 +43,7 @@ body .pop-message.success{background:#3cce7b;padding:5px 0}
 body .pop-message>div{padding:5px 0}
 body .header{background: #000000;border-top:3px solid #ff7700;border-bottom:3px solid #ff7700;margin-bottom:20px}
 body .header .container{padding-left:70px}
-body .logo{background:url(logo.png) no-repeat;height:141px;width: 250px; top: -40px;display:block;position:absolute;left:5px}
+body .logo{background:url(logo.png) no-repeat;height:141px;width: 250px; top: -35px;display:block;position:absolute;left:5px}
 body .halloween .logo{background:url(/img/pumpkin-logo.png) no-repeat;width:255px;height:111px;top:-32px}
 body .logo-block{}
 body .menu{float:right}
