@@ -1,7 +1,7 @@
 @charset "UTF-8";
 *{margin:0;padding:0;border:none;outline:none;-moz-box-sizing:border-box;box-sizing:border-box}
 html{height:100%}
-body{font-family:open sans,sans-serif;font-size:14px;background: #1f1d1d;color:#333;min-height:100%;position:relative;-webkit-tap-highlight-color:transparent;overflow-y:scroll}
+body{font-family:open sans,sans-serif;font-size:14px;background: #1f1d1d;color: #333333;min-height:100%;position:relative;-webkit-tap-highlight-color:transparent;overflow-y:scroll}
 body{}
 body.theme-change,body.theme-change *{transition:background .2s,border .2s!important}
 body .background-img{position:fixed;bottom:0;height:100vh;width:100%;z-index:-10}
@@ -32,7 +32,7 @@ body .far,body .fal{cursor:pointer}
 body .hidden{display:none}
 body .container{max-width:1300px;margin:0 auto;position:relative;padding:0 5px}
 body .clearfix:after,body .comment:after{content:".";display:block;height:0;clear:both;visibility:hidden}
-body .top{background-image:url(/img/top3.jpg);background-position:top center;height:150px;position:relative;padding:25px 0 0}
+body .top{background-image:url(header.jpg);background-position:top center;height:150px;position:relative;padding:25px 0 0}
 body .top.blockBg{background-image:none!important}
 body #top-block{position:absolute;display:block;width:100%;top:0;left:0;background-position:top center;background-repeat:no-repeat;background-size:cover;height:150px}
 body .top iframe{position:absolute;top:0;left:0;right:0;margin:auto;max-width:100%}
@@ -43,7 +43,7 @@ body .pop-message.success{background:#3cce7b;padding:5px 0}
 body .pop-message>div{padding:5px 0}
 body .header{background: #000000;border-top:3px solid #ff7700;border-bottom:3px solid #ff7700;margin-bottom:20px}
 body .header .container{padding-left:70px}
-body .logo{background:url(/img/new-logo3.png) no-repeat;height:85px;top:-10px;display:block;position:absolute;width:243px;left:5px}
+body .logo{background:url(logo.png) no-repeat;height:141px;width: 250px; top: -40px;display:block;position:absolute;left:5px}
 body .halloween .logo{background:url(/img/pumpkin-logo.png) no-repeat;width:255px;height:111px;top:-32px}
 body .logo-block{}
 body .menu{float:right}
