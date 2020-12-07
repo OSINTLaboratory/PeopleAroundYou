@@ -1,26 +1,59 @@
 {
-  "name": "view",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
-  },
+  "name": "metarhia",
+  "version": "0.0.9",
+  "author": "Timur Shemsedinov <timur.shemsedinov@gmail.com>",
+  "description": "Metarhia Application Example",
+  "license": "MIT",
+  "keywords": [
+    "metarhia",
+    "starter",
+    "kit",
+    "cloud",
+    "impress",
+    "nodejs",
+    "example",
+    "websocket",
+    "api",
+    "application",
+    "server",
+    "rpc",
+    "soa",
+    "service",
+    "stateful",
+    "rest",
+    "restful",
+    "web",
+    "framework",
+    "router",
+    "routing",
+    "cluster",
+    "cache",
+    "http",
+    "https",
+    "websockets"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WWWLaboratory/view.git"
+    "url": "https://github.com/metarhia/Example"
   },
-  "author": "",
-  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/WWWLaboratory/view/issues"
+    "url": "https://github.com/metarhia/Example/issues"
   },
-  "homepage": "https://github.com/WWWLaboratory/view#readme",
+  "homepage": "https://github.com/metarhia/Example",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm run -s lint && node test/system.js",
+    "lint": "eslint ."
+  },
+  "engines": {
+    "node": ">=12.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.6",
+    "eslint": "^7.12.1",
+    "metatests": "^0.7.2"
+  },
   "dependencies": {
-    "ansi-256-colors": "^1.1.0",
-    "eslint": "^7.10.0",
-    "express": "^4.17.1",
-    "pg": "^8.3.3"
+    "impress": "^2.0.0-alpha.34"
   }
 }
