@@ -43,7 +43,8 @@
   "main": "server.js",
   "scripts": {
     "test": "npm run -s lint && node test/system.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "start": "node server.js"
   },
   "engines": {
     "node": ">=12.9.0"
