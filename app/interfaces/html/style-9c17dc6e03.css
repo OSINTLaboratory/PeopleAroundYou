@@ -54,7 +54,6 @@ body .menu>li>a span{display:block;font-size:12px;text-transform:none;text-align
 body .menu>li>a.active{background:#ff7700}
 body .menu>li:hover .sub-menu{display:block;}
 body .sub-menu-link>a{cursor:default}
-body .sub-menu-link:before{content:'';width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:7px solid #ff7700;display:block;position:absolute;bottom:0;left:0;right:0;margin:auto}
 body .sub-menu{display:none;position:absolute;right:0;z-index:3;width:200px;background:#555;border-top:3px solid #ff7700;border-bottom:3px solid #ff7700}
 body .sub-menu a{display:block;padding:10px;color:#fff;transition:background .4s;border-bottom:1px solid #666;font-weight:300}
 body .sub-menu>li:last-child>a{border-bottom:none}
@@ -440,6 +439,7 @@ body .login{padding:10px 20px;background:rgba(255,255,255,.8);position:relative;
 body .login-block a{font-weight:400;text-transform:none;display:block;color:#333;margin-top:10px}
 body .register{padding:10px 20px}
 body .register,body .profile-block{background:#ff7700}
+body .register-form{position:absolute;background:rgba(226,226,226,.9);border:1px solid #b4a6a6;padding:10px;z-index:2;text-align:center;display:none;width:220px}
 body .login-form{position:absolute;background:rgba(226,226,226,.9);border:1px solid #b4a6a6;padding:10px;z-index:2;text-align:center;display:none;width:220px}
 body .login-form.open{display:block}
 body .login-form input{margin-bottom:10px}
