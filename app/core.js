@@ -3,7 +3,6 @@
 const CustomError = require('./core/error');
 const Logging = require('./core/logging');
 const Utils = require('./core/utils');
-const Config = require('./core/config');
 
 class Core {
 
@@ -25,10 +24,6 @@ Core.utils = {
     }
   },
   curryEx: (fn, ...args) => Utils.curryExEx(fn, ...args)
-};
-
-Core.config = {
-  create: confFile => Config.create(confFile)
 };
 
 Core.log = {
