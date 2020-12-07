@@ -47,7 +47,7 @@
     "start": "node server.js"
   },
   "engines": {
-    "node": ">=12.9.0"
+    "node": "14.x"
   },
   "devDependencies": {
     "@types/node": "^14.14.6",
@@ -55,6 +55,7 @@
     "metatests": "^0.7.2"
   },
   "dependencies": {
-    "impress": "^2.0.0-alpha.34"
+    "impress": "^2.0.0-alpha.34",
+    "metatests": "^0.7.2"
   }
 }
