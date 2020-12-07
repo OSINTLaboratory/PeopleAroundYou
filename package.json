@@ -1,61 +1,26 @@
 {
-  "name": "metarhia",
-  "version": "0.0.9",
-  "author": "Timur Shemsedinov <timur.shemsedinov@gmail.com>",
-  "description": "Metarhia Application Example",
+  "name": "filmhub",
+  "author": "",
+  "version": "0.0.1",
+  "description": "",
   "license": "MIT",
-  "keywords": [
-    "metarhia",
-    "starter",
-    "kit",
-    "cloud",
-    "impress",
-    "nodejs",
-    "example",
-    "websocket",
-    "api",
-    "application",
-    "server",
-    "rpc",
-    "soa",
-    "service",
-    "stateful",
-    "rest",
-    "restful",
-    "web",
-    "framework",
-    "router",
-    "routing",
-    "cluster",
-    "cache",
-    "http",
-    "https",
-    "websockets"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/metarhia/Example"
-  },
-  "bugs": {
-    "url": "https://github.com/metarhia/Example/issues"
-  },
-  "homepage": "https://github.com/metarhia/Example",
   "main": "server.js",
   "scripts": {
-    "test": "npm run -s lint && node test/system.js",
-    "lint": "eslint .",
+    "test": "echo \"no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WWWLaboratory/filmhub.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WWWLaboratory/filmhub/issues"
+  },
+  "homepage": "https://github.com/WWWLaboratory/filmhub#readme",
   "engines": {
     "node": "14.x"
   },
-  "devDependencies": {
-    "@types/node": "^14.14.6",
-    "eslint": "^7.12.1",
-    "metatests": "^0.7.2"
-  },
   "dependencies": {
-    "impress": "^2.0.0-alpha.34",
-    "metatests": "^0.7.2"
+    "impress": "^2.0.0-alpha.34"
   }
 }
