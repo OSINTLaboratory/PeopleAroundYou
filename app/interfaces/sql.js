@@ -170,10 +170,9 @@ const sql = (pool) => {
 
       const startTime = new Date().getTime();
       this.pool.query(sql, values, (err, res) => {
-        if (err) return this.error.nonfatal(new Error('0x0001'));
-        const endTime = new Date().getTime();
-        const executionTime = endTime - startTime;
-        //this.log.info(`Database execution time: ${executionTime}`);
+        if (err) {
+			return this.error.nonfatal(new Error('0x0001'));
+		}
         if (callback) {
           const mode = this.mode;
           this.rows = res.rows;
