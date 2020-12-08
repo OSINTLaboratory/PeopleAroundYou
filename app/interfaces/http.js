@@ -7,6 +7,7 @@ const path = require('path');
 const fs = require("fs");
 
 const Core = require('../core');
+const db = require('./db');
 
 class Http {
   constructor(port){
@@ -27,7 +28,33 @@ class Http {
         error: err
       });
     });
-
+	
+	this.app.route('/catalog')
+		.post(function(req, res) {
+			console.log("catalog: ", req.body);
+		});
+	this.app.route('/search')
+		.post(function(req, res) {
+			console.log("search: ", req.body);
+		});
+		
+	this.app.route('/login')
+		.post(function(req, res) {
+			console.log("login: ", req.body);
+		});
+	this.app.route('/register')
+		.post(function(req, res) {
+			console.log("register: ", req.body);
+		});
+	this.app.route('/top')
+		.post(function(req, res) {
+			console.log("top: ", req.body);
+		});
+	this.app.route('/random')
+		.post(function(req, res) {
+			console.log("random: ", req.body);
+		});
+	  
     this.app.listen(this.port, ()=>{
       Core.log.info('Http server started');
     });
