@@ -38,7 +38,7 @@ CREATE TABLE membership (
 
 DROP TABLE IF EXISTS films;
 CREATE TABLE films (
-	filmID	integer PRIMARY KEY,
+	filmID	SERIAL PRIMARY KEY,
 	title	text NOT NULL,
 	year 	integer NOT NULL,
 	rating	NUMERIC(3, 2) NOT NULL,
