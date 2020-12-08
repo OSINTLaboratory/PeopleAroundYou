@@ -1,57 +1,56 @@
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
-	UserID	integer PRIMARY KEY,
-	Login	text NOT NULL,
-	Salt	bytea NOT NULL,
-	Viewed	integer ARRAY
+	userId	integer PRIMARY KEY,
+	login	text NOT NULL,
+	salt	bytea NOT NULL
+	viewed	integer ARRAY
 );
 
 DROP TABLE IF EXISTS guests;
 CREATE TABLE guests (
-	Viewed	integer ARRAY
+	viewed	integer ARRAY
 );
 
 DROP TABLE IF EXISTS moderators;
 CREATE TABLE moderators (
-	Login	text NOT NULL,
-	Salt	bytea NOT NULL
+	login	text NOT NULL,
+	salt	bytea NOT NULL
 );
 
 DROP TABLE IF EXISTS administrators;
 CREATE TABLE administrators (
-	Login	text NOT NULL,
-	Salt	bytea NOT NULL
+	login	text NOT NULL,
+	salt	bytea NOT NULL
 );
 
 DROP TABLE IF EXISTS comments;
 CREATE TABLE comments (
-	Film	integer NOT NULL,
-	User	integer NOT NULL,
-	Data 	text
+	film	integer NOT NULL,
+	userId	integer NOT NULL,
+	textData 	text
 );
 
 DROP TABLE IF EXISTS membership;
 CREATE TABLE membership (
-	User	integer NOT NULL,
-	ExpDate	date NOT NULL
+	userId	integer NOT NULL,
+	expDate	date NOT NULL
 );
 
 DROP TABLE IF EXISTS films;
 CREATE TABLE films (
-	FilmID	integer NOT NULL PRIMARY KEY,
-	Title	text NOT NULL,
-	Year 	integer NOT NULL,
-	Rating	NUMERIC(3, 2) NOT NULL,
-	Views	integer  NOT NULL,
-	Poster	text NOT NULL,
-	Genre	integer NOT NULL,
-	Free 	boolean NOT NULL,
-	Url		text NOT NULL
+	filmID	integer NOT NULL PRIMARY KEY,
+	title	text NOT NULL,
+	year 	integer NOT NULL,
+	rating	NUMERIC(3, 2) NOT NULL,
+	views	integer  NOT NULL,
+	poster	text NOT NULL,
+	genre	integer NOT NULL,
+	free 	boolean NOT NULL,
+	url		text NOT NULL
 );
 
 DROP TABLE IF EXISTS genres;
 CREATE TABLE genres (
-	User	integer NOT NULL,
-	ExpDate	date NOT NULL
+	userId	integer NOT NULL,
+	expDate	date NOT NULL
 );
-
