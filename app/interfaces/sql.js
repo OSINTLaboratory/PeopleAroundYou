@@ -162,7 +162,7 @@ const sql = (pool) => {
     buildInsert() {
       const { table, _fields, args } = this;
       const flds = _fields.join(', ');
-      const sql = `INSERT ${table} (${flds})`;
+      const sql = `INSERT INTO ${table} VALUES (${flds})`;
       this.sql = { sql,
         values: args };
     },
