@@ -10,7 +10,7 @@ const Core = require('../core');
 
 class Http {
   constructor(port){
-    Core.log.info('Http server creating');
+    Core.log.info('Creating http server');
     this.port = port;
     this.static_root = "app/interfaces/html";
     this.app = express();
