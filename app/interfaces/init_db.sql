@@ -6,25 +6,23 @@ CREATE TABLE users (
 	Salt	bytea NOT NULL,
 	Viewed	integer ARRAY
 );
-// Таблица гостей
 DROP TABLE IF EXISTS guests;
 CREATE TABLE guests (
 	Viewed	integer ARRAY
 );
-// Таблица модераторов
+
 DROP TABLE IF EXISTS moderators;
 CREATE TABLE moderators (
 	Login	text NOT NULL,
 	Salt	bytea NOT NULL
 );
-// Таблица админов
+
 DROP TABLE IF EXISTS administrators;
 CREATE TABLE administrators (
 	Login	text NOT NULL,
 	Salt	bytea NOT NULL
 );
 
-// Таблица комментариев
 DROP TABLE IF EXISTS comments;
 CREATE TABLE comments (
 	Film	integer NOT NULL,
@@ -32,14 +30,12 @@ CREATE TABLE comments (
 	Data 	text
 );
 
-// Таблица подписок
 DROP TABLE IF EXISTS membership;
 CREATE TABLE membership (
 	User	integer NOT NULL,
 	ExpDate	date NOT NULL
 );
 
-// Таблица фильмов
 DROP TABLE IF EXISTS films;
 CREATE TABLE films (
 	FilmID	integer NOT NULL PRIMARY KEY,
@@ -53,7 +49,6 @@ CREATE TABLE films (
 	Url		text NOT NULL
 );
 
-// Таблица жанров фильмов
 DROP TABLE IF EXISTS genres;
 CREATE TABLE genres (
 	User	integer NOT NULL,
