@@ -1,14 +1,14 @@
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
-	userId	integer PRIMARY KEY,
+	userId	integer SERIAL PRIMARY KEY,
 	login	text NOT NULL,
 	hash	bytea NOT NULL,
-	viewed	integer ARRAY
+	viewed	integer ARRAY NULL
 );
 
 DROP TABLE IF EXISTS guests;
 CREATE TABLE guests (
-	viewed	integer ARRAY
+	viewed	integer ARRAY NULL
 );
 
 DROP TABLE IF EXISTS moderators;
@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS comments;
 CREATE TABLE comments (
 	film	integer NOT NULL,
 	userId	integer NOT NULL,
-	textData 	text
+	textData 	text NOT NULL
 );
 
 DROP TABLE IF EXISTS membership;
@@ -38,7 +38,7 @@ CREATE TABLE membership (
 
 DROP TABLE IF EXISTS films;
 CREATE TABLE films (
-	filmID	integer NOT NULL PRIMARY KEY,
+	filmID	integer NOT NULL SERIAL PRIMARY KEY,
 	title	text NOT NULL,
 	year 	integer NOT NULL,
 	rating	NUMERIC(3, 2) NOT NULL,
