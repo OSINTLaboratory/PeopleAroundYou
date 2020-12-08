@@ -1,4 +1,3 @@
-// Таблица пользователей
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
 	UserID	integer PRIMARY KEY,
@@ -6,6 +5,7 @@ CREATE TABLE users (
 	Salt	bytea NOT NULL,
 	Viewed	integer ARRAY
 );
+
 DROP TABLE IF EXISTS guests;
 CREATE TABLE guests (
 	Viewed	integer ARRAY
