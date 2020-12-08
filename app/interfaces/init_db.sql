@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
-	userId	integer SERIAL PRIMARY KEY,
+	userId	SERIAL PRIMARY KEY,
 	login	text NOT NULL,
 	hash	bytea NOT NULL,
 	viewed	integer ARRAY NULL
