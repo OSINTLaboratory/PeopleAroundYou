@@ -12,23 +12,21 @@ class DB {
 	Core.log.info("Database config: " + JSON.stringify(config));
     this.pool = new Pool(config);
 	Core.log.info("Pool created");
-	this.pool.query('SELECT NOW()', (err, result) => {
-		if (err) {
-			return Core.log.warning('Database test connection ' + err);
-		}
-		Core.log.info('Database now: ' + JSON.stringify(result));	
-	});
+	Core.log.info('Test connection');
+	let result = this.pool.query('SELECT NOW()');
+	if (!result.length) {
+		return Core.log.warning('Database not connected');
+	}
+	Core.log.info('Connection established');
+	
+	const init_sql = fs.readFileSync('app/interfaces/init_db.sql').toString();
+	result = this.pool.query(init_sql);
+	if (!result.length) {
+		Core.log.warning('Database init error');
+	}
+	Core.log.info('Database ready');
   }
-   
-  async init(){
-			const init_sql = fs.readFileSync('init_db.sql').toString();
-			return this.pool.query(init_sql, (err, result) => {
-				if(err){
-					return Core.log.warning('Database init ' + err);
-				}
-				Core.log.info('Database ready');
-			});
-  }
+  
   sql() {
     return Sql(this.pool);
   }

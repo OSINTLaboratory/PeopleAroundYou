@@ -11,14 +11,13 @@ class App {
 
   // старт приложения
   start() {
-    this.interfaces.http = new Http(process.env.PORT || 80);
 	this.interfaces.db = new Database({
-		connectionString: process.env.DATABASE_URL || 'localhost',
+		connectionString: process.env.DATABASE_URL,
 		ssl: {
 			rejectUnauthorized: false
 		}
 	});
-	await this.interfaces.db.init();
+    this.interfaces.http = new Http(process.env.PORT || 80);
     return this;
   }
 }
