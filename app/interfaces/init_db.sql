@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users (
 	userId	integer PRIMARY KEY,
 	login	text NOT NULL,
-	salt	bytea NOT NULL
+	salt	bytea NOT NULL,
 	viewed	integer ARRAY
 );
 

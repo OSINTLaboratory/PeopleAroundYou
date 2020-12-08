@@ -20,9 +20,9 @@ class DB {
 			const init_sql = fs.readFileSync('app/interfaces/init_db.sql').toString();
 			return this.pool.query(init_sql)
 				.then(res => Core.log.info('Database ready'))
-				.catch(err => Core.log.warning('Database init' + err));
+				.catch(err => Core.log.warning('Database init ' + err));
 		})
-		.catch(err => Core.log.warning('Database not connected' + err));
+		.catch(err => Core.log.warning('Database not connected ' + err));
   }
   
   sql() {
