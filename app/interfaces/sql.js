@@ -1,4 +1,5 @@
 'use strict';
+const Core = require('../core');
 
 const where = conditions => {
   const clause = [];
@@ -57,8 +58,8 @@ const sql = (pool) => {
   const ready = false;
   const mode = MODE_ROWS;
   const whereClause = undefined;
-  const fields = ['*'];
-  const args = [];
+  const _fields = new Array;
+  const args = new Array;
   const orderBy = undefined;
 
   return {
@@ -73,25 +74,35 @@ const sql = (pool) => {
     ready,
     mode,
     whereClause,
-    fields,
+    _fields,
     args,
     orderBy,
 
-    select(fields) {
-      this.fields = fields;
-      this.op = 'select';
+    select() {
+      this.op = this.buildSelect;
       return this;
     },
 
-    insert(table) {
-      this.table = table;
-      this.op = 'insert';
+    insert() {
+      this.op = this.buildInsert;
       return this;
     },
 
+    remove() {
+      this.op = this.buildDelete;
+      return this;
+    },
+	
+	fields(values) {
+      for (const key of values) {
+        this._fields.push(key);
+      }
+	},
+	
     values(values) {
+      this.mode = MODE_ROW;
       for (const key in values) {
-        this.fields.push(key);
+        this._fields.push(key);
         this.args.push(values[key]);
       }
       return this;
@@ -104,13 +115,15 @@ const sql = (pool) => {
       return this;
     },
 
-    from(table) {
+    inTable(table) {
       this.table = table;
       return this;
     },
 
-    value() {
+    value(val) {
       this.mode = MODE_VALUE;
+      this._fields = new Array;
+      this._fields.push(val);
       return this;
     },
 
@@ -135,19 +148,10 @@ const sql = (pool) => {
       return this;
     },
 
-    build() {
-      const operations = {
-        'select': 'buildSelect',
-        'insert': 'buildInsert'
-      };
-      this[operations[this.op]]();
-      return this;
-    },
-
     buildSelect() {
-      const { table, fields, args } = this;
+      const { table, _fields, args } = this;
       const { whereClause, orderBy, columnName } = this;
-      const flds = fields.join(', ');
+      const flds = _fields.join(', ');
       let sql = `SELECT ${flds} FROM ${table}`;
       if (whereClause) sql += ` WHERE ${whereClause}`;
       if (orderBy) sql += ` ORDER BY ${orderBy}`;
@@ -156,24 +160,32 @@ const sql = (pool) => {
     },
 
     buildInsert() {
-      const { table, fields, args } = this;
-      const flds = fields.join(', ');
+      const { table, _fields, args } = this;
+      const flds = _fields.join(', ');
       const sql = `INSERT ${table} (${flds})`;
       this.sql = { sql,
         values: args };
     },
+	
+    buildDelete() {
+		
+    },
 
-    exec(callback) {
+    async exec(callback) {
       // TODO: store callback to pool
 
-      const { sql, values } = this.sql;
+	  this.op();
 
-      const startTime = new Date().getTime();
-      this.pool.query(sql, values, (err, res) => {
-        if (err) {
-			return this.error.nonfatal(new Error('0x0001'));
-		}
+      const { sql, values } = this.sql;
+		
+	  console.log(sql, values);
+	  
+	  this.pool.query(sql, values, (err, res) => {
         if (callback) {
+		  if(res === undefined){
+			  callback(err, undefined);
+			  return;
+		  }
           const mode = this.mode;
           this.rows = res.rows;
           this.cols = res.fields;
@@ -182,23 +194,22 @@ const sql = (pool) => {
           if (mode === MODE_VALUE) {
             const col = cols[0];
             const row = rows[0];
-            callback(row[col.name]);
+            callback(err, row[col.name]);
           } else if (mode === MODE_ROW) {
-            callback(rows[0]);
+            callback(err, rows[0]);
           } else if (mode === MODE_COL) {
             const col = [];
             for (const row of rows) {
               col.push(row[columnName]);
             }
-            callback(col);
+            callback(err, col);
           } else if (mode === MODE_COUNT) {
-            callback(this.rowCount);
+            callback(err, this.rowCount);
           } else if (mode === MODE_ROWS) {
-            callback(rows);
+            callback(err, rows);
           }
         }
       });
-      return this;
     }
   };
 };

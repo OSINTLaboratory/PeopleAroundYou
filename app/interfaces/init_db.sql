@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users (
 	userId	integer PRIMARY KEY,
 	login	text NOT NULL,
-	salt	bytea NOT NULL,
+	hash	bytea NOT NULL,
 	viewed	integer ARRAY
 );
 
@@ -14,13 +14,13 @@ CREATE TABLE guests (
 DROP TABLE IF EXISTS moderators;
 CREATE TABLE moderators (
 	login	text NOT NULL,
-	salt	bytea NOT NULL
+	hash	bytea NOT NULL
 );
 
 DROP TABLE IF EXISTS administrators;
 CREATE TABLE administrators (
 	login	text NOT NULL,
-	salt	bytea NOT NULL
+	hash	bytea NOT NULL
 );
 
 DROP TABLE IF EXISTS comments;

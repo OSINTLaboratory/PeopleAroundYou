@@ -5,27 +5,10 @@
   <title>Filmhub</title>
   <meta name="description" content="Каталог фильмов по жанрам удовлетворит любые запросы. Вы можете смотреть фильмы по жанрам прямо на сайте">
   <link rel="stylesheet" href="styles.css">
-  <script src="/script.js"></script>
   <script src="/request.js"></script>
   <script src="/catalog.js"></script>
-  <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", () => {
-		LoadCatalog();
-		
-		document.getElementById("login-btn-1").addEventListener("click", () => {
-			document.getElementById("login-form-1").style.display = "inherit";
-		});
-		document.getElementById("login-btn-2").addEventListener("click", () => {
-			document.getElementById("login-form-2").style.display = "inherit";
-		});
-		document.getElementById("register-btn-1").addEventListener("click", () => {
-			document.getElementById("register-form-1").style.display = "inherit";
-		});
-		document.getElementById("register-btn-2").addEventListener("click", () => {
-			document.getElementById("register-form-2").style.display = "inherit";
-		});
-    }, false);
-  </script>
+  <script src="/btns.js"></script>
+  <script src="/onload.js"></script>
   <body>
     <div class="background-img "></div>
     
@@ -47,13 +30,13 @@
               <input class="login" type="submit" value="Войти">
               <a href="/password/reset">Не помню пароль...</a>
             </form>	
-				<form action="/register" method="post" class="register-form" id="register-form-1">
+				<form action="/register" target="dummyframe" method="post" class="register-form" id="register-form">
 				<input name="email" placeholder="E-mail" type="text">
 				<input name="password" placeholder="Пароль" type="password">
 				<input class="register" type="submit" value="Зарегистрироваться">
 			  </form>
           </div>
-              <div class="register" id="register-btn-1">Регистрация</div>
+              <div class="register" id="register-btn">Регистрация</div>
         </div>
       </div>
     </div>
@@ -64,23 +47,7 @@
         <div class="logo-block">
           <a class="logo" href="/"></a>
           <div class="top-desktop">
-            <div class="auth-block">
-              <div class="login-block">
-                <div class="login">Вход</div>
-                <form action="/login" method="post" class="login-form"  id="login-form-3">
-                  <input name="email" placeholder="E-mail" type="text">
-                  <input name="password" placeholder="Пароль" type="password">
-                  <input class="login" type="submit" value="Войти">
-                  <a href="/password/reset">Не помню пароль...</a>
-                </form>		
-				<form action="/register" method="post" class="register-form" id="register-form-2">
-				<input name="email" placeholder="E-mail" type="text">
-				<input name="password" placeholder="Пароль" type="password">
-				<input class="register" type="submit" value="Зарегистрироваться">
-			  </form>
-              </div>
-              <div class="register" id="register-btn-2">>Регистрация</div>
-            </div>
+            
           </div>
           <div class="mobile-menu-button">Меню</div>
         </div>
