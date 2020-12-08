@@ -18,6 +18,7 @@ class App {
 			rejectUnauthorized: false
 		}
 	});
+	await this.interfaces.db.init();
     return this;
   }
 }
