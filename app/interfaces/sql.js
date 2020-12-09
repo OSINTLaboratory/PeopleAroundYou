@@ -201,7 +201,11 @@ const sql = (pool) => {
           if (mode === MODE_VALUE) {
             const col = cols[0];
             const row = rows[0];
-            callback(err, row[col.name]);
+			if(row === undefined){
+				callback(err, undefined);
+			} else {
+				callback(err, row[col.name]);
+			}
           } else if (mode === MODE_ROW) {
             callback(err, rows[0]);
           } else if (mode === MODE_COL) {
