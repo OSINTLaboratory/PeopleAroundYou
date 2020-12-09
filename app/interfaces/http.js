@@ -66,27 +66,30 @@ class Http {
 	this.app.route('/islogin')
 		.post(async (req, res) => {
 			if(req.cookie === undefined){
-				res.send("{\"bool\":false}").end(200);
+				res.json({ bool:false }).end(200);
+				console.log("req.cookie === undefined");
 				return;
 			}
 			
 			if(req.cookie['session'] === undefined){
-				res.send("{\"bool\":false}").end(200);
+				res.json({ bool:false }).end(200);
+				console.log("req.cookie['session'] === undefined");
 				return;
 			}
 			
 			if(this.sessions_id[hash(JSON.stringify(req.useragent))] === undefined){
-				res.send("{\"bool\":false}").end(200);
+				res.json({ bool:false }).end(200);
+				console.log("this.sessions_id[hash(JSON.stringify(req.useragent))] === undefined");
 				return;
 			}
 			
-			if(this.sessions_id[hash(JSON.stringify(req.useragent))] != req.cookie['session'])
-			{
-				res.send("{\"bool\":false}").end(200);
+			if(this.sessions_id[hash(JSON.stringify(req.useragent))] != req.cookie['session']){
+				res.json({ bool:false }).end(200);
+				console.log("this.sessions_id[hash(JSON.stringify(req.useragent))] != req.cookie['session']");
 				return;
 			}
 			
-			res.send("{\"bool\":true}").end(200);
+			res.json({ bool:true }).end(200);
 		});
 		
 	this.app.route('/recomendations')
