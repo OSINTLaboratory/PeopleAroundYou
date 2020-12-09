@@ -40,7 +40,7 @@ class Http {
 					Core.log.warning(err);
 					return;
 				}
-				res.json(result).end();
+				res.json({data: result}).end();
 			});
 		});
 	this.app.route('/search')

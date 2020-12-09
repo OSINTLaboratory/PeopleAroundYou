@@ -5,8 +5,10 @@ const LoadCatalog = () => {
 			return;
 		}
 		const catalog = document.getElementById("catalog");
+		console.log(res);
 		res = JSON.parse(res);
-		for(const film of res){
+		console.log(res);
+		for(const film of res.data){
 			const html_film = `<div class="anime-column">
 				<a class="image-block" href="/player?id=${film.filmid}">
 					<span class="year-block">2007</span>
