@@ -50,7 +50,6 @@ class Http {
 				.value("hash")
 				.where({ login: `=${req.body.email}` });
 			await query.exec((err, result) => {
-				console.log(result, hashed_pass);
 				if(result === hashed_pass) {
 					const session = Math.random().toString(16);
 					res.cookie('session', session, { maxAge: 900000, httpOnly: true });
@@ -65,27 +64,23 @@ class Http {
 		
 	this.app.route('/islogin')
 		.post(async (req, res) => {
-			if(req.cookie === undefined){
+			if(req.cookies === undefined){
 				res.json({ bool:false }).end(200);
-				console.log("req.cookie === undefined");
 				return;
 			}
 			
-			if(req.cookie['session'] === undefined){
+			if(req.cookies['session'] === undefined){
 				res.json({ bool:false }).end(200);
-				console.log("req.cookie['session'] === undefined");
 				return;
 			}
 			
 			if(this.sessions_id[hash(JSON.stringify(req.useragent))] === undefined){
 				res.json({ bool:false }).end(200);
-				console.log("this.sessions_id[hash(JSON.stringify(req.useragent))] === undefined");
 				return;
 			}
 			
-			if(this.sessions_id[hash(JSON.stringify(req.useragent))] != req.cookie['session']){
+			if(this.sessions_id[hash(JSON.stringify(req.useragent))] != req.cookies['session']){
 				res.json({ bool:false }).end(200);
-				console.log("this.sessions_id[hash(JSON.stringify(req.useragent))] != req.cookie['session']");
 				return;
 			}
 			
@@ -94,21 +89,21 @@ class Http {
 		
 	this.app.route('/recomendations')
 		.post(async (req, res) => {
-			if(req.cookie === undefined){
+			if(req.cookies === undefined){
 				res.end(200);
 				return;
 			}
-			if(req.cookie['session'] === undefined){
-				res.end(200);
-				return;
-			}
-			
-			if(!sessions_d.includes(req.cookie['session'])){
+			if(req.cookies['session'] === undefined){
 				res.end(200);
 				return;
 			}
 			
-			const login = sessions[req.cookie['session']];
+			if(!sessions_d.includes(req.cookies['session'])){
+				res.end(200);
+				return;
+			}
+			
+			const login = sessions[req.cookies['session']];
 			const query = this.db.sql();
 			query.select()
 				.inTable('users')
