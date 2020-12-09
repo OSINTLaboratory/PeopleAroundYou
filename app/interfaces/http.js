@@ -65,7 +65,7 @@ class Http {
 					this.sessions.push(new Session(req.body.email, randomNumber));
 					res.status(200).end();
 				} else {
-					res.status(403).end();
+					res.status(401).end();
 				}
 			});
 		});
