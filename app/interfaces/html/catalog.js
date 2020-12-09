@@ -1,17 +1,33 @@
+
+class Page{
+	constructor(arrayOfFilms){
+		this.data = arrayOfFilms;
+	}
+};
+
+let filmCatalog = new Array;
+
 const LoadCatalog = () => {
 	const promise = makeRequest("{}", "POST", "/catalog");
 	promise.then( (res) => {
 		if(res === undefined){
 			return;
 		}
-		const catalog = document.getElementById("catalog");
 		res = JSON.parse(res);
+		
+		// Paginate
+		let i = 0;
+		let page = new Page(new Array);
 		for(let film of res){
-			console.log(film);
+			if(i === 12){
+				filmCatalog.push(page);
+				page = new Page(new Array);
+				i = 0;
+			}
 			const html_film = document.createElement("div");
 			html_film.className = "anime-column";
 			html_film.innerHTML = `<a class="image-block" href="/player?id=${film.filmid}">
-					<span class="year-block">2007</span>
+					<span class="year-block">${film.year}</span>
 					<img src="/posters/${film.poster}" alt="${film.title}">
 				</a>
 				<div class="anime-column-info">
@@ -27,7 +43,28 @@ const LoadCatalog = () => {
 						</span>
 					</div>
 				</div>`;
-			catalog.appendChild(html_film);
+			page.push(html_film);
+			i++;
+		}
+		if(filmCatalog[0] === undefined){
+			return;
+		}
+		
+		// Show first page
+		const catalog = document.getElementById("catalog");
+		for(let film of filmCatalog[0]){
+			catalog.appendChild(film);
+		}
+		
+		// Set up pages
+		const pages = document.getElementById("pagination");
+		const li = document.createElement("li");
+		pages.innerHTML = '<li class="active"><span>1</span></li>';
+		i = 2;
+		for(let film of filmCatalog){
+			li.innerHTML = `<a href="/catalog?page=${i}">${i}</a>`;
+			catalog.appendChild(li);
+			i++;
 		}
 	}).catch((err)=>{});
 }
