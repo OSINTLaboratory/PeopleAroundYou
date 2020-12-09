@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users (
 	userId	SERIAL PRIMARY KEY,
 	login	VARCHAR(60) NOT NULL,
-	hash	bytea NOT NULL,
+	hash	VARCHAR(64) NOT NULL,
 	viewed	integer ARRAY NULL
 );
 
@@ -14,13 +14,13 @@ CREATE TABLE guests (
 DROP TABLE IF EXISTS moderators;
 CREATE TABLE moderators (
 	login	VARCHAR(60) NOT NULL,
-	hash	bytea NOT NULL
+	hash	VARCHAR(64) NOT NULL
 );
 
 DROP TABLE IF EXISTS administrators;
 CREATE TABLE administrators (
 	login	VARCHAR(60) NOT NULL,
-	hash	bytea NOT NULL
+	hash	VARCHAR(64) NOT NULL
 );
 
 DROP TABLE IF EXISTS comments;

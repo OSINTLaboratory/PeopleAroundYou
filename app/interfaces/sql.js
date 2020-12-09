@@ -166,6 +166,7 @@ const sql = (pool) => {
 	  let i = 1;
 	  for(const item of _fields){
 		  vals.push(`$${i}`);
+		  i++;
 	  }
 	  const vls = vals.join(', ');
       const sql = `INSERT INTO ${table}(${flds}) VALUES (${vals})`;
