@@ -18,7 +18,7 @@ class App {
 		}
 	});
 	this.interfaces.db.is_ready.then(res => {
-		this.interfaces.http = new Http(process.env.PORT || 80);
+		this.interfaces.http = new Http(process.env.PORT || 80, this.interfaces.db);
 	});
 	
     return this;

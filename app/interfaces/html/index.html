@@ -5,28 +5,13 @@
   <title>Filmhub</title>
   <meta name="description" content="Каталог фильмов по жанрам удовлетворит любые запросы. Вы можете смотреть фильмы по жанрам прямо на сайте">
   <link rel="stylesheet" href="styles.css">
-  <script src="/script.js"></script>
   <script src="/request.js"></script>
   <script src="/catalog.js"></script>
-  <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", () => {
-		LoadCatalog();
-		
-		document.getElementById("login-btn-1").addEventListener("click", () => {
-			document.getElementById("login-form-1").style.display = "inherit";
-		});
-		document.getElementById("login-btn-2").addEventListener("click", () => {
-			document.getElementById("login-form-2").style.display = "inherit";
-		});
-		document.getElementById("register-btn-1").addEventListener("click", () => {
-			document.getElementById("register-form-1").style.display = "inherit";
-		});
-		document.getElementById("register-btn-2").addEventListener("click", () => {
-			document.getElementById("register-form-2").style.display = "inherit";
-		});
-    }, false);
-  </script>
+  <script src="/btns.js"></script>
+  <script src="/func.js"></script>
+  <script src="/onload.js"></script>
   <body>
+  <iframe hidden name="dummy"></iframe>
     <div class="background-img "></div>
     
     <noscript>
@@ -41,19 +26,19 @@
         <div class="auth-block">
           <div class="login-block">
             <div class="login" id="login-btn-1">Вход</div>
-            <form action="/login" method="post" class="login-form" id="login-form-1">
+            <form action="/login" method="post" target="dummy" class="login-form" id="login-form-1">
               <input name="email" placeholder="E-mail" type="text">
               <input name="password" placeholder="Пароль" type="password">
               <input class="login" type="submit" value="Войти">
               <a href="/password/reset">Не помню пароль...</a>
             </form>	
-				<form action="/register" method="post" class="register-form" id="register-form-1">
+				<form action="/register" target="dummy" method="post" class="register-form" id="register-form">
 				<input name="email" placeholder="E-mail" type="text">
 				<input name="password" placeholder="Пароль" type="password">
 				<input class="register" type="submit" value="Зарегистрироваться">
 			  </form>
           </div>
-              <div class="register" id="register-btn-1">Регистрация</div>
+              <div class="register" id="register-btn">Регистрация</div>
         </div>
       </div>
     </div>
@@ -64,29 +49,13 @@
         <div class="logo-block">
           <a class="logo" href="/"></a>
           <div class="top-desktop">
-            <div class="auth-block">
-              <div class="login-block">
-                <div class="login">Вход</div>
-                <form action="/login" method="post" class="login-form"  id="login-form-3">
-                  <input name="email" placeholder="E-mail" type="text">
-                  <input name="password" placeholder="Пароль" type="password">
-                  <input class="login" type="submit" value="Войти">
-                  <a href="/password/reset">Не помню пароль...</a>
-                </form>		
-				<form action="/register" method="post" class="register-form" id="register-form-2">
-				<input name="email" placeholder="E-mail" type="text">
-				<input name="password" placeholder="Пароль" type="password">
-				<input class="register" type="submit" value="Зарегистрироваться">
-			  </form>
-              </div>
-              <div class="register" id="register-btn-2">>Регистрация</div>
-            </div>
+            
           </div>
           <div class="mobile-menu-button">Меню</div>
         </div>
 
         <div class="search-block-wrapper in-menu clearfix main-search">
-          <form action="/search" method="get" class="search-block">
+          <form action="/search" method="get" class="search-block" target="dummy">
             <input autocomplete="off" class="search" name="word" type="text" placeholder="ПОИСК" value="">
             <input type="submit" class="search-submit" value="">
           </form>
@@ -112,7 +81,7 @@
 
     <div class="content-block container clearfix">
       <div class="search-block-wrapper main-search clearfix">
-        <form action="/search" method="get" class="search-block">
+        <form action="/search" method="get" class="search-block" target="dummy">
           <input autocomplete="off" class="search" name="word" type="text" placeholder="Поиск" value="">
           <input type="submit" class="search-submit" value="">
         </form>
@@ -122,50 +91,6 @@
           <a href="/" class="live-search-results"></a>
         </div>
       </div>
-
-      <div class="mobile-filter">
-        <div class="mobile-filter-button">Фильтр</div>
-        <div class="mobile-filter-block">
-          <form class="filter-block main" action="/search" method="post">
-            <div class="block-header">Фильтр</div>
-            <div class="filter-body">
-              <div class="filter-cell">
-                <label>Жанры</label>
-                <select name="selected_category">
-                  <option value="0">Драма</option>
-				  <option value="1">Боевик</option>
-				  <option value="2">Экшен</option>
-				  <option value="3">Триллер</option>
-                </select>
-              </div>
-              <div class="filter-cell">
-                <label>Год</label>
-                <input name="from_year" class="filter-year" placeholder="от" type="text">
-                <input name="to_year" class="filter-year" placeholder="до" type="text">
-              </div>
-              <div class="filter-cell">
-                <label>Сортировать по</label>
-                <select name="sort">
-                  <option value="1">Рейтингу</option>
-                  <option value="2">Алфавиту (А-Я)</option>
-                  <option value="3">Алфавиту (Я-А)</option>
-                  <option value="4">Дате выхода (сначала новые)</option>
-                  <option value="5">Дате выхода (сначала старые)</option>
-                  <option value="6">Количеству просмотров</option>
-                </select>
-			  </div>
-            </div>
-            <div class="filter-footer">
-              <input class="filter-button list" type="submit" value="Искать"> 
-            </div>
-          </form>           
-		  </div>
-        </div>
-
-
-
-
-
         <div class="content">
           <aside class="sidebar">
 
@@ -214,7 +139,7 @@
               <div class="auth-block">
                 <div class="login-block">
                   <div class="login" id="login-btn-2">Вход</div>
-                  <form action="/login" method="post" class="login-form"  id="login-form-2">
+                  <form action="/login" method="post" target="dummy" class="login-form"  id="login-form-2">
                     <input name="email" placeholder="E-mail" type="text">
                     <input name="password" placeholder="Пароль" type="password">
                     <input class="login" type="submit" value="Войти">

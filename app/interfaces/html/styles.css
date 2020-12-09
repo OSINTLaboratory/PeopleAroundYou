@@ -437,7 +437,7 @@ body .sidebar .auth-block>*{float:none;display:inline-block}
 body .sgeChat ul.sgeMessages{height:460px!important}
 body .login{padding:10px 20px;background:rgba(255,255,255,.8);position:relative;cursor:pointer}
 body .login-block a{font-weight:400;text-transform:none;display:block;color:#333;margin-top:10px}
-body .register{padding:10px 20px}
+body .register{padding:10px 20px;   cursor: pointer;}
 body .register,body .profile-block{background:#ff7700}
 body .register-form{position:absolute;background:rgba(226,226,226,.9);border:1px solid #b4a6a6;padding:10px;z-index:2;text-align:center;display:none;width:220px}
 body .login-form{position:absolute;background:rgba(226,226,226,.9);border:1px solid #b4a6a6;padding:10px;z-index:2;text-align:center;display:none;width:220px}
