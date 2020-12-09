@@ -79,13 +79,22 @@ const sql = (pool) => {
     args,
     orderBy,
 
-    select() {
+    select(values) {
       this.op = this.buildSelect;
+      this.mode = MODE_ROW;
+      for (const key of values) {
+        this._fields.push(key);
+      }
       return this;
     },
 
-    insert() {
+    insert(values) {
       this.op = this.buildInsert;
+	  
+      for (const key in values) {
+        this._fields.push(key);
+        this.args.push(values[key]);
+      }
       return this;
     },
 
@@ -100,15 +109,6 @@ const sql = (pool) => {
       }
 	},
 	
-    values(values) {
-      this.mode = MODE_ROW;
-      for (const key in values) {
-        this._fields.push(key);
-        this.args.push(values[key]);
-      }
-      return this;
-    },
-
     where(conditions) {
       const { sclause, args } = where(conditions);
       this.whereClause = sclause;
