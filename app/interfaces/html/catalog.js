@@ -46,21 +46,24 @@ const LoadCatalog = () => {
 			page.push(html_film);
 			i++;
 		}
+		console.log(filmCatalog)
 		if(filmCatalog[0] === undefined){
 			return;
 		}
 		
 		// Show first page
 		const catalog = document.getElementById("catalog");
-		for(let film of filmCatalog[0]){
+		for(let film of filmCatalog[0].data){
 			catalog.appendChild(film);
 		}
 		
 		// Set up pages
 		const pages = document.getElementById("pagination");
+		console.log(pages)
 		const li = document.createElement("li");
 		pages.innerHTML = '<li class="active"><span>1</span></li>';
 		i = 2;
+		console.log(filmCatalog)
 		for(let film of filmCatalog){
 			li.innerHTML = `<a href="/catalog?page=${i}">${i}</a>`;
 			catalog.appendChild(li);

@@ -41,9 +41,7 @@ class Http {
 					res.status(500).end();
 					return;
 				}
-				console.log(result);
 				const stringified  = JSON.stringify(result);
-				console.log(stringified);
 				res.send(stringified).end();
 			});
 		});
