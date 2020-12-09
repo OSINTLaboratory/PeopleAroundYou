@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
-	userId	SERIAL PRIMARY KEY,
+	userid	SERIAL PRIMARY KEY,
 	login	VARCHAR(60) NOT NULL,
 	hash	VARCHAR(64) NOT NULL,
 	viewed	integer ARRAY NULL
@@ -26,19 +26,19 @@ CREATE TABLE administrators (
 DROP TABLE IF EXISTS comments;
 CREATE TABLE comments (
 	film	integer NOT NULL,
-	userId	integer NOT NULL,
+	userid	integer NOT NULL,
 	textData 	VARCHAR(256) NOT NULL
 );
 
 DROP TABLE IF EXISTS membership;
 CREATE TABLE membership (
-	userId	integer NOT NULL,
-	expDate	date NOT NULL
+	userid	integer NOT NULL,
+	expdate	date NOT NULL
 );
 
 DROP TABLE IF EXISTS films;
 CREATE TABLE films (
-	filmID	SERIAL PRIMARY KEY,
+	filmid	SERIAL PRIMARY KEY,
 	title	VARCHAR(60) NOT NULL,
 	year 	integer NOT NULL,
 	rating	NUMERIC(3, 2) NOT NULL,
@@ -51,6 +51,6 @@ CREATE TABLE films (
 
 DROP TABLE IF EXISTS genres;
 CREATE TABLE genres (
-	userId	integer NOT NULL,
-	expDate	date NOT NULL
+	userid	integer NOT NULL,
+	expdate	date NOT NULL
 );

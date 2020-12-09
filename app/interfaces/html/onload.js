@@ -4,7 +4,6 @@ let loginBtn2Showed = false;
 let registerBtnShowed = false;
 document.addEventListener("DOMContentLoaded", () => {
 	LoadCatalog();
-	
 	document.getElementById("login-btn-1").addEventListener("click", () => {
 		loginBtn1Showed = !loginBtn1Showed;
 		loginBtn2Showed = false;
@@ -41,4 +40,5 @@ document.addEventListener("DOMContentLoaded", () => {
 			HideRegisterBtn();
 		}
 	});
+	IsLogin();
 }, false);

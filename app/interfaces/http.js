@@ -19,6 +19,7 @@ class Http {
 		}
 	};
 	this.sessions = new Array;
+	this.sessions_id = new Array;
 	this.db = db;
     Core.log.info('Creating http server');
     this.port = port;
@@ -60,14 +61,26 @@ class Http {
 			await query.exec((err, result) => {
 				console.log(result, hashed_pass);
 				if(result === hashed_pass) {
-					const randomNumber = Math.random().toString(16);
-					res.cookie('session', randomNumber, { maxAge: 900000, httpOnly: true });
-					this.sessions.push(new Session(req.body.email, randomNumber));
+					const session = Math.random().toString(16);
+					res.cookie('session', session, { maxAge: 900000, httpOnly: true });
+					this.sessions_id.push(session);
+					this.sessions[session] = req.body.email;
 					res.status(200).end();
 				} else {
 					res.status(401).end();
 				}
 			});
+		});
+		
+	this.app.route('/islogin')
+		.post(async (req, res) => {
+			if(req.cookie['session'] === undefined &&
+				sessions_d.includes(req.cookie['session']))
+			{
+				res.send("{\"bool\":false}").end(200);
+			}else{
+				res.send("{\"bool\":true}").end(200);
+			}
 		});
 		
 	this.app.route('/register')

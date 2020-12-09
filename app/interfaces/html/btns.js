@@ -1,3 +1,4 @@
+'use strict';
 
 const ShowLoginBtn1 = () => {
 	document.getElementById("login-form-1").style.display = "inherit";
