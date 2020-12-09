@@ -9,7 +9,7 @@ const IsLogin = async () => {
 	}).catch((err)=>{});
 }
 
-cosnt InsertFilmsToCatalog = () => {
+const InsertFilmsToCatalog = () => {
 	const promise = makeRequest("{}", "POST", "/catalog");
 	promise.then( (res) => {
 		if(res === undefined){
