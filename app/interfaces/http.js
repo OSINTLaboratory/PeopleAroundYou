@@ -74,13 +74,44 @@ class Http {
 		
 	this.app.route('/islogin')
 		.post(async (req, res) => {
-			if(req.cookie['session'] === undefined &&
-				sessions_d.includes(req.cookie['session']))
+			if(req.cookie === undefined)
+				res.send("{\"bool\":false}").end(200);
+			
+			if(req.cookie['session'] === undefined)
+				res.send("{\"bool\":false}").end(200);
+			
+			if(!sessions_d.includes(req.cookie['session']))
 			{
 				res.send("{\"bool\":false}").end(200);
-			}else{
-				res.send("{\"bool\":true}").end(200);
 			}
+			
+			res.send("{\"bool\":true}").end(200);
+		});
+		
+	this.app.route('/recomendations')
+		.post(async (req, res) => {
+			if(req.cookie === undefined)
+				res.end(200);
+			if(req.cookie['session'] === undefined)
+				res.end(200);
+			
+			if(!sessions_d.includes(req.cookie['session']))
+				res.end(200);
+			
+			const login = sessions[req.cookie['session']];
+			const query = this.db.sql();
+			query.select()
+				.inTable('users')
+				.value("viewed")
+				.where({ login: `=${login}` });
+			await query.exec((err, result) => {
+				if (err) {
+					Core.log.warning(err);
+					res.status(500).end();
+					return;
+				}
+				res.status(200).end();
+			});
 		});
 		
 	this.app.route('/register')
