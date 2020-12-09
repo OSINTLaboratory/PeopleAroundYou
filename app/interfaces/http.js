@@ -65,26 +65,26 @@ class Http {
 	this.app.route('/islogin')
 		.post(async (req, res) => {
 			if(req.cookies === undefined){
-				res.json({ bool:false }).end(200);
+				res.send("false").end(200);
 				return;
 			}
 			
 			if(req.cookies['session'] === undefined){
-				res.json({ bool:false }).end(200);
+				res.send("false").end(200);
 				return;
 			}
 			
 			if(this.sessions_id[hash(JSON.stringify(req.useragent))] === undefined){
-				res.json({ bool:false }).end(200);
+				res.send("false").end(200);
 				return;
 			}
 			
 			if(this.sessions_id[hash(JSON.stringify(req.useragent))] != req.cookies['session']){
-				res.json({ bool:false }).end(200);
+				res.send("false").end(200);
 				return;
 			}
 			
-			res.json({ bool:true }).end(200);
+			res.send("true").end(200);
 		});
 		
 	this.app.route('/recomendations')
