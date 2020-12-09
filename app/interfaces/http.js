@@ -33,15 +33,14 @@ class Http {
 		.post( async (req, res) => {
 			console.log("catalog: ", req.body);
 			const query = this.db.sql();
-			query.select(['title', 'year', 'rating', 'views', 'poster', 'genre', 'url'])
+			query.select(['filmid', 'title', 'year', 'rating', 'views', 'poster', 'genre', 'url'])
 				.inTable('films');
 			await query.exec((err, result) => {
 				if(err){
 					Core.log.warning(err);
 					return;
 				}
-				console.dir(result);
-				res.status(200).end();
+				res.json(result).end();
 			});
 		});
 	this.app.route('/search')
