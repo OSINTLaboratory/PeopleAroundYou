@@ -254,7 +254,7 @@ body ::-moz-selection{color:#e2e2e2;background:#333}
 body ::selection{color:#e2e2e2;background:#333}
 body .search::-webkit-input-placeholder{text-transform:uppercase;font-family:open sans,sans-serif;font-weight:300;font-size:14px}
 body .search:-moz-placeholder{text-transform:uppercase;font-family:open sans,sans-serif;font-weight:300;font-size:14px}
-body input[type=submit].search-submit{background:url(/search.png) -25px -24px no-repeat;width:24px;height:24px;position:absolute;right:10px;top:13px;cursor:pointer}
+body input[type=submit].search-submit{width:75px;position:absolute;right:10px;top:10px;}
 body .g-recaptcha{margin-bottom:10px}
 body .add-video-block{border-bottom:2px solid #999;margin-bottom:10px}
 body .center{text-align:center}
