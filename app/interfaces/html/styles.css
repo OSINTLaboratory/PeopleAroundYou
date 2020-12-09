@@ -65,7 +65,7 @@ body .post-title-category{margin-bottom:5px}
 body .post-block{border-bottom:1px solid #ddd;margin-bottom:20px;position:relative;padding-bottom:10px}
 body .post-time{font-style:italic;position:absolute;right:0;top:0}
 body .content-page{width:100%;background:#fff;padding:15px;word-wrap:break-word}
-body .content-page .recommend-block,body .content-page.search-page,body .content-page.top-page,body .content-page.categories-page,body .content-page.users-page,body .details-list-page .tab-content>div{display:flex;flex-wrap:wrap;justify-content:space-around; background-color: #333333; color:white}
+body .content-page .recommend-block,body .content-page.search-page,body .content-page.top-page,body .content-page.categories-page,body .content-page.users-page,body .details-list-page .tab-content>div{flex-wrap:wrap;justify-content:space-around; background-color: #333333; color:white}
 body gap{flex:auto;width:230px;max-width:290px}
 body .content-page>p,body .content-page>h1,body .content-page>h2,body .content-page>.status-bg,body .content-page>.pagination,body .content-page>.sub-category,body .content-page>.preview-block{width:100%}
 body .post-text ul li,body .comment li{padding-bottom:10px;list-style-type:disc;list-style-position:inside}
