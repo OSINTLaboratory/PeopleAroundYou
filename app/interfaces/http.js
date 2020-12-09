@@ -80,7 +80,7 @@ class Http {
 				return;
 			}
 			
-			if(this.sessions_id[hash(JSON.stringify(req.useragent))] != req.cookie['session']))
+			if(this.sessions_id[hash(JSON.stringify(req.useragent))] != req.cookie['session'])
 			{
 				res.send("{\"bool\":false}").end(200);
 				return;
