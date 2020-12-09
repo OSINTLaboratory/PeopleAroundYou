@@ -8,7 +8,7 @@ const LoadCatalog = () => {
 		console.log(res);
 		res = JSON.parse(res);
 		console.log(res);
-		for(const film of res.data){
+		for(const film of res){
 			const html_film = `<div class="anime-column">
 				<a class="image-block" href="/player?id=${film.filmid}">
 					<span class="year-block">2007</span>
