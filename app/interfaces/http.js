@@ -56,7 +56,7 @@ class Http {
 			query.select()
 				.inTable('users')
 				.value("hash")
-				.where({ login: `==${req.body.email}` });
+				.where({ login: `=${req.body.email}` });
 			await query.exec((err, result) => {
 				console.log(result, hashed_pass);
 				if(result === hashed_pass) {

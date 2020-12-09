@@ -30,6 +30,7 @@ const where = conditions => {
         value = value.replace(/\*/g, '%').replace(/\?/g, '_');
         condition = `${key} LIKE $${i}`;
       } else {
+        value = value.substring(1);
         condition = `${key} = $${i}`;
       }
     }
