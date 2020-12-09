@@ -5,12 +5,12 @@ const LoadCatalog = () => {
 			return;
 		}
 		const catalog = document.getElementById("catalog");
-		console.log(res);
 		res = JSON.parse(res);
-		console.log(res);
-		for(const film of res){
-			const html_film = `<div class="anime-column">
-				<a class="image-block" href="/player?id=${film.filmid}">
+		for(let film of res){
+			console.log(film);
+			const html_film = document.createElement("div");
+			html_film.className = "anime-column";
+			html_film.innerHTML = `<a class="image-block" href="/player?id=${film.filmid}">
 					<span class="year-block">2007</span>
 					<img src="/posters/${film.poster}" alt="${film.title}">
 				</a>
@@ -26,8 +26,7 @@ const LoadCatalog = () => {
 							<span class="main-rating">${film.rating}</span>
 						</span>
 					</div>
-				</div>
-			</div>`;
+				</div>`;
 			catalog.appendChild(html_film);
 		}
 	}).catch((err)=>{});

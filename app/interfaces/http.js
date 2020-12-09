@@ -41,7 +41,10 @@ class Http {
 					res.status(500).end();
 					return;
 				}
-				res.send(JSON.stringify(result)).end();
+				console.log(result);
+				const stringified  = JSON.stringify(result);
+				console.log(stringified);
+				res.send(stringified).end();
 			});
 		});
 	this.app.route('/search')
