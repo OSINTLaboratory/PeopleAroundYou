@@ -56,16 +56,16 @@ class Http {
 				.inTable('users')
 				.value("hash")
 				.where({ login: `==${req.body.email}` });
-			const result = await query.exec();
-			console.log(result);
-			if(result === hashed_pass) {
-				const randomNumber = Math.random().toString(16);
-				res.cookie('session', randomNumber, { maxAge: 900000, httpOnly: true });
-				this.sessions.push(new Session(req.body.email, randomNumber));
-				res.status(200).end();
-			} else {
-				res.status(403).end();
-			}
+			await query.exec((err, result) => {
+				if(result === hashed_pass) {
+					const randomNumber = Math.random().toString(16);
+					res.cookie('session', randomNumber, { maxAge: 900000, httpOnly: true });
+					this.sessions.push(new Session(req.body.email, randomNumber));
+					res.status(200).end();
+				} else {
+					res.status(403).end();
+				}
+			});
 		});
 		
 	this.app.route('/register')
