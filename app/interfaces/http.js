@@ -58,6 +58,7 @@ class Http {
 				.value("hash")
 				.where({ login: `==${req.body.email}` });
 			await query.exec((err, result) => {
+				console.log(result, hashed_pass);
 				if(result === hashed_pass) {
 					const randomNumber = Math.random().toString(16);
 					res.cookie('session', randomNumber, { maxAge: 900000, httpOnly: true });

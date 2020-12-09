@@ -198,6 +198,7 @@ const sql = (pool) => {
           this.cols = res.fields;
           this.rowCount = res.rowCount;
           const { rows, cols } = this;
+		  console.dir(rows, cols);
           if (mode === MODE_VALUE) {
             const col = cols[0];
             const row = rows[0];
