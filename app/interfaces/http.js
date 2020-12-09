@@ -41,6 +41,7 @@ class Http {
 	this.app.route('/catalog')
 		.post((req, res) => {
 			console.log("catalog: ", req.body);
+			res.end();
 		});
 	this.app.route('/search')
 		.post((req, res) => {
@@ -84,7 +85,6 @@ class Http {
 					res.status(500).end();
 					return;
 				}
-				console.log(result);
 				res.status(200).end();
 			});
 		});
