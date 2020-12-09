@@ -1,6 +1,6 @@
 'use strict';
 
-const IsLogin = () => {
+const IsLogin = async () => {
 	const promise = await makeRequest("{}", "POST", "/islogin");
 	promise.then( (res) => {
 		if(boolean(res.bool)){
