@@ -8,5 +8,5 @@ const IsLogin = async () => {
 			console.log("ololololo")
 			document.querySelectorAll(".auth-block").forEach(el => el.remove());
 		}
-	}).catch(err){};
+	}).catch((err)=>{});
 }
