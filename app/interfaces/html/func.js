@@ -1,9 +1,9 @@
 'use strict';
 
 const IsLogin = async () => {
-	const promise = await makeRequest("{}", "POST", "/islogin");
+	const promise = makeRequest("{}", "POST", "/islogin");
 	promise.then( (res) => {
-		if(boolean(res.bool)){
+		if(res.bool){
 			document.querySelectorAll(".auth-block").forEach(el => el.remove());
 		}
 	});
