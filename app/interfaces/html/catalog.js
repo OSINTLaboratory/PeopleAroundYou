@@ -38,6 +38,18 @@ const ShowPage = (page) => {
 	}
 }
 
+const Filter = (event) => {
+	alert();
+	console.log(event);
+	const promise = makeRequest("{}", "POST", "/filter");
+	promise.then( (res) => {
+		if(res === undefined){
+			return;
+		}
+		res = JSON.parse(res);
+	});	
+}
+
 const LoadCatalog = () => {
 	const promise = makeRequest("{}", "POST", "/catalog");
 	promise.then( (res) => {
