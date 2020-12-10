@@ -84,4 +84,22 @@ const LoadCatalog = () => {
 		ShowPage(0);
 		
 	}).catch((err)=>{});
+	
+	const promise_genres = makeRequest("{}", "POST", "/genres");
+	promise_genres.then( (genres) => {
+		if(genres === undefined){
+			return;
+		}
+		genres = JSON.parse(genres);
+		const selecttag = document.getElementById("selected_category");
+		selecttag.innerHTML = '';
+		let i = 1;
+		for(const genre of genres){
+			const option = document.createElement("option");
+			option.value = `${i}`;
+			option.innerHTML = genre.lable;
+			selecttag.appendChild(option);
+			i++;
+		}
+	});
 }

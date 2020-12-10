@@ -50,7 +50,7 @@ const MODE_COL = 3;
 const MODE_COUNT = 4;
 
 const sql = (pool) => {
-  const sql = '';
+  const sql = undefined;
   const op = null;
   const table = null;
   const cols = null;
