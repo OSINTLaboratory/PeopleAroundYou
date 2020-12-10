@@ -77,7 +77,7 @@ body .content-page>.col:last-child,body .row>.col:last-child{padding-right:0}
 body .row>.col{padding-top:0}
 body .content-page.messages-page{padding:0;width:100%}
 body .content-page.messages-page td{vertical-align:top}
-body .anime-column{width:230px;max-width:290px;padding:10px 5px;text-align:center;position:relative;flex-grow:1}
+body .anime-column{max-width:290px;padding:10px 5px;text-align:center;position:relative;flex-grow:1}
 body .view-page-list .anime-column{width:100%;max-width:none;text-align:left;margin:0 0 10px;padding:0;overflow:hidden;border:1px solid #e2e2e2}
 body .view-page-list .anime-column-info{padding:10px 5px}
 body .view-page-list .anime-column:last-child{border-bottom:1px solid #ddd}
