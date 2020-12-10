@@ -47,7 +47,7 @@ class Http {
 			});
 		});
 	this.app.route('/genres')
-		.post((req, res) => {
+		.post( await (req, res) => {
 			const query = this.db.sql();
 			query.select(['lable'])
 				.inTable('genres')
@@ -62,7 +62,7 @@ class Http {
 			});
 		});
 	this.app.route('/search')
-		.post((req, res) => {
+		.post( await (req, res) => {
 			console.log("search: ", req.body);
 			res.end();
 		});
