@@ -147,9 +147,8 @@ class Http {
 			
 			const login = this.sessions[this.sessions_id[hash(JSON.stringify(req.useragent))]];
 			const query = this.db.sql();
-			query.select()
+			query.select('viewed')
 				.inTable('users')
-				.value("viewed")
 				.where({ login: `=${login}` });
 			await query.exec((err, result) => {
 				if (err) {
@@ -159,7 +158,7 @@ class Http {
 				}
 				console.log(result);
 				
-				res.status(200).end();
+				res.send(JSON.stringify(result[0].viewed)).end();
 			});
 		});
 		
