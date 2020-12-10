@@ -192,7 +192,7 @@ class Http {
 				query.where({year:`>${req.body.year_from}`});
 			}
 			if(req.body.genre != ''){
-				query.where({genre:${parseInt(req.body.genre)}});
+				query.where({genre:parseInt(req.body.genre)});
 			}
 			await query.exec((err, result) => {
 				if(err){
