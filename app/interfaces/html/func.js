@@ -5,6 +5,7 @@ const IsLogin = async () => {
 	promise.then( (res) => {
 		if(res === "true"){
 			document.querySelectorAll(".auth-block").forEach(el => el.remove());
+			LoadRecomendations();
 		}
 	}).catch((err)=>{});
 }

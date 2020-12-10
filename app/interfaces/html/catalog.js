@@ -37,20 +37,8 @@ const ShowPage = (page) => {
 		i++;
 	}
 }
-
-const Paginate = (res) => {
-	let i = 0;
-	let page = new Page(new Array);
-	filmCatalog = new Array;
-	for(let film of res){
-		if(i === 12){
-			filmCatalog.push(page);
-			page = new Page(new Array);
-			i = 0;
-		}
-		const html_film = document.createElement("div");
-		html_film.className = "anime-column";
-		html_film.innerHTML = `<a class="image-block" href="/player?id=${film.filmid}">
+const FilmHtml = (film) => {
+	return `<a class="image-block" href="/player?id=${film.filmid}">
 				<span class="year-block">${film.year}</span>
 				<img src="/posters/${film.poster}" alt="${film.title}">
 			</a>
@@ -66,6 +54,20 @@ const Paginate = (res) => {
 					<span class="main-rating">${film.rating}</span>
 				</span>
 			</div>`;
+}
+const Paginate = (res) => {
+	let i = 0;
+	let page = new Page(new Array);
+	filmCatalog = new Array;
+	for(let film of res){
+		if(i === 12){
+			filmCatalog.push(page);
+			page = new Page(new Array);
+			i = 0;
+		}
+		const html_film = document.createElement("div");
+		html_film.className = "anime-column";
+		html_film.innerHTML = FilmHtml(film);
 		page.data.push(html_film);
 		i++;
 	}
@@ -135,6 +137,27 @@ const Search = (event) => {
 		
 	}).catch((err)=>{});
 }
+
+const LoadRecomendations = () => {
+	const promise = makeRequest("", "POST", '/recomendations');
+	promise.then( (res) => {
+		if(res === undefined){
+			return;
+		}
+		res = JSON.parse(res);
+		
+		const recomendations = document.getElementById("recomendations");
+		recomendations.innerHTML = '';
+		for(const film of res){	
+			const html_film = document.createElement("div");
+			html_film.className = "anime-column";
+			html_film.innerHTML = FilmHtml(film);
+			recomendations.appendChild(html_film);
+		}
+		
+	}).catch((err)=>{});
+}
+
 const LoadCatalog = () => {
 	const promise = makeRequest("{}", "POST", "/catalog");
 	promise.then( (res) => {
