@@ -69,6 +69,7 @@ const Paginate = (res) => {
 		page.data.push(html_film);
 		i++;
 	}
+	console.dir({page});
 	if(page.length > 0){
 		filmCatalog.push(page);
 	}
