@@ -38,32 +38,6 @@ const ShowPage = (page) => {
 	}
 }
 
-const Filter = (event) => {
-	const data = new Object;
-	data.genre = event.target[0].value;
-	data.year_from = event.target[1].value;
-	data.year_up = event.target[2].value;
-	data.sort = event.target[3].value;
-	const promise = makeRequest(JSON.stringify(data), "POST", "/filter");
-	promise.then( (res) => {
-		if(res === undefined){
-			return;
-		}
-		res = JSON.parse(res);
-		console.log(res);
-		
-		Paginate(res);
-		console.log(filmCatalog);
-		if(filmCatalog[0] === undefined){
-			return;
-		}
-		
-		// Show first page
-		ShowPage(0);
-		
-	}).catch((err)=>{});
-}
-
 const Paginate = (res) => {
 	let i = 0;
 	let page = new Page(new Array);
@@ -94,6 +68,32 @@ const Paginate = (res) => {
 		page.data.push(html_film);
 		i++;
 	}
+}
+
+const Filter = (event) => {
+	const data = new Object;
+	data.genre = event.target[0].value;
+	data.year_from = event.target[1].value;
+	data.year_up = event.target[2].value;
+	data.sort = event.target[3].value;
+	const promise = makeRequest(JSON.stringify(data), "POST", "/filter");
+	promise.then( (res) => {
+		if(res === undefined){
+			return;
+		}
+		res = JSON.parse(res);
+		console.log(res);
+		
+		Paginate(res);
+		console.log(filmCatalog);
+		if(filmCatalog[0] === undefined){
+			return;
+		}
+		
+		// Show first page
+		ShowPage(0);
+		
+	}).catch((err)=>{});
 }
 
 const LoadCatalog = () => {
