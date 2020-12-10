@@ -151,7 +151,7 @@ class Http {
 			query.select(['viewed'])
 				.inTable('users')
 				.where({ login: `=${login}` });
-			await query.exec((err, result) => {
+			await query.exec( async (err, result) => {
 				if (err) {
 					Core.log.warning(err);
 					res.status(500).end();
