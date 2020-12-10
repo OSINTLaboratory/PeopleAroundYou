@@ -98,6 +98,25 @@ const Filter = (event) => {
 	}).catch((err)=>{});
 }
 
+const GetTop = () => {
+	const promise = makeRequest("", "POST", '/catalog?top=""');
+	promise.then( (res) => {
+		if(res === undefined){
+			return;
+		}
+		res = JSON.parse(res);
+		
+		Paginate(res);
+		if(filmCatalog[0] === undefined){
+			return;
+		}
+		
+		// Show first page
+		ShowPage(0);
+		
+	}).catch((err)=>{});
+}
+
 const Search = (event) => {
 	const promise = makeRequest("", "POST", `/catalog?word=${event.target[0].value}`);
 	promise.then( (res) => {

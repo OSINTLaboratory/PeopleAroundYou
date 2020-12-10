@@ -55,23 +55,12 @@
           <div class="mobile-menu-button">Меню</div>
         </div>
 
-        <div class="search-block-wrapper in-menu clearfix main-search">
-          <form action="/search" method="post" class="search-block" target="dummy" id="search">
-            <input autocomplete="off" class="search" name="word" type="text" placeholder="ПОИСК" value="">
-            <input type="submit" class="search-submit" value="">
-          </form>
-          <div class="live-search-wrapper">
-            <ul class="live-search"></ul>
-            <a href="/" class="live-search-results"></a>
-          </div>
-        </div>
-
         <ul class="menu clearfix">
           <li class="sub-menu-link">
             <a href="/">Каталог</a>
           </li>
           <li>
-            <a href="/top">ТОП-10</a>
+            <a onclick="GetTop()">ТОП-10</a>
           </li>
           <li>
             <a href="/random">Случайное</a>
@@ -82,7 +71,7 @@
 
     <div class="content-block container clearfix">
       <div class="search-block-wrapper main-search clearfix">
-        <form action="/search" method="post" class="search-block" target="dummy">
+        <form action="/search" method="post" class="search-block" target="dummy" id="search">
           <input autocomplete="off" class="search" name="word" type="text" placeholder="Поиск" value="">
           <input type="submit" class="filter-button search-submit" value="Искать">
         </form>
