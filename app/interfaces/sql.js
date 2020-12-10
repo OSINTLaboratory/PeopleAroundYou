@@ -50,7 +50,7 @@ const MODE_COL = 3;
 const MODE_COUNT = 4;
 
 const sql = (pool) => {
-  const sql = '';
+  const sql = undefined;
   const op = null;
   const table = null;
   const cols = null;
@@ -82,7 +82,6 @@ const sql = (pool) => {
     select(values) {
       this.op = this.buildSelect;
       this.mode = MODE_ROWS;
-	  console.log(values);
       for (const key of values) {
         this._fields.push(key);
       }
@@ -186,7 +185,7 @@ const sql = (pool) => {
 	  this.op();
 
       const { sql, values } = this.sql;
-			  
+			console.log(sql);
 	  this.pool.query(sql, values, (err, res) => {
         if (callback) {
 		  if(res === undefined){
@@ -198,7 +197,6 @@ const sql = (pool) => {
           this.cols = res.fields;
           this.rowCount = res.rowCount;
           const { rows, cols } = this;
-		  console.dir(rows, cols);
           if (mode === MODE_VALUE) {
             const col = cols[0];
             const row = rows[0];

@@ -40,5 +40,13 @@ document.addEventListener("DOMContentLoaded", () => {
 			HideRegisterBtn();
 		}
 	});
+	document.getElementById("filter-form").addEventListener("submit", (event) => {
+		event.preventDefault();
+		Filter(event);
+	});
+	document.getElementById("search").addEventListener("submit", (event) => {
+		event.preventDefault();
+		Search(event);
+	});
 	IsLogin();
 }, false);

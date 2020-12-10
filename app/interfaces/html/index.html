@@ -55,23 +55,12 @@
           <div class="mobile-menu-button">Меню</div>
         </div>
 
-        <div class="search-block-wrapper in-menu clearfix main-search">
-          <form action="/search" method="post" class="search-block" target="dummy">
-            <input autocomplete="off" class="search" name="word" type="text" placeholder="ПОИСК" value="">
-            <input type="submit" class="search-submit" value="">
-          </form>
-          <div class="live-search-wrapper">
-            <ul class="live-search"></ul>
-            <a href="/" class="live-search-results"></a>
-          </div>
-        </div>
-
         <ul class="menu clearfix">
           <li class="sub-menu-link">
             <a href="/">Каталог</a>
           </li>
           <li>
-            <a href="/top">ТОП-10</a>
+            <a onclick="GetTop()">ТОП-10</a>
           </li>
           <li>
             <a href="/random">Случайное</a>
@@ -82,7 +71,7 @@
 
     <div class="content-block container clearfix">
       <div class="search-block-wrapper main-search clearfix">
-        <form action="/search" method="post" class="search-block" target="dummy">
+        <form action="/search" method="post" class="search-block" target="dummy" id="search">
           <input autocomplete="off" class="search" name="word" type="text" placeholder="Поиск" value="">
           <input type="submit" class="filter-button search-submit" value="Искать">
         </form>
@@ -96,16 +85,12 @@
           <aside class="sidebar">
 
             <div class="sidebar-block" id="filter-block">
-              <form class="filter-block main" action="/search" target="dummy" method="post">
+              <form class="filter-block main" action="/filter" target="dummy" method="post" id="filter-form">
             <div class="block-header">Фильтр</div>
             <div class="filter-body">
               <div class="filter-cell">
                 <label>Жанры</label>
-                <select name="selected_category">
-                  <option value="0">Драма</option>
-				  <option value="1">Боевик</option>
-				  <option value="2">Экшен</option>
-				  <option value="3">Триллер</option>
+                <select name="selected_category" id="selected_category">
                 </select>
               </div>
               <div class="filter-cell">
@@ -116,12 +101,12 @@
               <div class="filter-cell">
                 <label>Сортировать по</label>
                 <select name="sort">
-                  <option value="1">Рейтингу</option>
-                  <option value="2">Алфавиту (А-Я)</option>
-                  <option value="3">Алфавиту (Я-А)</option>
-                  <option value="4">Дате выхода (сначала новые)</option>
-                  <option value="5">Дате выхода (сначала старые)</option>
-                  <option value="6">Количеству просмотров</option>
+                  <option value="RATING">Рейтингу</option>
+                  <option value="ALP_ASC">Алфавиту (А-Я)</option>
+                  <option value="ALP_DESC">Алфавиту (Я-А)</option>
+                  <option value="YEAR_DESC">Дате выхода (сначала новые)</option>
+                  <option value="YEAR_ASC">Дате выхода (сначала старые)</option>
+                  <option value="VIEWS">Количеству просмотров</option>
                 </select>
 			  </div>
             </div>
