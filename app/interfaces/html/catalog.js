@@ -39,15 +39,20 @@ const ShowPage = (page) => {
 }
 
 const Filter = (event) => {
-	alert();
-	console.log(event);
-	const promise = makeRequest("{}", "POST", "/filter");
+	const data = new Object;
+	data.genre = event.target[0].value;
+	data.year_from = event.target[1].value;
+	data.year_up = event.target[2].value;
+	data.sort = event.target[3].value;
+	console.log(data);
+	const promise = makeRequest(JSON.stringify(data), "POST", "/filter");
 	promise.then( (res) => {
 		if(res === undefined){
 			return;
 		}
 		res = JSON.parse(res);
-	});	
+		console.log(res);
+	}).catch((err)=>{});
 }
 
 const LoadCatalog = () => {

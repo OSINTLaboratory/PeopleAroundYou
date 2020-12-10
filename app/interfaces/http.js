@@ -75,7 +75,7 @@ class Http {
 				.inTable('users')
 				.where({ login: `=${req.body.email}` });
 			await query.exec((err, result) => {
-				if(result === hashed_pass) {
+				if(result[0] === hashed_pass) {
 					const session = Math.random().toString(16);
 					res.cookie('session', session, { maxAge: 900000, httpOnly: true });
 					this.sessions_id[hash(JSON.stringify(req.useragent))] = session;
@@ -160,6 +160,26 @@ class Http {
 					return;
 				}
 				res.status(200).end();
+			});
+		});
+		
+	this.app.route('/filter')
+		.post((req, res) => {
+			console.log(req.body);
+			req.body.genre;
+			req.body.year_from;
+			req.body.year_to;
+			req.body.sort;
+			const query = this.db.sql();
+			query.select(['filmid', 'title', 'year', 'rating', 'views', 'poster', 'genre'])
+				.inTable('films');
+			await query.exec((err, result) => {
+				if(err){
+					Core.log.warning(err);
+					res.status(500).end();
+					return;
+				}
+				res.send(JSON.stringify(result)).end();
 			});
 		});
 		
