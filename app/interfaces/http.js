@@ -157,8 +157,7 @@ class Http {
 					res.status(500).end();
 					return;
 				}
-				console.log(result[0].viewed);
-				const arrOfFilmIDs = JSON.parse(result[0].viewed);
+				const arrOfFilmIDs = result[0].viewed;
 				console.log(arrOfFilmIDs);
 				// Create map of genre->count of viewed by this user
 				const viewed_genres_dat = new Object;
