@@ -135,6 +135,26 @@ const Search = (event) => {
 		
 	}).catch((err)=>{});
 }
+
+const LoadRecomendations = () => {
+	const promise = makeRequest("", "POST", '/recomendations');
+	promise.then( (res) => {
+		if(res === undefined){
+			return;
+		}
+		res = JSON.parse(res);
+		
+		Paginate(res);
+		if(filmCatalog[0] === undefined){
+			return;
+		}
+		
+		// Show first page
+		ShowPage(0);
+		
+	}).catch((err)=>{});
+}
+
 const LoadCatalog = () => {
 	const promise = makeRequest("{}", "POST", "/catalog");
 	promise.then( (res) => {
