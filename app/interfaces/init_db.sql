@@ -61,7 +61,8 @@ INSERT INTO users(login, hash, viewed)
   VALUES ('user1', '46720a28913e48a4327c155775e4f023f1af473a6c0ea0cc2ce60650c639318e', '{1,2,6,15,5,16,7,17,18,20}');
 INSERT INTO users(login, hash, viewed) 
   VALUES ('user2', '6692c6d458ee6ad2951fbea3c65c8e779b18ec2ad5c8d611f693bb08842f72c1', '{19, 20, 22, 21, 13, 3, 14, 8, 9}');
-
+INSERT INTO users(login, hash)
+  VALUES ('user4', 'd7c908e405b358727174e6ff76b5ed277fc8e9f875c8d66c434c75ea8df296a7');
 
 INSERT INTO genres(lable) VALUES ('Природа');
 INSERT INTO genres(lable) VALUES ('Урбан');
