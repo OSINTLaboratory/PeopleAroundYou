@@ -197,7 +197,7 @@ class Http {
 				// Select first 3 film by rating with founded genre
 				query = this.db.sql();
 				query.select(['filmid', 'title', 'year', 'rating', 'views', 'poster', 'genre'])
-					.inTable('films');
+					.inTable('films')
 					.order('rating DESC LIMIT 3');
 				await query.exec((err, result) => {
 					if (err) {
