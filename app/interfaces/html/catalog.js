@@ -37,20 +37,8 @@ const ShowPage = (page) => {
 		i++;
 	}
 }
-
-const Paginate = (res) => {
-	let i = 0;
-	let page = new Page(new Array);
-	filmCatalog = new Array;
-	for(let film of res){
-		if(i === 12){
-			filmCatalog.push(page);
-			page = new Page(new Array);
-			i = 0;
-		}
-		const html_film = document.createElement("div");
-		html_film.className = "anime-column";
-		html_film.innerHTML = `<a class="image-block" href="/player?id=${film.filmid}">
+const FilmHtml = (film) => {
+	return `<a class="image-block" href="/player?id=${film.filmid}">
 				<span class="year-block">${film.year}</span>
 				<img src="/posters/${film.poster}" alt="${film.title}">
 			</a>
@@ -66,6 +54,20 @@ const Paginate = (res) => {
 					<span class="main-rating">${film.rating}</span>
 				</span>
 			</div>`;
+}
+const Paginate = (res) => {
+	let i = 0;
+	let page = new Page(new Array);
+	filmCatalog = new Array;
+	for(let film of res){
+		if(i === 12){
+			filmCatalog.push(page);
+			page = new Page(new Array);
+			i = 0;
+		}
+		const html_film = document.createElement("div");
+		html_film.className = "anime-column";
+		html_film.innerHTML = FilmHtml(film);
 		page.data.push(html_film);
 		i++;
 	}
@@ -144,13 +146,14 @@ const LoadRecomendations = () => {
 		}
 		res = JSON.parse(res);
 		
-		Paginate(res);
-		if(filmCatalog[0] === undefined){
-			return;
+		const recomendations = document.getElementById("recomendations");
+		recomendations.innerHTML = '';
+		for(const item of res){	
+			const html_film = document.createElement("div");
+			html_film.className = "anime-column";
+			html_film.innerHTML = FilmHtml(film);
+			catalog.appendChild(html_film);
 		}
-		
-		// Show first page
-		ShowPage(0);
 		
 	}).catch((err)=>{});
 }
