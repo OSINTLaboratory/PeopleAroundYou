@@ -172,6 +172,10 @@ class Http {
 							res.status(500).end();
 							return;
 						}
+						if(result[0] === undefined){
+							return;
+						}
+						
 						if(viewed_genres_dat[result[0].genre] === undefined){
 							viewed_genres_dat[result[0].genre] = 0;
 						}else{
