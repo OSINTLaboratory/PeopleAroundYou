@@ -148,7 +148,7 @@ const LoadRecomendations = () => {
 		
 		const recomendations = document.getElementById("recomendations");
 		recomendations.innerHTML = '';
-		for(const item of res){	
+		for(const film of res){	
 			const html_film = document.createElement("div");
 			html_film.className = "anime-column";
 			html_film.innerHTML = FilmHtml(film);
