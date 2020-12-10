@@ -33,7 +33,8 @@ class Http {
 		.post( async (req, res) => {
 			const query = this.db.sql();
 			query.select(['filmid', 'title', 'year', 'rating', 'views', 'poster', 'genre'])
-				.inTable('films');
+				.inTable('films')
+				.order('title ASC');
 			await query.exec((err, result) => {
 				if(err){
 					Core.log.warning(err);
@@ -165,14 +166,34 @@ class Http {
 		
 	this.app.route('/filter')
 		.post( async (req, res) => {
-			console.log(req.body);
-			req.body.genre;
-			req.body.year_from;
-			req.body.year_to;
-			req.body.sort;
 			const query = this.db.sql();
 			query.select(['filmid', 'title', 'year', 'rating', 'views', 'poster', 'genre'])
 				.inTable('films');
+				
+			if(req.body.sort === 'RATING'){
+				query.order('rating');
+			}else if(req.body.sort === 'RATING'){
+				query.order('rating');
+			}else if(req.body.sort === 'ALP_ASC'){
+				query.order('title ASC');
+			}else if(req.body.sort === 'ALP_DESC'){
+				query.order('title DESC');
+			}else if(req.body.sort === 'YEAR_DESC'){
+				query.order('year DESC');
+			}else if(req.body.sort === 'YEAR_ASC'){
+				query.order('year ASC');
+			}else if(req.body.sort === 'VIEWS'){
+				query.order('views ASC');
+			}
+			if(req.body.year_to != ''){
+				query.where({year:`<${req.body.year_to}`});
+			}
+			if(req.body.year_from != ''){
+				query.where({year:`>${req.body.year_from}`});
+			}
+			if(req.body.genre != ''){
+				query.where({genre:`${req.body.genre}`});
+			}
 			await query.exec((err, result) => {
 				if(err){
 					Core.log.warning(err);

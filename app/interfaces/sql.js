@@ -185,7 +185,7 @@ const sql = (pool) => {
 	  this.op();
 
       const { sql, values } = this.sql;
-			  
+			console.log(sql);
 	  this.pool.query(sql, values, (err, res) => {
         if (callback) {
 		  if(res === undefined){
