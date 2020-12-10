@@ -129,12 +129,18 @@ class Http {
 				res.end(200);
 				return;
 			}
+			
 			if(req.cookies['session'] === undefined){
 				res.end(200);
 				return;
 			}
 			
-			if(!sessions_d.includes(req.cookies['session'])){
+			if(this.sessions_id[hash(JSON.stringify(req.useragent))] === undefined){
+				res.end(200);
+				return;
+			}
+			
+			if(this.sessions_id[hash(JSON.stringify(req.useragent))] != req.cookies['session']){
 				res.end(200);
 				return;
 			}
