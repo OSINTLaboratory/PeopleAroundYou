@@ -82,6 +82,7 @@ const sql = (pool) => {
     select(values) {
       this.op = this.buildSelect;
       this.mode = MODE_ROWS;
+	  console.log(values);
       for (const key of values) {
         this._fields.push(key);
       }
@@ -185,9 +186,7 @@ const sql = (pool) => {
 	  this.op();
 
       const { sql, values } = this.sql;
-		
-	  console.log(sql, values);
-	  
+			  
 	  this.pool.query(sql, values, (err, res) => {
         if (callback) {
 		  if(res === undefined){
