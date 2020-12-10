@@ -41,6 +41,7 @@ const ShowPage = (page) => {
 const Paginate = (res) => {
 	let i = 0;
 	let page = new Page(new Array);
+	filmCatalog = new Array;
 	for(let film of res){
 		if(i === 12){
 			filmCatalog.push(page);
@@ -68,6 +69,9 @@ const Paginate = (res) => {
 		page.data.push(html_film);
 		i++;
 	}
+	if(page.length > 0){
+		filmCatalog.push(page);
+	}
 }
 
 const Filter = (event) => {
@@ -82,10 +86,8 @@ const Filter = (event) => {
 			return;
 		}
 		res = JSON.parse(res);
-		console.log(res);
 		
 		Paginate(res);
-		console.log(filmCatalog);
 		if(filmCatalog[0] === undefined){
 			return;
 		}
