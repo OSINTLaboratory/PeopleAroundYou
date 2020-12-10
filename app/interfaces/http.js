@@ -145,7 +145,7 @@ class Http {
 				return;
 			}
 			
-			const login = sessions[req.cookies['session']];
+			const login = this.sessions[this.sessions_id[hash(JSON.stringify(req.useragent))]];
 			const query = this.db.sql();
 			query.select()
 				.inTable('users')
@@ -157,6 +157,8 @@ class Http {
 					res.status(500).end();
 					return;
 				}
+				console.log(result);
+				
 				res.status(200).end();
 			});
 		});
