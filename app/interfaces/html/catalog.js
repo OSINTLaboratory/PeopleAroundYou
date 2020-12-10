@@ -70,7 +70,7 @@ const Paginate = (res) => {
 		i++;
 	}
 	console.dir({page});
-	if(page.length > 0){
+	if(page.data.length > 0){
 		filmCatalog.push(page);
 	}
 }
