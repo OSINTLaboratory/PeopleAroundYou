@@ -152,7 +152,7 @@ const LoadRecomendations = () => {
 			const html_film = document.createElement("div");
 			html_film.className = "anime-column";
 			html_film.innerHTML = FilmHtml(film);
-			catalog.appendChild(html_film);
+			recomendations.appendChild(html_film);
 		}
 		
 	}).catch((err)=>{});
