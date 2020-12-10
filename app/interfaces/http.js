@@ -145,7 +145,7 @@ class Http {
 		});
 		
 	this.app.route('/register')
-		.post(async (req, res) => {
+		.post( async (req, res) => {
 			const salt = req.body.email;
 			const query = this.db.sql();
 			query.insert({
@@ -164,7 +164,7 @@ class Http {
 		});
 		
 	this.app.route('/filter')
-		.post((req, res) => {
+		.post( async (req, res) => {
 			console.log(req.body);
 			req.body.genre;
 			req.body.year_from;
@@ -184,11 +184,11 @@ class Http {
 		});
 		
 	this.app.route('/top')
-		.post((req, res) => {
+		.post( async (req, res) => {
 			console.log("top: ", req.body);
 		});
 	this.app.route('/random')
-		.post((req, res) => {
+		.post( async (req, res) => {
 			console.log("random: ", req.body);
 		});
 	  
