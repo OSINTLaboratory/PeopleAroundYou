@@ -31,7 +31,6 @@ class Http {
 	
 	this.app.route('/catalog')
 		.post( async (req, res) => {
-			console.log("catalog: ", req.body);
 			const query = this.db.sql();
 			query.select(['filmid', 'title', 'year', 'rating', 'views', 'poster', 'genre'])
 				.inTable('films');
@@ -51,7 +50,7 @@ class Http {
 			const query = this.db.sql();
 			query.select(['lable'])
 				.inTable('genres')
-				.orderBy('genreid');
+				.order('genreid');
 			await query.exec((err, result) => {
 				if(err){
 					Core.log.warning(err);
