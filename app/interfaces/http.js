@@ -71,9 +71,8 @@ class Http {
 			const salt = req.body.email;
 			const hashed_pass = hash(req.body.password + salt);
 			const query = this.db.sql();
-			query.select()
+			query.select(]"hash"])
 				.inTable('users')
-				.value("hash")
 				.where({ login: `=${req.body.email}` });
 			await query.exec((err, result) => {
 				if(result === hashed_pass) {
