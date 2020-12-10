@@ -69,7 +69,6 @@ const Paginate = (res) => {
 		page.data.push(html_film);
 		i++;
 	}
-	console.dir({page});
 	if(page.data.length > 0){
 		filmCatalog.push(page);
 	}
@@ -99,6 +98,24 @@ const Filter = (event) => {
 	}).catch((err)=>{});
 }
 
+const Search = (event) => {
+	const promise = makeRequest("", "POST", `/catalog?word=${event.target[0].value}`);
+	promise.then( (res) => {
+		if(res === undefined){
+			return;
+		}
+		res = JSON.parse(res);
+		
+		Paginate(res);
+		if(filmCatalog[0] === undefined){
+			return;
+		}
+		
+		// Show first page
+		ShowPage(0);
+		
+	}).catch((err)=>{});
+}
 const LoadCatalog = () => {
 	const promise = makeRequest("{}", "POST", "/catalog");
 	promise.then( (res) => {

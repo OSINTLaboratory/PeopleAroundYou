@@ -44,5 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
 		event.preventDefault();
 		Filter(event);
 	});
+	document.getElementById("search").addEventListener("submit", (event) => {
+		event.preventDefault();
+		Search(event);
+	});
 	IsLogin();
 }, false);

@@ -33,8 +33,20 @@ class Http {
 		.post( async (req, res) => {
 			const query = this.db.sql();
 			query.select(['filmid', 'title', 'year', 'rating', 'views', 'poster', 'genre'])
-				.inTable('films')
-				.order('title ASC');
+				.inTable('films');
+				
+			// Getting top 10 according rating
+			if(req.query.top != undefined){
+				query.order('rating DESC LIMIT 10');
+			}else{
+				query.order('title ASC');
+			}	
+			
+			// For search query
+			if(req.query.word != undefined){
+				query.where({title:`*${req.query.word}*`});
+			}
+			
 			await query.exec((err, result) => {
 				if(err){
 					Core.log.warning(err);
@@ -46,6 +58,7 @@ class Http {
 				res.send(JSON.stringify(result)).end();
 			});
 		});
+		
 	this.app.route('/genres')
 		.post( async (req, res) => {
 			const query = this.db.sql();
@@ -61,12 +74,7 @@ class Http {
 				res.send(JSON.stringify(result)).end();
 			});
 		});
-	this.app.route('/search')
-		.post( async (req, res) => {
-			console.log("search: ", req.body);
-			res.end();
-		});
-		
+				
 	this.app.route('/login')
 		.post(async (req, res) => {
 			const salt = req.body.email;
@@ -204,10 +212,6 @@ class Http {
 			});
 		});
 		
-	this.app.route('/top')
-		.post( async (req, res) => {
-			console.log("top: ", req.body);
-		});
 	this.app.route('/random')
 		.post( async (req, res) => {
 			console.log("random: ", req.body);
