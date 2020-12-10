@@ -76,6 +76,8 @@ class Http {
 				.inTable('users')
 				.where({ login: `=${req.body.email}` });
 			await query.exec((err, result) => {
+				console.log(result[0])
+				console.log(result)
 				if(result[0] === hashed_pass) {
 					const session = Math.random().toString(16);
 					res.cookie('session', session, { maxAge: 900000, httpOnly: true });
@@ -171,9 +173,7 @@ class Http {
 				.inTable('films');
 				
 			if(req.body.sort === 'RATING'){
-				query.order('rating');
-			}else if(req.body.sort === 'RATING'){
-				query.order('rating');
+				query.order('rating ASC');
 			}else if(req.body.sort === 'ALP_ASC'){
 				query.order('title ASC');
 			}else if(req.body.sort === 'ALP_DESC'){
@@ -192,7 +192,7 @@ class Http {
 				query.where({year:`>${req.body.year_from}`});
 			}
 			if(req.body.genre != ''){
-				query.where({genre:`${req.body.genre}`});
+				query.where({genre:${parseInt(req.body.genre)}});
 			}
 			await query.exec((err, result) => {
 				if(err){
