@@ -78,7 +78,7 @@ class Http {
 			await query.exec((err, result) => {
 				console.log(result[0])
 				console.log(result)
-				if(result[0] === hashed_pass) {
+				if(result[0].hash === hashed_pass) {
 					const session = Math.random().toString(16);
 					res.cookie('session', session, { maxAge: 900000, httpOnly: true });
 					this.sessions_id[hash(JSON.stringify(req.useragent))] = session;
@@ -173,7 +173,7 @@ class Http {
 				.inTable('films');
 				
 			if(req.body.sort === 'RATING'){
-				query.order('rating ASC');
+				query.order('rating DESC');
 			}else if(req.body.sort === 'ALP_ASC'){
 				query.order('title ASC');
 			}else if(req.body.sort === 'ALP_DESC'){
