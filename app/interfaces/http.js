@@ -280,7 +280,7 @@ class Http {
 			res.sendFile(path.join(__dirname + '/html/player.html'));
 		});
 
-		this.app.route('/getFilm')
+	this.app.route('/getFilm')
 		.post(async  (req, res) => {
 			const id = req.body.id;
 			console.log(id);
