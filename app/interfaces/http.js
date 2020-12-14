@@ -275,6 +275,34 @@ class Http {
 			console.log("random: ", req.body);
 		});
 	  
+	this.app.route('/player')
+		.get(async (req, res) => {
+			res.sendFile(path.join(__dirname + '/html/player.html'));
+		});
+
+		this.app.route('/getFilm')
+		.post(async  (req, res) => {
+			const id = req.body.id;
+			console.log(id);
+
+			//test
+			// res.send(JSON.stringify({"filmid":1,"title":"Car","year":2017,"rating":"5.45","views":300469,"poster":"Car.png","genre":4})).end();
+
+			const query = this.db.sql();
+			query.select(['filmid', 'title', 'year', 'rating', 'views', 'poster', 'genre'])
+				.inTable('films')
+				.where({ filmid: id });
+
+			await query.exec((err, result) => {
+				if(err) {
+					Core.log.warning(err);
+					res.status(500).end();
+					return;
+				}
+				res.send(JSON.stringify(result)).end();
+			});
+		});
+	  
     this.app.listen(this.port, () => {
       Core.log.info('Http server started');
     });
