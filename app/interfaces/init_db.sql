@@ -25,9 +25,9 @@ CREATE TABLE administrators (
 
 DROP TABLE IF EXISTS comments;
 CREATE TABLE comments (
-	film	integer NOT NULL,
+	filmid	integer NOT NULL,
 	userid	integer NOT NULL,
-	textData 	VARCHAR(256) NOT NULL
+	textdata 	VARCHAR(256) NOT NULL
 );
 
 DROP TABLE IF EXISTS membership;
