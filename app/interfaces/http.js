@@ -275,6 +275,11 @@ class Http {
 			console.log("random: ", req.body);
 		});
 	  
+	this.app.route('/player')
+		.get(async (req, res) => {
+			res.sendFile(path.join(__dirname + '/html/player.html'));
+		});
+
 	this.app.route('/getFilm')
 		.post(async  (req, res) => {
 			const id = req.body.id;		
