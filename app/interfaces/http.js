@@ -282,12 +282,7 @@ class Http {
 
 	this.app.route('/getFilm')
 		.post(async  (req, res) => {
-			const id = req.body.id;
-			console.log(id);
-
-			//test
-			// res.send(JSON.stringify({"filmid":1,"title":"Car","year":2017,"rating":"5.45","views":300469,"poster":"Car.png","genre":4})).end();
-
+			const id = req.body.id;		
 			const query = this.db.sql();
 			query.select(['filmid', 'title', 'year', 'rating', 'views', 'poster', 'genre'])
 				.inTable('films')
