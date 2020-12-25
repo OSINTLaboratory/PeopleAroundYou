@@ -11,6 +11,22 @@ body .film-video {width: 40%; height: 60%;position:relative;}
 body .desc {color: #fff; font-size: 2rem;}
 
 
+.menu a:hover{ 
+  background-color: #ff7700;
+}
+
+.menu a {
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #000;
+  color: #fff;
+  height: 171px;
+}
+
+
 
 body.theme-change,body.theme-change *{transition:background .2s,border .2s!important}
 body .background-img{position:fixed;bottom:0;height:100vh;width:100%;z-index:-10}
