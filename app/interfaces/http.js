@@ -298,6 +298,37 @@ class Http {
 			});
 		});
 	  
+	  
+	this.app.route('/admin')
+		.get(async (req, res) => {
+			res.sendFile(path.join(__dirname + '/html/admin.html'));
+		});
+
+	this.app.route('/adminPanel')
+		.post(async (req, res) => {
+			console.log(req.body);
+			const salt = req.body.email;
+			const query = this.db.sql();
+			const table = req.body.role === 'Администратор' ? 'administrators' : 'moderators';
+			query.insert({
+				  login: req.body.email,
+				  hash: hash(req.body.password + salt)
+				 })
+				.inTable(table);
+
+			await query.exec((err, result) => {
+				if (err) {
+					Core.log.warning(err);
+					res.status(500).end();
+					return;
+				}
+				res.status(200).end();
+			});
+
+		});
+  
+	  
+	  
     this.app.listen(this.port, () => {
       Core.log.info('Http server started');
     });
@@ -308,5 +339,7 @@ class Http {
     return this.app;
   }
 };
+
+
 
 module.exports = Http;
