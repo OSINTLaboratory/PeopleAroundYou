@@ -12,7 +12,7 @@ class App {
   // старт приложения
   start() {
 	this.interfaces.db = new Database({
-		connectionString: process.env.DATABASE_URL,
+		connectionString: process.env.DATABASE_URL || 'postgresql://postgres@locahlosh:5432/postgres',
 		ssl: {
 			rejectUnauthorized: false
 		}
