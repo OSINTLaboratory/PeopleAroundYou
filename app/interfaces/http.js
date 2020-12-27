@@ -16,6 +16,9 @@ class Http {
 	this.agents = new Array;
 	this.sessions = new Object;
 	this.sessions_id = new Object;
+	this.admin_perm = false;
+	this.moder_perm = false;
+	this.user_perm = false;
 	this.db = db;
     Core.log.info('Creating http server');
     this.port = port;
@@ -35,15 +38,15 @@ class Http {
 			query.select(['filmid', 'title', 'year', 'rating', 'views', 'poster', 'genre'])
 				.inTable('films');
 				
-			// Getting top 10 according rating
 			if(req.query.top != undefined){
+				// Getting top 10 according rating
 				query.order('rating DESC LIMIT 10');
 			}else{
 				query.order('title ASC');
 			}	
 			
-			// For search query
 			if(req.query.word != undefined){
+				// For search query
 				query.where({title:`*${req.query.word}*`});
 			}
 			
@@ -74,53 +77,94 @@ class Http {
 				res.send(JSON.stringify(result)).end();
 			});
 		});
-				
+	
 	this.app.route('/login')
 		.post(async (req, res) => {
 			const salt = req.body.email;
 			const hashed_pass = hash(req.body.password + salt);
-			const query = this.db.sql();
-			query.select(["hash"])
+			const query_users = this.db.sql();
+			const query_admins = this.db.sql();
+			const query_moders = this.db.sql();
+			query_users.select(["hash"])
 				.inTable('users')
 				.where({ login: `=${req.body.email}` });
-			await query.exec((err, result) => {
-				console.log(result[0])
-				console.log(result)
-				if(result[0].hash === hashed_pass) {
-					const session = Math.random().toString(16);
-					res.cookie('session', session, { maxAge: 900000, httpOnly: true });
-					this.sessions_id[hash(JSON.stringify(req.useragent))] = session;
-					this.sessions[session] = req.body.email;
-					res.status(200).end();
+			query_admins.select(["hash"])
+				.inTable('administrators')
+				.where({ login: `=${req.body.email}` });
+			query_moders.select(["hash"])
+				.inTable('moderators')
+				.where({ login: `=${req.body.email}` });
+				
+			const successAuth = () => {
+				const session = Math.random().toString(16);
+				res.cookie('session', session, { maxAge: 900000, httpOnly: true });
+				this.sessions_id[hash(JSON.stringify(req.useragent))] = session;
+				this.sessions[session] = req.body.email;
+				res.status(200).end();
+			};
+			const userNotFound = () => {
+				res.status(401).end();
+			};
+			const userInvalidPass = () => {
+				res.status(401).end();
+			};
+			
+			await query_users.exec( async (err, result) => {
+				if(err) {
+					Core.log.warning(err);
+				}
+				if(result[0] != undefined) {
+					if(result[0].hash === hashed_pass) {
+						this.user_perm = true;
+						successAuth();
+					} else {
+						userInvalidPass();
+					}
 				} else {
-					res.status(401).end();
+					await query_moders.exec( async (err, result) => {
+						if(err) {
+							Core.log.warning(err);
+						}
+						if(result[0] != undefined) {
+							if(result[0].hash === hashed_pass) {
+								this.moder_perm = true;
+								successAuth();
+							} else {
+								userInvalidPass();
+							}
+						} else {
+							await query_admins.exec((err, result) => {
+								if(err) {
+									Core.log.warning(err);
+								}
+								if(result[0] != undefined) {
+									if(result[0].hash === hashed_pass) {
+										this.admin_perm = true;
+										successAuth();
+									} else {
+										userInvalidPass();
+									}
+								} else {
+									userNotFound();
+								}
+							});
+						}
+					});
 				}
 			});
 		});
 		
 	this.app.route('/islogin')
 		.post(async (req, res) => {
-			if(req.cookies === undefined){
+			if(
+				this.admin_perm ||
+				this.moder_perm ||
+				this.user_perm
+			){
+				res.send("true").end(200);
+			} else {
 				res.send("false").end(200);
-				return;
 			}
-			
-			if(req.cookies['session'] === undefined){
-				res.send("false").end(200);
-				return;
-			}
-			
-			if(this.sessions_id[hash(JSON.stringify(req.useragent))] === undefined){
-				res.send("false").end(200);
-				return;
-			}
-			
-			if(this.sessions_id[hash(JSON.stringify(req.useragent))] != req.cookies['session']){
-				res.send("false").end(200);
-				return;
-			}
-			
-			res.send("true").end(200);
 		});
 		
 	this.app.route('/recomendations')
@@ -298,6 +342,41 @@ class Http {
 			});
 		});
 	  
+	  
+	this.app.route('/admin')
+		.get(async (req, res) => {
+			if(this.admin_perm){
+				res.sendFile(path.join(__dirname + '/html/admin.html'));
+			} else {
+				res.status(403).end();
+			};
+		});
+
+	this.app.route('/adminPanel')
+		.post(async (req, res) => {
+			console.log(req.body);
+			const salt = req.body.email;
+			const query = this.db.sql();
+			const table = req.body.role === 'Администратор' ? 'administrators' : 'moderators';
+			query.insert({
+				  login: req.body.email,
+				  hash: hash(req.body.password + salt)
+				 })
+				.inTable(table);
+
+			await query.exec((err, result) => {
+				if (err) {
+					Core.log.warning(err);
+					res.status(500).end();
+					return;
+				}
+				res.status(200).end();
+			});
+
+		});
+  
+	  
+	  
     this.app.listen(this.port, () => {
       Core.log.info('Http server started');
     });
@@ -308,5 +387,7 @@ class Http {
     return this.app;
   }
 };
+
+
 
 module.exports = Http;

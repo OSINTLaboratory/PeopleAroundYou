@@ -153,3 +153,17 @@ INSERT INTO films(title, year, rating, views, poster, genre, free, url)
   
 INSERT INTO films(title, year, rating, views, poster, genre, free, url) 
   VALUES ('World', 2017, 9.31, 10450090, 'World.png', 1, true, 'World.mp4');
+  
+  
+  
+INSERT INTO administrators(login, hash)
+  VALUES ('adminDanya', 'bad29384fb621dc842dd35ce274fa5fe523b711470b92b701d6cb02f29b3a603');
+
+INSERT INTO administrators(login, hash)
+  VALUES ('adminYulya', '01039d8eecaa8a9c1b7cee263f9eead78dea7827e4e3cd3cd6526877ce056de1');
+
+INSERT INTO administrators(login, hash)
+  VALUES ('adminStepa', 'e269d1caa088c1f470c7fc4a09662078af2d7e9df488b78290825af924067f88');
+
+INSERT INTO administrators(login, hash)
+  VALUES ('adminBodya', 'aa748722c846145eff66aa52cc36889497b2b958e18e3dd12891a1bef5d3b535');
