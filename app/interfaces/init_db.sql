@@ -157,13 +157,13 @@ INSERT INTO films(title, year, rating, views, poster, genre, free, url)
   
   
 INSERT INTO administrators(login, hash)
-  VALUES ('adminDanya', 'e79e1ec22b533d8777ae3082a6f478311525521b46c1fdd38ac90df37f0b4a34');
+  VALUES ('adminDanya', 'bad29384fb621dc842dd35ce274fa5fe523b711470b92b701d6cb02f29b3a603');
 
 INSERT INTO administrators(login, hash)
-  VALUES ('adminYulya', 'e79e1ec22b533d8777ae3082a6f478311525521b46c1fdd38ac90df37f0b4a34');
+  VALUES ('adminYulya', '01039d8eecaa8a9c1b7cee263f9eead78dea7827e4e3cd3cd6526877ce056de1');
 
 INSERT INTO administrators(login, hash)
-  VALUES ('adminStepa', 'e79e1ec22b533d8777ae3082a6f478311525521b46c1fdd38ac90df37f0b4a34');
+  VALUES ('adminStepa', 'e269d1caa088c1f470c7fc4a09662078af2d7e9df488b78290825af924067f88');
 
 INSERT INTO administrators(login, hash)
-  VALUES ('adminBodya', 'e79e1ec22b533d8777ae3082a6f478311525521b46c1fdd38ac90df37f0b4a34');
+  VALUES ('adminBodya', 'aa748722c846145eff66aa52cc36889497b2b958e18e3dd12891a1bef5d3b535');
