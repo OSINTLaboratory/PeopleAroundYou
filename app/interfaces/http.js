@@ -345,7 +345,11 @@ class Http {
 	  
 	this.app.route('/admin')
 		.get(async (req, res) => {
-			res.sendFile(path.join(__dirname + '/html/admin.html'));
+			if(this.admin_perm){
+				res.sendFile(path.join(__dirname + '/html/admin.html'));
+			} else {
+				res.status(403).end();
+			};
 		});
 
 	this.app.route('/adminPanel')
