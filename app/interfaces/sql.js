@@ -176,7 +176,10 @@ const sql = (pool) => {
     },
 	
     buildDelete() {
-		
+      const { table, args } = this;
+      const { whereClause } = this;
+      const sql = `DELETE FROM ${table} WHERE ${whereClause}`;
+      this.sql = { sql, values: args };
     },
 
     async exec(callback) {
