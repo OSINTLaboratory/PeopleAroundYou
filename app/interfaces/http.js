@@ -374,6 +374,32 @@ class Http {
 			});
 
 		});
+	  
+	this.app.route('/moderation')
+		.get(async (req, res) => {
+			if (this.moder_perm) {
+			    res.sendFile(path.join(__dirname + '/html/moderationPage.html'));
+			} else {
+			    res.status(403).end();
+			};
+		});
+	  
+	this.app.route('/showFilms')
+		.post(async  (req, res) => {
+			const query = this.db.sql();
+
+			query.select(['filmid', 'title', 'year', 'rating', 'views', 'poster', 'genre', 'free', 'url'])
+				.inTable('films');
+
+			await query.exec((err, result) => {
+				if (err) {
+					Core.log.warning(err);
+					res.status(500).end();
+					return;
+				}
+				res.send(JSON.stringify(result)).end();
+			});
+		});
   
 	  
 	  
