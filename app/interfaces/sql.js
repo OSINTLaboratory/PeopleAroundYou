@@ -59,8 +59,10 @@ const sql = (pool) => {
   const ready = false;
   const mode = MODE_ROWS;
   const whereClause = undefined;
+  const updatedColumn = undefined;
   const _fields = new Array;
   const args = new Array;
+  const newArg = undefined;
   const orderBy = undefined;
 
   return {
@@ -75,8 +77,10 @@ const sql = (pool) => {
     ready,
     mode,
     whereClause,
+    updatedColumn,
     _fields,
     args,
+    newArg,
     orderBy,
 
     select(values) {
@@ -97,17 +101,28 @@ const sql = (pool) => {
       }
       return this;
     },
+	  
+    update(column) {
+      this.op = this.buildUpdate;
+      this.updatedColumn = column;
+      return this;
+    },
 
     remove() {
       this.op = this.buildDelete;
       return this;
     },
+	  
+    set(val) {
+      this.newArg = val;
+      return this;
+    },
 	
-	fields(values) {
+    fields(values) {
       for (const key of values) {
         this._fields.push(key);
       }
-	},
+    },
 	
     where(conditions) {
       const { sclause, args } = where(conditions);
@@ -156,6 +171,14 @@ const sql = (pool) => {
       let sql = `SELECT ${flds} FROM ${table}`;
       if (whereClause) sql += ` WHERE ${whereClause}`;
       if (orderBy) sql += ` ORDER BY ${orderBy}`;
+      this.sql = { sql,
+        values: args };
+    },
+	  
+    buildUpdate() {
+      const { table, args, newArg } = this;
+      const { whereClause, updatedColumn } = this;
+      const sql = `UPDATE ${table} SET ${updatedColumn} = ${newArg} WHERE ${whereClause}`;
       this.sql = { sql,
         values: args };
     },
