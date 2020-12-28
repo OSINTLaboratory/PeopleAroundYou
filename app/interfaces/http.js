@@ -1,5 +1,6 @@
 'use strict';
 const express = require('express');
+const fileUpload = require('express-fileupload');
 const parser = require('body-parser');
 const userAgent = require('express-useragent');
 const cookieParser = require('cookie-parser');
@@ -24,8 +25,9 @@ class Http {
     this.port = port;
     this.static_root = "app/interfaces/html";
     this.app = express();
-	this.app.use(cookieParser());
-	this.app.use(userAgent.express());
+    this.app.use(cookieParser());
+    this.app.use(userAgent.express());
+    this.app.use(fileUpload({ createParentPath: true }));
     this.app.use(express.static(this.static_root));
     this.app.use(parser.json());       // to support JSON-encoded bodies
     this.app.use(parser.urlencoded({     // to support URL-encoded bodies
@@ -421,6 +423,38 @@ class Http {
 			} else {
 				res.status(403).end();
 			}
+		});
+	  
+	this.app.route('/addFilm')
+		.post(async  (req, res) => {
+		  	const poster = req.files.poster;
+		  	const movie = req.files.url;
+		  	const posterType = poster.mimetype;
+		  	const movieType  =  movie.mimetype;
+		  	const posterName = req.body.title + `.${posterType.slice(posterType.indexOf('/') + 1)}`;
+		  	const movieName = req.body.title + `.${movieType.slice(movieType.indexOf('/') + 1)}`;
+
+		  	poster.mv('app/interfaces/html/posters/' + posterName);
+		  	movie.mv('app/interfaces/html/films/' + movieName);
+
+		  	const query = this.db.sql();
+		  	query.insert({
+				title: req.body.title,
+				year: +req.body.year,
+				poster: posterName,
+				genre: +req.body.genre,
+				free: !!req.body.free,
+				url: movieName,
+		  	}).inTable('films');
+		  	
+		  	await query.exec((err, result) => {
+				if (err) {
+					Core.log.warning(err);
+					res.status(500).end();
+					return;
+				}
+				res.status(200).end();
+		  	});
 		});
   
 	  
