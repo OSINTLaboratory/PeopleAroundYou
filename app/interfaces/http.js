@@ -418,7 +418,7 @@ class Http {
 						return;
 					}
 
-					res.send(JSON.stringify(result)).end();
+					res.status(200).end();
 				});
 			} else {
 				res.status(403).end();
@@ -468,6 +468,44 @@ class Http {
 					  res.status(200).end();
 				  });
 			  });
+		  });
+	  
+	  this.app.route('/showComments')
+		  .post(async  (req, res) => {
+			  const query = this.db.sql();
+
+			  query.select(['commentid', 'filmid', 'userid', 'textdata', 'approved'])
+				  .inTable('comments');
+
+			  await query.exec((err, result) => {
+				  if (err) {
+					  Core.log.warning(err);
+					  res.status(500).end();
+					  return;
+				  }
+				  res.send(JSON.stringify(result)).end();
+			  });
+		  });
+
+	  this.app.route('/removeComment')
+		  .post(async  (req, res) => {
+			  if (this.moder_perm) {
+				  const query = this.db.sql();
+
+				  query.remove().inTable('comments').where({ commentid: `=${req.body.id}` });
+
+				  await query.exec(err => {
+					  if (err) {
+						  Core.log.warning(err);
+						  res.status(500).end();
+						  return;
+					  }
+
+					  res.status(200).end();
+				  });
+			  } else {
+				  res.status(403).end();
+			  }
 		  });
   
 	  
