@@ -63,6 +63,21 @@ async function showFilms() {
 };
 
 async function addFilm() {
+    const genres = [];
+
+    await makeRequest('', "POST", "/genres").then(res => {
+        res = JSON.parse(res);
+        res.map(element => {
+            genres.push(element['lable']);
+        });
+    });
+
+    let options = '';
+
+    for (let i = 0; i < genres.length; i++) {
+        options += `<option>${genres[i]}</option>`;
+    }
+
     const filmForm = document.createElement('div');
     filmForm.className = 'filmForm';
     filmForm.innerHTML = `
@@ -76,17 +91,20 @@ async function addFilm() {
                 <label for="year"><b>Год выпуска</b></label>
                 <input type="number" placeholder="" name="year" class="ins" required>
                 
-                <label for="poster"><b>Постер</b></label>
+                <select name="genre" class="select-css" >
+                    <option value="" selected disabled hidden>Жанр</option>
+                    ${options}
+                </select>
+                
+                <label for="poster"><b>\nПостер</b></label>
                 <input type="file"  name="poster" class="ins" required>
-                
-                <label for="genre"><b>Жанр</b></label>
-                <input type="text"  name="genre" class="ins" required>
-                
-                <label for="free"><b>Бесплатный просмотр?</b></label>
-                <input type="checkbox"  name="free" class="ins">
                 
                 <label for="url"><b>Фильм</b></label>
                 <input type="file"  name="url" class="ins" required>
+                
+                <label class="checkbox-inline" for="free">
+                    <input type="checkbox" id="inlineCheckbox2" name="free"> Бесплатный просмотр?
+                </label>
                
  
                 <button type="submit" class="addBtn">Добавить фильм</button>
@@ -98,3 +116,68 @@ async function addFilm() {
     overlay.classList.add('active');
 }
 
+async function approveComment(id) {
+    await makeRequest(JSON.stringify({ id }), 'POST', '/approveComment').then(() => {
+        const el = document.querySelector(`#approveBtn_${id}`);
+        el.style.color = 'green';
+        el.onclick = '';
+        el.innerHTML = 'Подтвержден';
+
+    });
+}
+
+async function removeComment(id) {
+    await makeRequest(JSON.stringify({ id }), "POST", "/removeComment").then(() => {
+        document.querySelector(`#comment_${id}`).remove();
+    });
+}
+
+async function showComments() {
+    await makeRequest('', 'POST', '/showComments').then(res => {
+        const data = JSON.parse(res);
+        const tableHead = `
+                <thead>
+                    <tr>
+                        <th>ID комментария</th>
+                        <th>ID фильма</th>
+                        <th>ID пользователя</th>
+                        <th>Комментарий</th>
+                        <th>Подтвержден</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>`;
+
+        let tableBody = '';
+        for (let i = 0; i < data.length; i++) {
+            const id = data[i].commentid;
+
+            let approved = '';
+
+            if (data[i].approved) {
+                approved = `<td style="color:green;">Подтвержден</td>`;
+            } else {
+                approved = `<td class="approveBtn" id="approveBtn_${id}" onclick="approveComment(${id})">Подтвердить</td>`;
+
+            }
+
+            tableBody += `
+                <tr id="comment_${id}">
+                    <td>${id}</td>
+                    <td>${data[i].filmid}</td>
+                    <td>${data[i].userid}</td>
+                    <td>${data[i].textdata}</td>
+                    <td>${data[i].approved}</td>
+                    ${approved}
+                    <td class="removeBtn" onclick="removeComment(${id})">X</td>
+                </tr>`;
+        }
+
+        const table = document.createElement('table');
+        table.innerHTML += tableHead + tableBody;
+
+        modal.appendChild(table);
+        modal.classList.add('active');
+        overlay.classList.add('active');
+    });
+}
