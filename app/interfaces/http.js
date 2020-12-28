@@ -333,8 +333,7 @@ class Http {
 			  }
 			  res.send(result[0].filmid).end();
 			});
-
-		};
+		});
 
 	  
 	this.app.route('/player')
