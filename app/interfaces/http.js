@@ -400,8 +400,28 @@ class Http {
 				res.send(JSON.stringify(result)).end();
 			});
 		});
-  
 	  
+	this.app.route('/removeFilm')
+		.post(async  (req, res) => {
+		  	if (this.moder_perm) {
+				const query = this.db.sql();
+
+				query.remove().inTable('films').where({ filmid: `=${req.body.id}` });
+
+				await query.exec((err, result) => {
+					if (err) {
+						Core.log.warning(err);
+						res.status(500).end();
+						return;
+					}
+
+					res.send(JSON.stringify(result)).end();
+				});
+			} else {
+				res.status(403).end();
+			}
+		});
+  
 	  
     this.app.listen(this.port, () => {
       Core.log.info('Http server started');
