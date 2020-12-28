@@ -1,5 +1,6 @@
 'use strict';
 const express = require('express');
+const fileUpload = require('express-fileupload');
 const parser = require('body-parser');
 const userAgent = require('express-useragent');
 const cookieParser = require('cookie-parser');
@@ -24,8 +25,9 @@ class Http {
     this.port = port;
     this.static_root = "app/interfaces/html";
     this.app = express();
-	this.app.use(cookieParser());
-	this.app.use(userAgent.express());
+    this.app.use(cookieParser());
+    this.app.use(userAgent.express());
+    this.app.use(fileUpload({ createParentPath: true }));
     this.app.use(express.static(this.static_root));
     this.app.use(parser.json());       // to support JSON-encoded bodies
     this.app.use(parser.urlencoded({     // to support URL-encoded bodies
@@ -139,6 +141,7 @@ class Http {
 								}
 								if(result[0] != undefined) {
 									if(result[0].hash === hashed_pass) {
+										this.moder_perm = true;
 										this.admin_perm = true;
 										successAuth();
 									} else {
@@ -374,8 +377,161 @@ class Http {
 			});
 
 		});
-  
 	  
+	this.app.route('/moderation')
+		.get(async (req, res) => {
+			if (this.moder_perm) {
+			    res.sendFile(path.join(__dirname + '/html/moderationPage.html'));
+			} else {
+			    res.status(403).end();
+			};
+		});
+	  
+	this.app.route('/showFilms')
+		.post(async  (req, res) => {
+			const query = this.db.sql();
+
+			query.select(['filmid', 'title', 'year', 'rating', 'views', 'poster', 'genre', 'free', 'url'])
+				.inTable('films');
+
+			await query.exec((err, result) => {
+				if (err) {
+					Core.log.warning(err);
+					res.status(500).end();
+					return;
+				}
+				res.send(JSON.stringify(result)).end();
+			});
+		});
+	  
+	this.app.route('/removeFilm')
+		.post(async  (req, res) => {
+		  	if (this.moder_perm) {
+				const query = this.db.sql();
+
+				query.remove().inTable('films').where({ filmid: `=${req.body.id}` });
+
+				await query.exec((err, result) => {
+					if (err) {
+						Core.log.warning(err);
+						res.status(500).end();
+						return;
+					}
+
+					res.status(200).end();
+				});
+			} else {
+				res.status(403).end();
+			}
+		});
+	  
+	  this.app.route('/addFilm')
+		  .post(async  (req, res) => {
+			  const poster = req.files.poster;
+			  const movie = req.files.url;
+			  const posterType = poster.mimetype;
+			  const movieType  =  movie.mimetype;
+			  const posterName = req.body.title + `.${posterType.slice(posterType.indexOf('/') + 1)}`;
+			  const movieName = req.body.title + `.${movieType.slice(movieType.indexOf('/') + 1)}`;
+
+			  poster.mv('app/interfaces/html/posters/' + posterName);
+			  movie.mv('app/interfaces/html/films/' + movieName);
+
+			  let genre;
+			  const genreQuery = this.db.sql();
+			  genreQuery.select(['genreid']).inTable('genres').where({ lable: `=${req.body.genre}` });
+			  await genreQuery.exec(async (err, result) => {
+				  if (err) {
+					  Core.log.warning(err);
+					  res.status(500).end();
+					  return;
+				  }
+
+				  genre = result[0].genreid;
+
+				  const query = this.db.sql();
+				  query.insert({
+					  title: req.body.title,
+					  year: +req.body.year,
+					  poster: posterName,
+					  genre,
+					  free: !!req.body.free,
+					  url: movieName,
+				  }).inTable('films');
+
+				  await query.exec((err) => {
+					  if (err) {
+						  Core.log.warning(err);
+						  res.status(500).end();
+						  return;
+					  }
+					  res.status(200).end();
+				  });
+			  });
+		  });
+	  
+	  this.app.route('/showComments')
+		  .post(async  (req, res) => {
+			  const query = this.db.sql();
+
+			  query.select(['commentid', 'filmid', 'userid', 'textdata', 'approved'])
+				  .inTable('comments');
+
+			  await query.exec((err, result) => {
+				  if (err) {
+					  Core.log.warning(err);
+					  res.status(500).end();
+					  return;
+				  }
+				  res.send(JSON.stringify(result)).end();
+			  });
+		  });
+
+	  this.app.route('/removeComment')
+		  .post(async  (req, res) => {
+			  if (this.moder_perm) {
+				  const query = this.db.sql();
+
+				  query.remove().inTable('comments').where({ commentid: `=${req.body.id}` });
+
+				  await query.exec(err => {
+					  if (err) {
+						  Core.log.warning(err);
+						  res.status(500).end();
+						  return;
+					  }
+
+					  res.status(200).end();
+				  });
+			  } else {
+				  res.status(403).end();
+			  }
+		  });
+	  
+	  this.app.route('/approveComment')
+		  .post(async  (req, res) => {
+			  if (this.moder_perm) {
+				  const query = this.db.sql();
+
+				  query.update('approved')
+					  .inTable('comments')
+					  .set(true)
+					  .where({ commentid: `=${req.body.id}` });
+
+				  await query.exec(err => {
+					  if (err) {
+						  Core.log.warning(err);
+						  res.status(500).end();
+						  return;
+					  }
+
+					  res.status(200).end();
+				  });
+			  } else {
+				  res.status(403).end();
+			  }
+		  });
+  
 	  
     this.app.listen(this.port, () => {
       Core.log.info('Http server started');

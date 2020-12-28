@@ -1884,3 +1884,14 @@ body img.fr-dii.fr-fir{float:right;margin:5px 0 5px 5px;max-width:calc(100% - 5p
     body .tips-block{}
 }
 .grecaptcha-badge{visibility:hidden}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 4px;
+    background-color: #d2c3a1;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #e27900;
+}

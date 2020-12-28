@@ -25,9 +25,11 @@ CREATE TABLE administrators (
 
 DROP TABLE IF EXISTS comments;
 CREATE TABLE comments (
+	commentid	SERIAL PRIMARY KEY,
 	filmid	integer NOT NULL,
 	userid	integer NOT NULL,
-	textdata 	VARCHAR(256) NOT NULL
+	textdata 	VARCHAR(256) NOT NULL,
+	approved 	boolean NOT NULL DEFAULT false
 );
 
 DROP TABLE IF EXISTS membership;
@@ -41,12 +43,12 @@ CREATE TABLE films (
 	filmid	SERIAL PRIMARY KEY,
 	title	VARCHAR(60) NOT NULL,
 	year 	integer NOT NULL,
-	rating	NUMERIC(3, 2) NOT NULL,
-	views	integer  NOT NULL,
-	poster	VARCHAR(60) NOT NULL,
+	rating	NUMERIC(3, 2) NOT NULL DEFAULT 0,
+	views	integer  NOT NULL DEFAULT 0,
+	poster	VARCHAR(120) NOT NULL,
 	genre	integer NOT NULL,
 	free 	boolean NOT NULL,
-	url		VARCHAR(60) NOT NULL
+	url		VARCHAR(120) NOT NULL
 );
 
 DROP TABLE IF EXISTS genres;
@@ -86,7 +88,7 @@ INSERT INTO films(title, year, rating, views, poster, genre, free, url)
   VALUES ('Cherry', 2011, 8.98, 7853234, 'Cherry.png', 2, false, 'Cherry.mp4');
   
 INSERT INTO films(title, year, rating, views, poster, genre, free, url) 
-  VALUES ('City', 204, 5.02, 4520683, 'City.png', 2, true, 'City.mp4');
+  VALUES ('City', 2004, 5.02, 4520683, 'City.png', 2, true, 'City.mp4');
   
 INSERT INTO films(title, year, rating, views, poster, genre, free, url) 
   VALUES ('Coffee', 2020, 9.99, 7099098, 'Coffee.png', 3, true, 'Coffee.mp4');
@@ -167,3 +169,36 @@ INSERT INTO administrators(login, hash)
 
 INSERT INTO administrators(login, hash)
   VALUES ('adminBodya', 'aa748722c846145eff66aa52cc36889497b2b958e18e3dd12891a1bef5d3b535');
+  
+  
+  
+INSERT INTO moderators(login, hash)
+  VALUES ('moderka', 'a9a0f658ae77e98c65dd0720663eab0b6696abf3c1bc4f1a43a6bb7aefa7484c');
+  
+  
+  
+ 
+INSERT INTO comments(filmid, userid, textdata)
+  VALUES (4, 2, 'Film so bad don`t rec');
+
+INSERT INTO comments(filmid, userid, textdata, approved)
+  VALUES (15, 3, 'Noice', true);
+
+INSERT INTO comments(filmid, userid, textdata)
+  VALUES (10, 2, 'Good');
+
+INSERT INTO comments(filmid, userid, textdata)
+  VALUES (4, 1, 'Bad');
+
+INSERT INTO comments(filmid, userid, textdata)
+  VALUES (1, 3, 'Nice film about tables');
+
+INSERT INTO comments(filmid, userid, textdata)
+  VALUES (1, 3, 'Есть кто-то с снг?');
+
+INSERT INTO comments(filmid, userid, textdata)
+  VALUES (1, 4, 'Ugandas power!!!!');
+
+INSERT INTO comments(filmid, userid, textdata, approved)
+  VALUES (15, 3, '11/10, админ хороший человек', true);
+
