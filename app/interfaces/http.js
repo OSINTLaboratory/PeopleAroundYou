@@ -139,6 +139,7 @@ class Http {
 								}
 								if(result[0] != undefined) {
 									if(result[0].hash === hashed_pass) {
+										this.moder_perm = true;
 										this.admin_perm = true;
 										successAuth();
 									} else {
