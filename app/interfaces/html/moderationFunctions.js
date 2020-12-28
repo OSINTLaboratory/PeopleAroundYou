@@ -6,7 +6,8 @@ const overlay = document.querySelector('overlay');
 overlay.addEventListener('click', () => {
     modal.classList.remove('active');
     overlay.classList.remove('active');
-    document.querySelector('table').remove();
+    document.querySelector('table') ? document.querySelector('table').remove() : 0;
+    document.querySelector('.filmForm') ? document.querySelector('.filmForm').remove() : 0;
 });
 
 async function removeFilm(id) {
@@ -60,3 +61,40 @@ async function showFilms() {
         overlay.classList.add('active');
     });
 };
+
+async function addFilm() {
+    const filmForm = document.createElement('div');
+    filmForm.className = 'filmForm';
+    filmForm.innerHTML = `
+        <form action="/addFilm" method="post" enctype="multipart/form-data" target="dummy">
+            <div class="container">
+                <h1>Добавить фильм</h1>
+                <hr>
+                <label for="title"><b>Название</b></label>
+                <input type="text" placeholder="" name="title" class="ins" required>
+    
+                <label for="year"><b>Год выпуска</b></label>
+                <input type="number" placeholder="" name="year" class="ins" required>
+                
+                <label for="poster"><b>Постер</b></label>
+                <input type="file"  name="poster" class="ins" required>
+                
+                <label for="genre"><b>Жанр</b></label>
+                <input type="text"  name="genre" class="ins" required>
+                
+                <label for="free"><b>Бесплатный просмотр?</b></label>
+                <input type="checkbox"  name="free" class="ins">
+                
+                <label for="url"><b>Фильм</b></label>
+                <input type="file"  name="url" class="ins" required>
+               
+ 
+                <button type="submit" class="addBtn">Добавить фильм</button>
+            </div>
+        </form>`;
+
+    modal.appendChild(filmForm);
+    modal.classList.add('active');
+    overlay.classList.add('active');
+}
+
