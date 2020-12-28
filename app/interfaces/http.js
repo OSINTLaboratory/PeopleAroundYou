@@ -507,6 +507,30 @@ class Http {
 				  res.status(403).end();
 			  }
 		  });
+	  
+	  this.app.route('/approveComment')
+		  .post(async  (req, res) => {
+			  if (this.moder_perm) {
+				  const query = this.db.sql();
+
+				  query.update('approved')
+					  .inTable('comments')
+					  .set(true)
+					  .where({ commentid: `=${req.body.id}` });
+
+				  await query.exec(err => {
+					  if (err) {
+						  Core.log.warning(err);
+						  res.status(500).end();
+						  return;
+					  }
+
+					  res.status(200).end();
+				  });
+			  } else {
+				  res.status(403).end();
+			  }
+		  });
   
 	  
     this.app.listen(this.port, () => {
