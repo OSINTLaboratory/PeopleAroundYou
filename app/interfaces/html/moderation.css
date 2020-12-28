@@ -48,3 +48,23 @@ modal.active, overlay.active {
     cursor: pointer;
     color: red;
 }
+
+.addBtn {
+    background: #cd5c0e;
+    color: black;
+    height: 30px;
+    width: 150px;
+    padding: 5px;
+    margin-top: 25px;
+    border-radius: 10px;
+}
+
+.addBtn:hover {
+    cursor: pointer;
+    background: #763204;
+    color: #ffffff;
+}
+
+input {
+    color: black;
+}
