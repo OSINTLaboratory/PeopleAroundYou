@@ -40,13 +40,18 @@ modal.active, overlay.active {
     visibility: visible;
 }
 
-.removeBtn {
+.removeBtn, .approveBtn {
     color: #cd5c0e;
 }
 
 .removeBtn:hover {
     cursor: pointer;
     color: red;
+}
+
+.approveBtn:hover {
+    cursor: pointer;
+    color: #2ab321;
 }
 
 .addBtn {
@@ -67,4 +72,14 @@ modal.active, overlay.active {
 
 input {
     color: black;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.select-css {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: unset;
+    position: unset;
+    bottom: auto;
 }
