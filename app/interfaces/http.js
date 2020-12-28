@@ -321,9 +321,9 @@ class Http {
 		 .post(async (req, res) => {
 			const query = this.db.sql();
 
-			query.select(['filmid'])
-			  .inTable('films')
-			  .orderBy('RANDOM() LIMIT(1)');
+			query.select(['filmid']);
+			query.inTable('films')
+			query.orderBy('RANDOM() LIMIT(1)');
 
 			await query.exec(async (err, result) => {
 			  if (err) {
