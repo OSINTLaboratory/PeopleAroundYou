@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+    <title>Filmhub</title>
+    <meta name="description" content="Каталог фильмов по жанрам удовлетворит любые запросы. Вы можете смотреть фильмы по жанрам прямо на сайте">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="moderation.css">
+    <script src="/request.js"></script>
+    <script src="/moderationFunctions.js" defer></script>
+<body>
+<iframe hidden name="dummy"></iframe>
+<div class="background-img "></div>
+
+<noscript>
+    <div class="pop-message">Внимание! В вашем браузере отключен JavaScript! Без него большая часть функционала сайта
+        работать не будет или будет работать некорректно!
+    </div>
+</noscript>
+
+<div class="top">
+
+    <div class="container clearfix">
+
+    </div>
+</div>
+
+<header class="header">
+    <div class="container clearfix">
+
+        <div class="logo-block">
+            <a class="logo" href="/"></a>
+            <div class="top-desktop">
+
+            </div>
+        </div>
+
+        <ul class="menu clearfix">
+            <li class="sub-menu-link">
+                <a onclick="addFilm()">Добавить фильм</a>
+            </li>
+            <li>
+                <a onclick="showFilms()">Показать фильмы</a>
+            </li>
+            <li>
+                <a onclick="showComments()">Показать комментарии</a>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<modal></modal>
+<overlay></overlay>
+
+<div class="content-block container clearfix">
+
+</div>
+
+<div class="push"></div>
+
+<footer>
+
+</footer>
