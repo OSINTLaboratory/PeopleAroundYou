@@ -194,3 +194,18 @@ const LoadCatalog = () => {
 		}
 	});
 }
+
+
+const rand = () => {
+	const promise = makeRequest("", "POST", '/random');
+	promise.then((res) => {
+		if (res === undefined) {
+			return;
+		}
+
+		window.location.href = `/player?id=${res}`;
+
+	}).catch((err) => {
+	});
+
+};
