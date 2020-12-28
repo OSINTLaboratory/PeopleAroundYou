@@ -425,37 +425,50 @@ class Http {
 			}
 		});
 	  
-	this.app.route('/addFilm')
-		.post(async  (req, res) => {
-		  	const poster = req.files.poster;
-		  	const movie = req.files.url;
-		  	const posterType = poster.mimetype;
-		  	const movieType  =  movie.mimetype;
-		  	const posterName = req.body.title + `.${posterType.slice(posterType.indexOf('/') + 1)}`;
-		  	const movieName = req.body.title + `.${movieType.slice(movieType.indexOf('/') + 1)}`;
+	  this.app.route('/addFilm')
+		  .post(async  (req, res) => {
+			  const poster = req.files.poster;
+			  const movie = req.files.url;
+			  const posterType = poster.mimetype;
+			  const movieType  =  movie.mimetype;
+			  const posterName = req.body.title + `.${posterType.slice(posterType.indexOf('/') + 1)}`;
+			  const movieName = req.body.title + `.${movieType.slice(movieType.indexOf('/') + 1)}`;
 
-		  	poster.mv('app/interfaces/html/posters/' + posterName);
-		  	movie.mv('app/interfaces/html/films/' + movieName);
+			  poster.mv('app/interfaces/html/posters/' + posterName);
+			  movie.mv('app/interfaces/html/films/' + movieName);
 
-		  	const query = this.db.sql();
-		  	query.insert({
-				title: req.body.title,
-				year: +req.body.year,
-				poster: posterName,
-				genre: +req.body.genre,
-				free: !!req.body.free,
-				url: movieName,
-		  	}).inTable('films');
-		  	
-		  	await query.exec((err, result) => {
-				if (err) {
-					Core.log.warning(err);
-					res.status(500).end();
-					return;
-				}
-				res.status(200).end();
-		  	});
-		});
+			  let genre;
+			  const genreQuery = this.db.sql();
+			  genreQuery.select(['genreid']).inTable('genres').where({ lable: `=${req.body.genre}` });
+			  await genreQuery.exec(async (err, result) => {
+				  if (err) {
+					  Core.log.warning(err);
+					  res.status(500).end();
+					  return;
+				  }
+
+				  genre = result[0].genreid;
+
+				  const query = this.db.sql();
+				  query.insert({
+					  title: req.body.title,
+					  year: +req.body.year,
+					  poster: posterName,
+					  genre,
+					  free: !!req.body.free,
+					  url: movieName,
+				  }).inTable('films');
+
+				  await query.exec((err) => {
+					  if (err) {
+						  Core.log.warning(err);
+						  res.status(500).end();
+						  return;
+					  }
+					  res.status(200).end();
+				  });
+			  });
+		  });
   
 	  
     this.app.listen(this.port, () => {
