@@ -323,7 +323,7 @@ class Http {
 
 			query.select(['filmid']);
 			query.inTable('films')
-			query.orderBy('RANDOM() LIMIT(1)');
+			query.order('RANDOM() LIMIT(1)');
 
 			await query.exec(async (err, result) => {
 			  if (err) {
