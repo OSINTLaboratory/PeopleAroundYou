@@ -24,6 +24,20 @@ document.addEventListener("DOMContentLoaded", () => {
 			HideRegisterBtn();
 		}
 	});
+	
+	document.getElementById("add-rating-form").addEventListener("submit", (event) => {
+		event.preventDefault();
+		const promise = makeRequest(`{"id":"${document.getElementById("film-id").value}","rating":"${event.target[2].value}"}`, "POST", '/addScore');
+		promise.then( (res) => {
+			if(res === undefined){
+				return;
+			}
+			res = JSON.parse(res);
+			document.getElementById("film-rating").innerHTML = `${res.rating} (${res.rating_count} оценок)`;
+			
+		}).catch((err)=>{});
+	});
+	
 	DisableAuth();
 		
 	const urlParams = new URLSearchParams(window.location.search);
