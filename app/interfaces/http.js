@@ -164,31 +164,31 @@ class Http {
 				this.moder_perm ||
 				this.user_perm
 			){
-				res.send("true").end(200);
+				res.send("true").end();
 			} else {
-				res.send("false").end(200);
+				res.send("false").end();
 			}
 		});
 		
 	this.app.route('/recomendations')
 		.post(async (req, res) => {
 			if(req.cookies === undefined){
-				res.end(200);
+				res.status(200).end();
 				return;
 			}
 			
 			if(req.cookies['session'] === undefined){
-				res.end(200);
+				res.status(200).end();
 				return;
 			}
 			
 			if(this.sessions_id[hash(JSON.stringify(req.useragent))] === undefined){
-				res.end(200);
+				res.status(200).end();
 				return;
 			}
 			
 			if(this.sessions_id[hash(JSON.stringify(req.useragent))] != req.cookies['session']){
-				res.end(200);
+				res.status(200).end();
 				return;
 			}
 			// Get current user login from session
