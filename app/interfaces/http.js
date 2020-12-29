@@ -331,7 +331,8 @@ class Http {
 				res.status(500).end();
 				return;
 			  }
-			  res.send(result[0].filmid).end();
+			  console.log(result);
+			  res.send(result.filmid).end();
 			});
 		});
 
