@@ -195,6 +195,14 @@ const LoadCatalog = () => {
 	});
 }
 
+const LoadRecoms = async () => {
+	const promise = makeRequest("{}", "POST", "/islogin");
+	promise.then( (res) => {
+		if(res === "true"){
+			LoadRecomendations();
+		}
+	}).catch((err)=>{});
+}
 
 const rand = () => {
 	const promise = makeRequest("", "POST", '/random');
