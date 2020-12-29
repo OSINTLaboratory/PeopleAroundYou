@@ -51,6 +51,9 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 		res = JSON.parse(res);
 		document.getElementById("film-rating").innerHTML = `${res.rating} (${res.rating_count} оценок)`;
+		document.getElementById("film-name").innerHTML = `${res.title} `;
+		document.getElementById("film-genre").innerHTML = res.genre;
+		document.getElementById("film-year").innerHTML = `(${res.year})`;
 		
 	}).catch((err)=>{});
 	

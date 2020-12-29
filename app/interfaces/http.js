@@ -290,14 +290,26 @@ class Http {
 			query.select(['filmid', 'title', 'year', 'rating', 'rating_count', 'views', 'genre'])
 				.inTable('films').where({ filmid:`=${id}` });
 
-			await query.exec((err, result) => {
+			await query.exec(async(err, result) => {
 				if (err) {
 					Core.log.warning(err);
 					res.status(500).end();
 					return;
 				}
-				
-				res.send(JSON.stringify(result[0])).end();
+				const data = result[0];
+				const query = this.db.sql();
+				query.select(['lable'])
+					.inTable('genres').where({ genreid:`=${result[0].genre}` });
+
+				await query.exec((err, result) => {
+					if (err) {
+						Core.log.warning(err);
+						res.status(500).end();
+						return;
+					}
+					data.genre = result[0].lable;
+					res.send(JSON.stringify(data)).end();
+				});
 			});
 		});
 		
