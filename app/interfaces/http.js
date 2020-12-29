@@ -318,9 +318,23 @@ class Http {
 		});
 		
 	this.app.route('/random')
-		.post( async (req, res) => {
-			console.log("random: ", req.body);
+		 .post(async (req, res) => {
+			const query = this.db.sql();
+
+			query.select(['filmid']);
+			query.inTable('films')
+			query.order('RANDOM() LIMIT(1)');
+
+			await query.exec(async (err, result) => {
+			  if (err) {
+				Core.log.warning(err);
+				res.status(500).end();
+				return;
+			  }
+			  res.send(result[0].filmid.toString()).end();
+			});
 		});
+
 	  
 	this.app.route('/player')
 		.get(async (req, res) => {
