@@ -15,6 +15,19 @@ class App {
 		connectionString: process.env.DATABASE_URL || 'postgresql://postgres:admin@localhost:5432/postgres',
 		ssl: process.env.DATABASE_URL ? true : false
 	});
+	if(process.env.DATABASE_URL){
+		this.interfaces.db = new Database({
+			connectionString: process.env.DATABASE_URL,
+			ssl: {
+				rejectUnauthorized: false
+			}
+		});
+	}else{
+		this.interfaces.db = new Database({
+			connectionString: 'postgresql://postgres:admin@localhost:5432/postgres',
+			ssl: false
+		});
+	}
 	this.interfaces.db.is_ready.then(res => {
 		this.interfaces.http = new Http(process.env.PORT || 80, this.interfaces.db);
 	});
