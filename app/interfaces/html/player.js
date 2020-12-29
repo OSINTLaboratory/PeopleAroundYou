@@ -25,4 +25,19 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	});
 	DisableAuth();
+		
+	const urlParams = new URLSearchParams(window.location.search);
+	const filmid = urlParams.get('id');
+	document.getElementById("film-id").value = filmid;
+	
+	const promise = makeRequest(`{"id":${filmid}}`, "POST", '/getFilmById');
+	promise.then( (res) => {
+		if(res === undefined){
+			return;
+		}
+		res = JSON.parse(res);
+		document.getElementById("film-rating").innerHTML = `${res.rating} (${res.rating_count} оценок)`;
+		
+	}).catch((err)=>{});
+	
 }, false);
