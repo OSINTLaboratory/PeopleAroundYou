@@ -317,7 +317,7 @@ class Http {
 			});
 		});
 		
-		this.app.route('/random')
+	this.app.route('/random')
 		 .post(async (req, res) => {
 			const query = this.db.sql();
 
@@ -331,8 +331,7 @@ class Http {
 				res.status(500).end();
 				return;
 			  }
-			  console.log(result);
-			  res.send(result.filmid).end();
+			  res.send(result[0].filmid.toString()).end();
 			});
 		});
 
