@@ -204,6 +204,9 @@ class Http {
 					res.status(500).end();
 					return;
 				}
+				if(!result[0]){
+					return;
+				}
 				const arrOfFilmIDs = result[0].viewed;
 				console.log(arrOfFilmIDs);
 				// Create map of genre->count of viewed by this user
@@ -276,6 +279,76 @@ class Http {
 					return;
 				}
 				res.status(200).end();
+			});
+		});
+		
+	this.app.route('/getFilmById')
+		.post( async (req, res) => {
+			const id = parseInt(req.body.id);
+			
+			const query = this.db.sql();
+			query.select(['filmid', 'title', 'year', 'rating', 'rating_count', 'views', 'genre'])
+				.inTable('films').where({ filmid:`=${id}` });
+
+			await query.exec((err, result) => {
+				if (err) {
+					Core.log.warning(err);
+					res.status(500).end();
+					return;
+				}
+				
+				res.send(JSON.stringify(result[0])).end();
+			});
+		});
+		
+	this.app.route('/addScore')
+		.post( async (req, res) => {
+			let query = this.db.sql();
+			query.select(['rating', 'rating_count'])
+				.inTable('films').where({ filmid:`=${req.body.id}` });
+
+			await query.exec( async (err, result) => {
+				if (err) {
+					Core.log.warning(err);
+					res.status(500).end();
+					return;
+				}
+				let new_rating = parseFloat(req.body.rating);
+				let rating = parseFloat(result[0].rating);
+				let count = parseInt(result[0].rating_count);
+				
+				rating = rating / count;
+				new_rating = (new_rating + rating) / 2;
+				new_rating += rating;
+				
+				let query = this.db.sql();
+				query.update('rating')
+					.inTable('films')
+					.set(new_rating)
+					.where({ filmid: `=${req.body.id}` });
+
+				await query.exec(async err => {
+					if (err) {
+						Core.log.warning(err);
+						res.status(500).end();
+						return;
+					}
+					let query = this.db.sql();
+					query.update('rating_count')
+						.inTable('films')
+						.set(count + 1)
+						.where({ filmid: `=${req.body.id}` });
+
+					await query.exec(async err => {
+						if (err) {
+							Core.log.warning(err);
+							res.status(500).end();
+							return;
+						}
+
+						res.status(200).end();
+					});
+				});
 			});
 		});
 		
