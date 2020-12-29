@@ -32,7 +32,7 @@ class Logging {
     const path = ROOT + '/' + date.split(' ')[0] + '.txt';
     const time = date.split(' ')[1];
 
-      let log = `[${time}][${label}]  ${text}\n`;
+      let log = `[${time}][${label}]  ${text}`;
 
     if (!fs.existsSync(path)) {
       fs.closeSync(fs.openSync(path, 'w')); // Create an empty file
