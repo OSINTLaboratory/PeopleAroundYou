@@ -74,7 +74,7 @@
 		  
 		<video id="filmPoster" poster="" class="film-video" controls>
 			<source id="filmLink" src="" type="video/mp4">
-		</video>
+    </video>
 	  <form id="add-rating-form" onsubmit="this.styles.display = 'hidden';" class="side-label" action="/addScore" method="POST" oninput="x.value=parseFloat(a.value).toFixed(2);">
 		    <label>Enter your rating</label>
             <input type="submit" value="Ok" style="
@@ -84,8 +84,26 @@
 		    <input type="hidden" value="" name="id" id="film-id">
 		    <input type="range" id="a" min="0" max="10" value="5.00" step="0.05">
 			<output name="x" for="a">5.00</output>
-	  </form>
-      <p class="desc">Comments</p>
+    </form>
+    <div class="meta">
+      <div class="main-data">
+        <p class="left-data">
+          Random movie
+        </p>
+        <p class="right-data">
+          <span class="date">1980</span> 
+          <span class="genre">Drama</span>
+        </p>
+      </div>
+      <form class="new-comment">
+        <input type="text" class="comment-field" placeholder="Оставить комментарий">
+        <button type="button" class="comment-button">Отправить</button>
+      </form>
+      <div class="comment-list">
+        l<br>l<br>l<br>l<br>l<br>
+      </div>
+    </div>
+      <!-- <p class="desc">Comments</p> -->
     </div>
 
 <footer>

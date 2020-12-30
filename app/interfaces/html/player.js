@@ -3,6 +3,28 @@ let loginBtn1Showed = false;
 let registerBtnShowed = false;
 document.addEventListener("DOMContentLoaded", () => {
 	
+const commentField = document.getElementsByClassName('comment-field')[0];
+const commentButton = document.getElementsByClassName('comment-button')[0];
+
+let commentValue = '';
+
+commentButton.addEventListener('click', function() {
+  commentValue = commentField.value;
+
+	showFilms();
+	alert('lalka');
+
+//   async function postComment(id) {
+//     await makeRequest(JSON.stringify({id}), "POST", "/showComments").then( (res) => {
+//         const data = JSON.parse(res);
+        
+        
+//     }).catch((err) => {
+//         console.log(err.message);
+//     });    
+// }
+});
+	
 	document.getElementById("login-btn-1").addEventListener("click", () => {
 		loginBtn1Showed = !loginBtn1Showed;
 		registerBtnShowed = false;
