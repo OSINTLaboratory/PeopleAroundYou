@@ -29,6 +29,7 @@ class Http {
     this.app.use(userAgent.express());
     this.app.use(fileUpload({ createParentPath: true }));
     this.app.use(express.static(this.static_root));
+    this.userid = undefined;
     this.app.use(parser.json());       // to support JSON-encoded bodies
     this.app.use(parser.urlencoded({     // to support URL-encoded bodies
       extended: false
@@ -87,6 +88,9 @@ class Http {
 			const query_users = this.db.sql();
 			const query_admins = this.db.sql();
 			const query_moders = this.db.sql();
+			query_users.select(["hash", "userid"])
+				.inTable('users')
+				.where({ login: `=${req.body.email}` });
 			query_users.select(["hash"])
 				.inTable('users')
 				.where({ login: `=${req.body.email}` });
@@ -118,6 +122,7 @@ class Http {
 				if(result[0] != undefined) {
 					if(result[0].hash === hashed_pass) {
 						this.user_perm = true;
+						this.userid = +result[0].userid;
 						successAuth();
 					} else {
 						userInvalidPass();
@@ -581,8 +586,8 @@ class Http {
 					  Core.log.warning(err);
 					  res.status(500).end();
 					  return;
-				  }
-				  res.send(JSON.stringify(result)).end();
+					  }
+				 	 res.send(JSON.stringify(result)).end();
 			  });
 		  });
 
@@ -603,7 +608,7 @@ class Http {
 					  res.status(200).end();
 				  });
 			  } else {
-				  res.status(403).end();
+					  res.status(403).end();
 			  }
 		  });
 	  
@@ -627,10 +632,71 @@ class Http {
 					  res.status(200).end();
 				  });
 			  } else {
-				  res.status(403).end();
+				 	 res.status(403).end();
 			  }
 		  });
-  
+  	
+	  this.app.route('/getCommentsForFilm')
+		  .post(async  (req, res) => {
+			  const query = this.db.sql();
+
+			  query.select(['userid', 'textdata'])
+				 .inTable('comments')
+				 .where({ filmid: `=${req.body.id}` });
+
+		          await query.exec((err, result) => {
+					 if (err) {
+						  Core.log.warning(err);
+						  res.status(500).end();
+						  return;
+					  }
+
+					  res.send(JSON.stringify(result)).end();
+				  });
+
+		  });
+
+	  this.app.route('/getUsername')
+		  .post(async  (req, res) => {
+			  const query = this.db.sql();
+
+			  query.select(['login'])
+				  .inTable('users')
+				  .where({ userid: `=${req.body.id}` });
+
+			  await query.exec((err, result) => {
+				        if (err) {
+					 	  Core.log.warning(err);
+						  res.status(500).end();
+						  return;
+				 	 }
+
+				 	 res.send(JSON.stringify(result)).end();
+				  });
+	
+		 });
+
+	  this.app.route('/addComment')
+		  .post(async  (req, res) => {
+
+		  	  const query = this.db.sql();
+			  query.insert({
+				  filmid: req.body.filmid,
+				  userid: this.userid,
+				  textdata: req.body.textdata,
+			  }).inTable('comments');
+
+			  await query.exec((err, result) => {
+				 	 if (err) {
+						  Core.log.warning(err);
+						  res.status(500).end();
+						  return;
+				 	 }
+	
+				 	 res.status(200).end();
+			  });
+
+		  });
 	  
     this.app.listen(this.port, () => {
       Core.log.info('Http server started');
