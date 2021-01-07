@@ -4,7 +4,7 @@ html{height:100%}
 body{font-family:open sans,sans-serif;font-size:14px;background: #1f1d1d;color: #333333;min-height:100%;position:relative;-webkit-tap-highlight-color:transparent;overflow-y:scroll; height: 100%;}
 body{}
 
-body .content-block{background-color: #333; margin-bottom:20px; width: 70%; height: 100%; display: flex; flex-direction: column; justify-content: space-around; align-items: center;}
+body .content-block{background-color: #333; margin-bottom:20px; width: 70%; display: flex; flex-direction: column; justify-content: space-around; align-items: center;}
 body .film-video {width: 100%; height: 60%; position:relative;}
 body #add-rating-form {margin: 20px 0;}
 body #add-rating-form label {color:#fff;}
@@ -20,17 +20,25 @@ body .meta {width: 100%; height: 40%; color: #fff; font-size: 2rem;}
   .comment-field { background-color: #000 !important; overflow-y: scroll; width: 70%; height: 100% !important; padding: 0 !important;}
   .comment-button { cursor: pointer; background-color: #ffa31a; color: #fff; width: calc(30% - 20px); height: 100%; border: none; border-left: 3px solid black;}
 
-.comment-list {margin-top: 10px; width: 100%; height: calc(50% - 10px); overflow-y: scroll; background-color: #333; border: 3px solid black; }
+.comment-list {margin-top: 10px; width: 100%; height: 400px; overflow-y: scroll; background-color: #333; border: 3px solid black; }
 
 
 
-.menu a:hover{ 
+.menu a:hover{
   background-color: #ff7700;
+}
+
+#film-rating {
+  color: #ff7700;
 }
 
 .menu a {
   transition: 0.5s;
   cursor: pointer;
+}
+
+.new-comment, .main-data {
+  height: 70px;
 }
 
 footer {
@@ -40,11 +48,15 @@ footer {
   margin-top: 20px;
 }
 
-/* body .content-block{margin-bottom:20px; height: 70%; display: flex; flex-direction: column;background-color: #333; justify-content: space-around; align-items: center;}
-body .film-video {height: 60%;position:relative;}
-body .desc {color: #fff; font-size: 2rem;}
+.comment {
+  word-break: break-word;
+  padding: 15px;
+}
 
-.side-label{
-    color: #fff;
-    font-size: 1.4em;
-} */
+.comment p {
+  font-size: 15px;
+}
+
+.comment h5 {
+  color: #f15e07;
+}
