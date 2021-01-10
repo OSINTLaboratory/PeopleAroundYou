@@ -32,16 +32,17 @@ class Logging {
     const path = ROOT + '/' + date.split(' ')[0] + '.txt';
     const time = date.split(' ')[1];
 
-      let log = `[${time}][${label}]  ${text}\n`;
+      let log = `[${time}][${label}]  ${text}`;
 
     if (!fs.existsSync(path)) {
       fs.closeSync(fs.openSync(path, 'w')); // Create an empty file
     }
 
     fs.appendFileSync(path, log);
-
-    log = `${color.fg.getRgb(0,0,5)}[${time}]${color.fg.getRgb(1,0,5)}[${label}]  ${color.fg.getRgb(colr[0],colr[1],colr[2])}${text}${color.reset}`;
-
+	
+	if(process.env.PORT === undefined){
+		log = `${color.fg.getRgb(0,0,5)}[${time}]${color.fg.getRgb(1,0,5)}[${label}]  ${color.fg.getRgb(colr[0],colr[1],colr[2])}${text}${color.reset}`;
+	}
     console.log(log);
   }
 };

@@ -592,7 +592,7 @@ body #vk_comments,body #vk_comments iframe,body .video-block-description iframe{
 body .video-block-description iframe{height:530px}
 body .age{margin-bottom:10px}
 body .push,body footer{height:171px}
-body footer{background:#000;color:#fff;width:100%;padding:10px 0;position:absolute;bottom:0}
+body footer{background:#000;color:#fff;width:100%;padding:10px 0;height: max-content;}
 body .mail{color:#3cce7b}
 body #to-top{background:#ccc;opacity:.4;position:fixed;z-index:1;left:0;bottom:0;cursor:pointer;width:90px;color:#333;transition:.5s;height:100%;display:none}
 body #to-top:hover{opacity:.6}

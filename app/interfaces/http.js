@@ -29,6 +29,7 @@ class Http {
     this.app.use(userAgent.express());
     this.app.use(fileUpload({ createParentPath: true }));
     this.app.use(express.static(this.static_root));
+    this.userid = undefined;
     this.app.use(parser.json());       // to support JSON-encoded bodies
     this.app.use(parser.urlencoded({     // to support URL-encoded bodies
       extended: false
@@ -87,6 +88,9 @@ class Http {
 			const query_users = this.db.sql();
 			const query_admins = this.db.sql();
 			const query_moders = this.db.sql();
+			query_users.select(["hash", "userid"])
+				.inTable('users')
+				.where({ login: `=${req.body.email}` });
 			query_users.select(["hash"])
 				.inTable('users')
 				.where({ login: `=${req.body.email}` });
@@ -118,6 +122,7 @@ class Http {
 				if(result[0] != undefined) {
 					if(result[0].hash === hashed_pass) {
 						this.user_perm = true;
+						this.userid = +result[0].userid;
 						successAuth();
 					} else {
 						userInvalidPass();
@@ -164,31 +169,31 @@ class Http {
 				this.moder_perm ||
 				this.user_perm
 			){
-				res.send("true").end(200);
+				res.send("true").end();
 			} else {
-				res.send("false").end(200);
+				res.send("false").end();
 			}
 		});
 		
 	this.app.route('/recomendations')
 		.post(async (req, res) => {
 			if(req.cookies === undefined){
-				res.end(200);
+				res.status(200).end();
 				return;
 			}
 			
 			if(req.cookies['session'] === undefined){
-				res.end(200);
+				res.status(200).end();
 				return;
 			}
 			
 			if(this.sessions_id[hash(JSON.stringify(req.useragent))] === undefined){
-				res.end(200);
+				res.status(200).end();
 				return;
 			}
 			
 			if(this.sessions_id[hash(JSON.stringify(req.useragent))] != req.cookies['session']){
-				res.end(200);
+				res.status(200).end();
 				return;
 			}
 			// Get current user login from session
@@ -202,6 +207,9 @@ class Http {
 				if (err) {
 					Core.log.warning(err);
 					res.status(500).end();
+					return;
+				}
+				if(!result[0]){
 					return;
 				}
 				const arrOfFilmIDs = result[0].viewed;
@@ -276,6 +284,88 @@ class Http {
 					return;
 				}
 				res.status(200).end();
+			});
+		});
+		
+	this.app.route('/getFilmById')
+		.post( async (req, res) => {
+			const id = parseInt(req.body.id);
+			
+			const query = this.db.sql();
+			query.select(['filmid', 'title', 'year', 'rating', 'rating_count', 'views', 'genre'])
+				.inTable('films').where({ filmid:`=${id}` });
+
+			await query.exec(async(err, result) => {
+				if (err) {
+					Core.log.warning(err);
+					res.status(500).end();
+					return;
+				}
+				const data = result[0];
+				const query = this.db.sql();
+				query.select(['lable'])
+					.inTable('genres').where({ genreid:`=${result[0].genre}` });
+
+				await query.exec((err, result) => {
+					if (err) {
+						Core.log.warning(err);
+						res.status(500).end();
+						return;
+					}
+					data.genre = result[0].lable;
+					res.send(JSON.stringify(data)).end();
+				});
+			});
+		});
+		
+	this.app.route('/addScore')
+		.post( async (req, res) => {
+			let query = this.db.sql();
+			query.select(['rating', 'rating_count'])
+				.inTable('films').where({ filmid:`=${req.body.id}` });
+
+			await query.exec( async (err, result) => {
+				if (err) {
+					Core.log.warning(err);
+					res.status(500).end();
+					return;
+				}
+				let new_rating = parseFloat(req.body.rating);
+				let rating = parseFloat(result[0].rating);
+				let count = parseInt(result[0].rating_count);
+				
+				rating = rating / count;
+				new_rating = (new_rating + rating) / 2;
+				new_rating += rating;
+				
+				let query = this.db.sql();
+				query.update('rating')
+					.inTable('films')
+					.set(new_rating)
+					.where({ filmid: `=${req.body.id}` });
+
+				await query.exec(async err => {
+					if (err) {
+						Core.log.warning(err);
+						res.status(500).end();
+						return;
+					}
+					let query = this.db.sql();
+					query.update('rating_count')
+						.inTable('films')
+						.set(count + 1)
+						.where({ filmid: `=${req.body.id}` });
+
+					await query.exec(async err => {
+						if (err) {
+							Core.log.warning(err);
+							res.status(500).end();
+							return;
+						}
+
+						res.status(200).end();
+					});
+				});
 			});
 		});
 		
@@ -496,8 +586,8 @@ class Http {
 					  Core.log.warning(err);
 					  res.status(500).end();
 					  return;
-				  }
-				  res.send(JSON.stringify(result)).end();
+					  }
+				 	 res.send(JSON.stringify(result)).end();
 			  });
 		  });
 
@@ -518,7 +608,7 @@ class Http {
 					  res.status(200).end();
 				  });
 			  } else {
-				  res.status(403).end();
+					  res.status(403).end();
 			  }
 		  });
 	  
@@ -542,10 +632,71 @@ class Http {
 					  res.status(200).end();
 				  });
 			  } else {
-				  res.status(403).end();
+				 	 res.status(403).end();
 			  }
 		  });
-  
+  	
+	  this.app.route('/getCommentsForFilm')
+		  .post(async  (req, res) => {
+			  const query = this.db.sql();
+
+			  query.select(['userid', 'textdata'])
+				 .inTable('comments')
+				 .where({ filmid: `=${req.body.id}` });
+
+		          await query.exec((err, result) => {
+					 if (err) {
+						  Core.log.warning(err);
+						  res.status(500).end();
+						  return;
+					  }
+
+					  res.send(JSON.stringify(result)).end();
+				  });
+
+		  });
+
+	  this.app.route('/getUsername')
+		  .post(async  (req, res) => {
+			  const query = this.db.sql();
+
+			  query.select(['login'])
+				  .inTable('users')
+				  .where({ userid: `=${req.body.id}` });
+
+			  await query.exec((err, result) => {
+				        if (err) {
+					 	  Core.log.warning(err);
+						  res.status(500).end();
+						  return;
+				 	 }
+
+				 	 res.send(JSON.stringify(result)).end();
+				  });
+	
+		 });
+
+	  this.app.route('/addComment')
+		  .post(async  (req, res) => {
+
+		  	  const query = this.db.sql();
+			  query.insert({
+				  filmid: req.body.filmid,
+				  userid: this.userid,
+				  textdata: req.body.textdata,
+			  }).inTable('comments');
+
+			  await query.exec((err, result) => {
+				 	 if (err) {
+						  Core.log.warning(err);
+						  res.status(500).end();
+						  return;
+				 	 }
+	
+				 	 res.status(200).end();
+			  });
+
+		  });
 	  
     this.app.listen(this.port, () => {
       Core.log.info('Http server started');

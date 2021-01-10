@@ -8,12 +8,11 @@ const Core = require('../core');
 
 class DB {
   constructor(config){
-	Core.log.info("Initializing database");
-	Core.log.info("Database config: " + JSON.stringify(config));
+	Core.log.info("Connecting to the database");
     this.pool = new Pool(config);
 	Core.log.info("Pool created");
 	Core.log.info('Test connection');
-	this.is_ready = this.pool.query('SELECT NOW()')
+	this.is_ready = this.pool.query('SELECT NOW();')
 		.then(res => {
 			Core.log.info('Connection established');
 			Core.log.info('Initializing database');
