@@ -34,7 +34,11 @@ class Http {
     this.app.use(parser.urlencoded({     // to support URL-encoded bodies
       extended: false
     }));
-	
+    this.app.use( (req, res, next) => {
+	 req.db = this.db;
+ 	 next();
+    });
+	  
 	this.app.route('/catalog')
 		.post( async (req, res) => {
 			const query = this.db.sql();
