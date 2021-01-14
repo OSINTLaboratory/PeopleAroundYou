@@ -49,7 +49,7 @@ const MODE_ROW = 2;
 const MODE_COL = 3;
 const MODE_COUNT = 4;
 
-const sql = (pool) => {
+const sql = pool => {
   const sql = undefined;
   const op = null;
   const table = null;
@@ -60,8 +60,8 @@ const sql = (pool) => {
   const mode = MODE_ROWS;
   const whereClause = undefined;
   const updatedColumn = undefined;
-  const _fields = new Array;
-  const args = new Array;
+  const _fields = new Array();
+  const args = new Array();
   const newArg = undefined;
   const orderBy = undefined;
 
@@ -94,14 +94,14 @@ const sql = (pool) => {
 
     insert(values) {
       this.op = this.buildInsert;
-	  
+
       for (const key in values) {
         this._fields.push(key);
         this.args.push(values[key]);
       }
       return this;
     },
-	  
+
     update(column) {
       this.op = this.buildUpdate;
       this.updatedColumn = column;
@@ -112,18 +112,18 @@ const sql = (pool) => {
       this.op = this.buildDelete;
       return this;
     },
-	  
+
     set(val) {
       this.newArg = val;
       return this;
     },
-	
+
     fields(values) {
       for (const key of values) {
         this._fields.push(key);
       }
     },
-	
+
     where(conditions) {
       const { sclause, args } = where(conditions);
       this.whereClause = sclause;
@@ -138,7 +138,7 @@ const sql = (pool) => {
 
     value(val) {
       this.mode = MODE_VALUE;
-      this._fields = new Array;
+      this._fields = new Array();
       this._fields.push(val);
       return this;
     },
@@ -174,7 +174,7 @@ const sql = (pool) => {
       this.sql = { sql,
         values: args };
     },
-	  
+
     buildUpdate() {
       const { table, args, newArg } = this;
       const { whereClause, updatedColumn } = this;
@@ -186,9 +186,9 @@ const sql = (pool) => {
     buildInsert() {
       const { table, _fields, args } = this;
       const flds = _fields.join(', ');
-      const vals = new Array;
+      const vals = new Array();
 	  let i = 1;
-	  for(const item of _fields){
+	  for (const item of _fields) {
 		  vals.push(`$${i}`);
 		  i++;
 	  }
@@ -197,7 +197,7 @@ const sql = (pool) => {
       this.sql = { sql,
         values: args };
     },
-	
+
     buildDelete() {
       const { table, args } = this;
       const { whereClause } = this;
@@ -211,10 +211,10 @@ const sql = (pool) => {
 	  this.op();
 
       const { sql, values } = this.sql;
-			console.log(sql);
+      console.log(sql);
 	  this.pool.query(sql, values, (err, res) => {
         if (callback) {
-		  if(res === undefined){
+		  if (res === undefined) {
 			  callback(err, undefined);
 			  return;
 		  }
@@ -226,11 +226,11 @@ const sql = (pool) => {
           if (mode === MODE_VALUE) {
             const col = cols[0];
             const row = rows[0];
-			if(row === undefined){
-				callback(err, undefined);
-			} else {
-				callback(err, row[col.name]);
-			}
+            if (row === undefined) {
+              callback(err, undefined);
+            } else {
+              callback(err, row[col.name]);
+            }
           } else if (mode === MODE_ROW) {
             callback(err, rows[0]);
           } else if (mode === MODE_COL) {

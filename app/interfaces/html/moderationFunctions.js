@@ -4,22 +4,22 @@ const modal = document.querySelector('modal');
 const overlay = document.querySelector('overlay');
 
 overlay.addEventListener('click', () => {
-    modal.classList.remove('active');
-    overlay.classList.remove('active');
-    document.querySelector('table') ? document.querySelector('table').remove() : 0;
-    document.querySelector('.filmForm') ? document.querySelector('.filmForm').remove() : 0;
+  modal.classList.remove('active');
+  overlay.classList.remove('active');
+  document.querySelector('table') ? document.querySelector('table').remove() : 0;
+  document.querySelector('.filmForm') ? document.querySelector('.filmForm').remove() : 0;
 });
 
 async function removeFilm(id) {
-    await makeRequest(JSON.stringify({ id }), "POST", "/removeFilm").then(() => {
-        document.querySelector(`#film_${id}`).remove();
-    });
+  await makeRequest(JSON.stringify({ id }), 'POST', '/removeFilm');
+  document.querySelector(`#film_${id}`).remove();
+
 }
 
-async function showFilms() {
-    await makeRequest('', "POST", "/showFilms").then(res => {
-        const data = JSON.parse(res);
-        const tableHead = `
+function showFilms() {
+  makeRequest('', 'POST', '/showFilms').then(res => {
+    const data = JSON.parse(res);
+    const tableHead = `
                 <thead>
                     <tr>
                         <th>ID фильма</th>
@@ -35,10 +35,10 @@ async function showFilms() {
                     </tr>
                 </thead>`;
 
-        let tableBody = '';
-        for (let i = 0; i < data.length; i++) {
-            const id = data[i].filmid;
-            tableBody += `
+    let tableBody = '';
+    for (let i = 0; i < data.length; i++) {
+      const id = data[i].filmid;
+      tableBody += `
                 <tr id="film_${id}">
                     <td>${id}</td>
                     <td>${data[i].title}</td>
@@ -51,36 +51,36 @@ async function showFilms() {
                     <td>${data[i].url}</td>
                     <td class="removeBtn" onclick="removeFilm(${id})">X</td>
                 </tr>`;
-        }
-
-        const table = document.createElement('table');
-        table.innerHTML += tableHead + tableBody;
-
-        modal.appendChild(table);
-        modal.classList.add('active');
-        overlay.classList.add('active');
-    });
-};
-
-async function addFilm() {
-    const genres = [];
-
-    await makeRequest('', "POST", "/genres").then(res => {
-        res = JSON.parse(res);
-        res.map(element => {
-            genres.push(element['lable']);
-        });
-    });
-
-    let options = '';
-
-    for (let i = 0; i < genres.length; i++) {
-        options += `<option>${genres[i]}</option>`;
     }
 
-    const filmForm = document.createElement('div');
-    filmForm.className = 'filmForm';
-    filmForm.innerHTML = `
+    const table = document.createElement('table');
+    table.innerHTML += tableHead + tableBody;
+
+    modal.appendChild(table);
+    modal.classList.add('active');
+    overlay.classList.add('active');
+  });
+}
+
+async function addFilm() {
+  const genres = [];
+
+  await makeRequest('', 'POST', '/genres').then(res => {
+    res = JSON.parse(res);
+    res.map(element => {
+      genres.push(element['lable']);
+    });
+  });
+
+  let options = '';
+
+  for (let i = 0; i < genres.length; i++) {
+    options += `<option>${genres[i]}</option>`;
+  }
+
+  const filmForm = document.createElement('div');
+  filmForm.className = 'filmForm';
+  filmForm.innerHTML = `
         <form action="/addFilm" method="post" enctype="multipart/form-data" target="dummy">
             <div class="container">
                 <h1>Добавить фильм</h1>
@@ -111,31 +111,30 @@ async function addFilm() {
             </div>
         </form>`;
 
-    modal.appendChild(filmForm);
-    modal.classList.add('active');
-    overlay.classList.add('active');
+  modal.appendChild(filmForm);
+  modal.classList.add('active');
+  overlay.classList.add('active');
 }
 
 async function approveComment(id) {
-    await makeRequest(JSON.stringify({ id }), 'POST', '/approveComment').then(() => {
-        const el = document.querySelector(`#approveBtn_${id}`);
-        el.style.color = 'green';
-        el.onclick = '';
-        el.innerHTML = 'Подтвержден';
+  await makeRequest(JSON.stringify({ id }), 'POST', '/approveComment')
+  const el = document.querySelector(`#approveBtn_${id}`);
+  el.style.color = 'green';
+  el.onclick = '';
+  el.innerHTML = 'Подтвержден';
 
-    });
 }
 
 async function removeComment(id) {
-    await makeRequest(JSON.stringify({ id }), "POST", "/removeComment").then(() => {
-        document.querySelector(`#comment_${id}`).remove();
-    });
+  await makeRequest(JSON.stringify({ id }), 'POST', '/removeComment')
+  document.querySelector(`#comment_${id}`).remove();
+
 }
 
-async function showComments() {
-    await makeRequest('', 'POST', '/showComments').then(res => {
-        const data = JSON.parse(res);
-        const tableHead = `
+function showComments() {
+  makeRequest('', 'POST', '/showComments').then(res => {
+    const data = JSON.parse(res);
+    const tableHead = `
                 <thead>
                     <tr>
                         <th>ID комментария</th>
@@ -148,20 +147,20 @@ async function showComments() {
                     </tr>
                 </thead>`;
 
-        let tableBody = '';
-        for (let i = 0; i < data.length; i++) {
-            const id = data[i].commentid;
+    let tableBody = '';
+    for (let i = 0; i < data.length; i++) {
+      const id = data[i].commentid;
 
-            let approved = '';
+      let approved = '';
 
-            if (data[i].approved) {
-                approved = `<td style="color:green;">Подтвержден</td>`;
-            } else {
-                approved = `<td class="approveBtn" id="approveBtn_${id}" onclick="approveComment(${id})">Подтвердить</td>`;
+      if (data[i].approved) {
+        approved = '<td style="color:green;">Подтвержден</td>';
+      } else {
+        approved = `<td class="approveBtn" id="approveBtn_${id}" onclick="approveComment(${id})">Подтвердить</td>`;
 
-            }
+      }
 
-            tableBody += `
+      tableBody += `
                 <tr id="comment_${id}">
                     <td>${id}</td>
                     <td>${data[i].filmid}</td>
@@ -171,13 +170,13 @@ async function showComments() {
                     ${approved}
                     <td class="removeBtn" onclick="removeComment(${id})">X</td>
                 </tr>`;
-        }
+    }
 
-        const table = document.createElement('table');
-        table.innerHTML += tableHead + tableBody;
+    const table = document.createElement('table');
+    table.innerHTML += tableHead + tableBody;
 
-        modal.appendChild(table);
-        modal.classList.add('active');
-        overlay.classList.add('active');
-    });
+    modal.appendChild(table);
+    modal.classList.add('active');
+    overlay.classList.add('active');
+  });
 }

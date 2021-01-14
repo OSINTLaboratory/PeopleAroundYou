@@ -1,4 +1,6 @@
-async function GetFilm(req, res){
+'use strict';
+
+async function GetFilm(req, res) {
   const id = req.body.id;
   const query = req.db.sql();
   query.select(['filmid', 'title', 'year', 'rating', 'views', 'poster', 'genre'])
@@ -6,7 +8,7 @@ async function GetFilm(req, res){
     .where({ filmid: id });
 
   await query.exec((err, result) => {
-    if(err) {
+    if (err) {
       Core.log.warning(err);
       res.status(500).end();
       return;

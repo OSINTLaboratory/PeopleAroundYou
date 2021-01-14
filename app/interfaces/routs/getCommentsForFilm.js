@@ -1,6 +1,8 @@
-const Core = require("../../core");
+'use strict';
 
-async function GetCommentsForFilm(req, res){
+const Core = require('../../core');
+
+async function GetCommentsForFilm(req, res) {
   const query = req.db.sql();
 
   query.select(['userid', 'textdata'])

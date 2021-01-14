@@ -1,12 +1,14 @@
+'use strict';
+
 const IsLogin = async (req, res) => {
-  if(
+  if (
     req.admin_perm ||
     req.moder_perm ||
     req.user_perm
-  ){
-    res.send("true").end();
+  ) {
+    res.send('true').end();
   } else {
-    res.send("false").end();
+    res.send('false').end();
   }
 };
 module.exports = IsLogin;

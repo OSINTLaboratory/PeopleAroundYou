@@ -1,6 +1,8 @@
-const Core = require("../../core");
+'use strict';
 
-async function AddComments(req, res){
+const Core = require('../../core');
+
+async function AddComments(req, res) {
   const query = req.db.sql();
   query.insert({
     filmid: req.body.filmid,
@@ -8,7 +10,7 @@ async function AddComments(req, res){
     textdata: req.body.textdata,
   }).inTable('comments');
 
-  await query.exec((err) => {
+  await query.exec(err => {
     if (err) {
       Core.log.warning(err);
       res.status(500).end();

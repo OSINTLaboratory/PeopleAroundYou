@@ -1,4 +1,6 @@
-async function ApproveComment(req, res){
+'use strict';
+
+async function ApproveComment(req, res) {
   if (req.moder_perm) {
     const query = req.db.sql();
 

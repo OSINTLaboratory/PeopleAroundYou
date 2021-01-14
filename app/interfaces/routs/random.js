@@ -1,10 +1,12 @@
-const Core = require("../../core");
+'use strict';
 
-async function Random(req, res){
+const Core = require('../../core');
+
+async function Random(req, res) {
   const query = req.db.sql();
 
   query.select(['filmid']);
-  query.inTable('films')
+  query.inTable('films');
   query.order('RANDOM() LIMIT(1)');
 
   await query.exec(async (err, result) => {

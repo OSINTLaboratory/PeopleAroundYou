@@ -1,11 +1,13 @@
-const Core = require("../../core");
+'use strict';
 
-async function AddScore(req, res){
-  let query = req.db.sql();
+const Core = require('../../core');
+
+async function AddScore(req, res) {
+  const query = req.db.sql();
   query.select(['rating', 'rating_count'])
-    .inTable('films').where({ filmid:`=${req.body.id}` });
+    .inTable('films').where({ filmid: `=${req.body.id}` });
 
-  await query.exec( async (err, result) => {
+  await query.exec(async (err, result) => {
     if (err) {
       Core.log.warning(err);
       res.status(500).end();
@@ -13,13 +15,13 @@ async function AddScore(req, res){
     }
     let new_rating = parseFloat(req.body.rating);
     let rating = parseFloat(result[0].rating);
-    let count = parseInt(result[0].rating_count);
+    const count = parseInt(result[0].rating_count);
 
-    rating = rating / count;
+    rating /= count;
     new_rating = (new_rating + rating) / 2;
     new_rating += rating;
 
-    let query = req.db.sql();
+    const query = req.db.sql();
     query.update('rating')
       .inTable('films')
       .set(new_rating)
@@ -31,7 +33,7 @@ async function AddScore(req, res){
         res.status(500).end();
         return;
       }
-      let query = req.db.sql();
+      const query = req.db.sql();
       query.update('rating_count')
         .inTable('films')
         .set(count + 1)

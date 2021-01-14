@@ -1,23 +1,25 @@
-const Core = require("../../core");
-const {hash} = require("../crypto");
+'use strict';
 
-async function Recommendations(req, res){
-  if(req.cookies === undefined){
+const Core = require('../../core');
+const { hash } = require('../crypto');
+
+async function Recommendations(req, res) {
+  if (req.cookies === undefined) {
     res.status(200).end();
     return;
   }
 
-  if(req.cookies['session'] === undefined){
+  if (req.cookies['session'] === undefined) {
     res.status(200).end();
     return;
   }
 
-  if(req.sessions_id[hash(JSON.stringify(req.useragent))] === undefined){
+  if (req.sessions_id[hash(JSON.stringify(req.useragent))] === undefined) {
     res.status(200).end();
     return;
   }
 
-  if(req.sessions_id[hash(JSON.stringify(req.useragent))] !== req.cookies['session']){
+  if (req.sessions_id[hash(JSON.stringify(req.useragent))] !== req.cookies['session']) {
     res.status(200).end();
     return;
   }
@@ -28,20 +30,20 @@ async function Recommendations(req, res){
   query.select(['viewed'])
     .inTable('users')
     .where({ login: `=${login}` });
-  await query.exec( async (err, result) => {
+  await query.exec(async (err, result) => {
     if (err) {
       Core.log.warning(err);
       res.status(500).end();
       return;
     }
-    if(!result[0]){
+    if (!result[0]) {
       return;
     }
     const arrOfFilmIDs = result[0].viewed;
     console.log(arrOfFilmIDs);
     // Create map of genre->count of viewed by this user
-    const viewed_genres_dat = new Object;
-    for(const filmId of arrOfFilmIDs){
+    const viewed_genres_dat = new Object();
+    for (const filmId of arrOfFilmIDs) {
       query = req.db.sql();
       query.select(['genre'])
         .inTable('films')
@@ -52,13 +54,13 @@ async function Recommendations(req, res){
           res.status(500).end();
           return;
         }
-        if(result[0] === undefined){
+        if (result[0] === undefined) {
           return;
         }
 
-        if(viewed_genres_dat[result[0].genre] === undefined){
+        if (viewed_genres_dat[result[0].genre] === undefined) {
           viewed_genres_dat[result[0].genre] = 0;
-        }else{
+        } else {
           viewed_genres_dat[result[0].genre]++;
         }
       });
@@ -69,9 +71,9 @@ async function Recommendations(req, res){
       genre: 0,
       count: 0
     };
-    for(const genre in viewed_genres_dat){
+    for (const genre in viewed_genres_dat) {
       const count = viewed_genres_dat[genre];
-      if(count > max_viewed_genre.count){
+      if (count > max_viewed_genre.count) {
         max_viewed_genre.count = count;
         max_viewed_genre.genre = genre;
       }

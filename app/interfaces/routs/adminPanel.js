@@ -1,7 +1,9 @@
-const Core = require("../../core");
-const {hash} = require("../crypto");
+'use strict';
 
-async function AdminPanel(req, res){
+const Core = require('../../core');
+const { hash } = require('../crypto');
+
+async function AdminPanel(req, res) {
   console.log(req.body);
   const salt = req.body.email;
   const query = req.db.sql();

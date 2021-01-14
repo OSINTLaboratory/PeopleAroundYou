@@ -2,51 +2,46 @@
 
 const CODES = {
   0x000001: {
-    msg: "unknown error: all fuck up"
+    msg: 'unknown error: all fuck up'
   },
   0x000002: {
-    msg: "config file not found"
+    msg: 'config file not found'
   },
-}
+};
 
-const errorCodeToStr = (code) => {
-  return code.toString();
-}
+const errorCodeToStr = code => code.toString();
 
 class CustomError {
-  constructor(code){
+  constructor(code) {
     const err = {};
     err.stack = (new Error()).stack;
-    if(CODES[code])
-    {
+    if (CODES[code]) {
       err.code = code;
       err.msg = CODES[code].msg;
-    }
-    else
-    {
+    } else {
       err.msg = code;
     }
     return err;
   }
-  static toString(err){
+  static toString(err) {
     let text = '';
-    if(err.code){
+    if (err.code) {
       text += `(${errorCodeToStr(err.code)}) `;
     }
-    if(err.msg){
+    if (err.msg) {
       text += `${err.msg} `;
     }
-    if(err.message && !err.stack){
+    if (err.message && !err.stack) {
       text += `${err.message} `;
     }
-    if(err.dest){
+    if (err.dest) {
       text += `${err.dest} `;
     }
-    if(err.stack){
+    if (err.stack) {
       text += `${err.stack} `;
     }
     return text;
   }
-};
+}
 
 module.exports = CustomError;

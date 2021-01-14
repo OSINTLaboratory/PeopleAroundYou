@@ -1,6 +1,8 @@
-const Core = require("../../core");
+'use strict';
 
-async function RemoveComments(req, res){
+const Core = require('../../core');
+
+async function RemoveComments(req, res) {
   if (req.moder_perm) {
     const query = req.db.sql();
 

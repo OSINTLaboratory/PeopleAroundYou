@@ -1,6 +1,8 @@
-const Core = require("../../core");
+'use strict';
 
-async function AddFilm(req, res){
+const Core = require('../../core');
+
+async function AddFilm(req, res) {
   const poster = req.files.poster;
   const movie = req.files.url;
   const posterType = poster.mimetype;
@@ -33,7 +35,7 @@ async function AddFilm(req, res){
       url: movieName,
     }).inTable('films');
 
-    await query.exec((err) => {
+    await query.exec(err => {
       if (err) {
         Core.log.warning(err);
         res.status(500).end();
@@ -41,7 +43,7 @@ async function AddFilm(req, res){
       }
       res.status(200).end();
     });
-  })
+  });
 }
 
 module.exports = AddFilm;

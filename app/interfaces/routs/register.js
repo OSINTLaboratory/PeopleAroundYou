@@ -1,7 +1,9 @@
-const Core = require("../../core");
-const {hash} = require("../crypto");
+'use strict';
 
-async function Register(req, res){
+const Core = require('../../core');
+const { hash } = require('../crypto');
+
+async function Register(req, res) {
   const salt = req.body.email;
   const query = req.db.sql();
   query.insert({
@@ -9,7 +11,7 @@ async function Register(req, res){
     hash: hash(req.body.password + salt)
   })
     .inTable('users');
-  await query.exec((err) => {
+  await query.exec(err => {
     if (err) {
       Core.log.warning(err);
       res.status(500).end();

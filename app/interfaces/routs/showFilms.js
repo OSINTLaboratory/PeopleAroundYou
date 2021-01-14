@@ -1,6 +1,8 @@
-const Core = require("../../core");
+'use strict';
 
-async function ShowFilms(req, res){
+const Core = require('../../core');
+
+async function ShowFilms(req, res) {
   const query = req.db.sql();
 
   query.select(['filmid', 'title', 'year', 'rating', 'views', 'poster', 'genre', 'free', 'url'])
@@ -13,7 +15,7 @@ async function ShowFilms(req, res){
       return;
     }
     res.send(JSON.stringify(result)).end();
-  })
+  });
 }
 
 module.exports = ShowFilms;

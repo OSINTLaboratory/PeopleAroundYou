@@ -28,7 +28,7 @@ class Utils {
     }
   }
 
-  static curry(fn){
+  static curry(fn) {
     return (...args) => {
       if (fn.length > args.length) {
         const f = fn.bind(null, ...args);
@@ -36,7 +36,7 @@ class Utils {
       } else {
         return fn(...args);
       }
-    }
+    };
   }
 
   static curryEx(fn, ...par) {
@@ -58,11 +58,11 @@ class Utils {
             args.length) ?
             Utils.curryEx(fn.bind(null, ...args)) :
             fn(...args)
-          ):
+        ) :
         fn(...args)
     );
     return par.length ? curried(...par) : curried;
   }
-};
+}
 
 module.exports = Utils;

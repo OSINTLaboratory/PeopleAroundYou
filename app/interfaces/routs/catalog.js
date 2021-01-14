@@ -1,24 +1,26 @@
-const Core = require("../../core");
+'use strict';
 
-async function Catalog(req, res){
+const Core = require('../../core');
+
+async function Catalog(req, res) {
   const query = req.db.sql();
   query.select(['filmid', 'title', 'year', 'rating', 'views', 'poster', 'genre'])
     .inTable('films');
 
-  if(query.top !== undefined){
+  if (query.top !== undefined) {
     // Getting top 10 according rating
     query.order('rating DESC LIMIT 10');
-  }else{
+  } else {
     query.order('title ASC');
   }
 
-  if(query.word !== undefined){
+  if (query.word !== undefined) {
     // For search query
-    query.where({title:`*${req.query.word}*`});
+    query.where({ title: `*${req.query.word}*` });
   }
 
   await query.exec((err, result) => {
-    if(err){
+    if (err) {
       Core.log.warning(err);
       res.status(500).end();
       return;
