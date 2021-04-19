@@ -1,22 +1,23 @@
 {
-  "name": "view",
+  "name": "filmhub",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node tests/framework/start.js",
+    "lint": "eslint . --fix",
     "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WWWLaboratory/view.git"
+    "url": "git+https://github.com/UniversityTeam/filmhub"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/WWWLaboratory/view/issues"
+    "url": "https://github.com/UniversityTeam/filmhub/issues"
   },
-  "homepage": "https://github.com/WWWLaboratory/view#readme",
+  "homepage": "https://github.com/UniversityTeam/filmhub#readme",
   "dependencies": {
     "ansi-256-colors": "^1.1.0",
     "cookie-parser": "^1.4.5",

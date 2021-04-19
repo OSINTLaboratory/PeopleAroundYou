@@ -117,7 +117,7 @@ async function addFilm() {
 }
 
 async function approveComment(id) {
-  await makeRequest(JSON.stringify({ id }), 'POST', '/approveComment')
+  await makeRequest(JSON.stringify({ id }), 'POST', '/approveComment');
   const el = document.querySelector(`#approveBtn_${id}`);
   el.style.color = 'green';
   el.onclick = '';
@@ -126,7 +126,7 @@ async function approveComment(id) {
 }
 
 async function removeComment(id) {
-  await makeRequest(JSON.stringify({ id }), 'POST', '/removeComment')
+  await makeRequest(JSON.stringify({ id }), 'POST', '/removeComment');
   document.querySelector(`#comment_${id}`).remove();
 
 }
