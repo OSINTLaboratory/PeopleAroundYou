@@ -5,7 +5,7 @@ const { assert } = require('./framework/helper');
 const Database = require('../app/interfaces/db');
 
 const fakeDB = () => new Database({
-    connectionString: `postgresql://postgres:2002@localhost:5432/application`,
+    connectionString: `postgresql://${process.env.USER}:${process.env.USER}@localhost:5432/application`,
     ssl: false
 });
 
