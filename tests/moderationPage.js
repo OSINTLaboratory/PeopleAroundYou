@@ -3,6 +3,17 @@
 const Task = require('./framework/task');
 const { assert } = require('./framework/helper');
 
+const expectedCommentInfo1 = {
+  commentid: 1,
+  filmid: 4,
+  userid: 2,
+  textdata: 'Film so bad don`t rec',
+  approved: false
+};
+const expectedCommentText = 'Noice';
+const expectedFilmTitle = 'Bitcoin';
+const expectedFilmsCount = 28;
+
 module.exports = [
   new Task(
     'Test to open moderation page without permissions',
@@ -15,12 +26,6 @@ module.exports = [
     'post', '/removeFilm',
     res => assert(res.statusCode, 403)
   ),
-
-  // new Task(
-  //     'Test to add film without permissions',
-  //     'post', '/addFilm',
-  //     res => assert(res.statusCode, 403)
-  // ),
 
   new Task(
     'Test to remove comment without permissions',
@@ -46,5 +51,28 @@ module.exports = [
     res => assert(res.statusCode, 200)
   ),
 
+  new Task(
+    'Test show comments first comment:',
+    'post', '/showComments',
+   (res, data) => assert(JSON.stringify(JSON.parse(data)[0]), JSON.stringify(expectedCommentInfo1))
+  ),
+
+  new Task(
+    'Test show comments first comment:',
+    'post', '/showComments',
+    (res, data) => assert(JSON.parse(data)[1].textdata, expectedCommentText)
+  ),
+
+  new Task(
+    'Test first film:',
+    'post', '/showFilms',
+    (res, data) => assert(JSON.parse(data)[0].title, expectedFilmTitle)
+  ),
+
+  new Task(
+    'Test film quantity:',
+    'post', '/showFilms',
+    (res, data) => assert(JSON.parse(data).length, expectedFilmsCount)
+  ),
 ];
 
