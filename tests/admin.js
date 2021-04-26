@@ -100,9 +100,9 @@ module.exports = [
         'Test admin access to the panel',
         'get', '/adminPanel',
         (res, data1) => fakeAdmin( {role: 'Администратор', email: 'test', password: 'pass'},
-        data2 => assert(data1, data2)),'{"role": "Администратор", "email": "test", "password": "pass"}'
+        data2 => assert(data1, data2),'{"role": "Администратор", "email": "test", "password": "pass"}')
 
-    ),
+    )
 ];
 
 
