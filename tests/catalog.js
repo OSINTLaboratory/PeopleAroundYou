@@ -2,12 +2,13 @@ const Task = require('./framework/task');
 const { assert } = require('./framework/helper');
 const Database = require('../app/interfaces/db');
 
+const fakeDB = () => new Database({
+   connectionString: `postgresql://${process.env.USER}:${process.env.USER}@localhost:5432/application`,
+   ssl: false
+});
+
 const fakeCatalogEndpoint = (callback) => {
-  const username = process.env.USER;
-  const db = new Database({
-      connectionString: `postgresql://${username}:${username}@localhost:5432/application`,
-      ssl: false
-  });
+  const db = fakeDB();
 
   let result;
   db.isReady.then(async () => {
@@ -27,6 +28,31 @@ const fakeCatalogEndpoint = (callback) => {
       }
     };
     Catalog(req, res);
+  });
+}
+
+const fakeCatalogFiltering = (reqData, callback) => {
+  const db = fakeDB();
+
+  let result;
+  db.isReady.then(async () => {
+    const Filter = require('../app/interfaces/routs/filter.js');
+    const req = { db };
+    req.body = reqData;
+    const res = {
+      status(){
+        return {
+          end(){}
+        }
+      },
+      send(data){
+        callback(data);
+	return {
+	  end(){}
+        }
+      }
+    };
+    Filter(req, res);
   });
 }
 
@@ -50,6 +76,34 @@ module.exports = [
 	  'Test catalog top 10 post query',
 	  'post', '/catalog?top=""', 
 	  res => assert(res.statusCode, 200)
+  ),
+  new Task(
+	  'Test catalog filtering access query',
+	  'post', '/filter', 
+	  res => assert(res.statusCode, 200)
+  ),
+  new Task(
+	  'Test catalog filtering access query',
+	  'post', '/filter', 
+	  res => assert(res.statusCode, 200)
+  ),
+  new Task(
+	  'Test catalog filtering by default',
+	  'post', '/filter', 
+	  (res, data1) => fakeCatalogFiltering( 
+		{genre:'1', year_from:'',year_up:'',sort:'RATING'},
+		data2 => assert(data1, data2)
+	  ),
+	  '{"genre":"1","year_from":"2015","year_up":"3000","sort":"RATING"}'
+  ),
+  new Task(
+	  'Test valid catalog filtering data by years',
+	  'post', '/filter', 
+	  (res, data1) => fakeCatalogFiltering( 
+		{genre:'1', year_from:'2015',year_up:'3000',sort:'RATING'},
+		data2 => assert(data1, data2)
+	  ),
+	  '{"genre":"1","year_from":"2015","year_up":"3000","sort":"RATING"}'
   ),
   new Task(
 	  'Test catalog default data',
