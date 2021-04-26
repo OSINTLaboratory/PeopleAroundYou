@@ -78,32 +78,32 @@ module.exports = [
 	  res => assert(res.statusCode, 200)
   ),
   new Task(
-	  'Test catalog filtering access query',
-	  'post', '/filter', 
+	  'Test isLogin endpoint accessing',
+	  'post', '/isLogin',
 	  res => assert(res.statusCode, 200)
   ),
   new Task(
-	  'Test catalog filtering access query',
-	  'post', '/filter', 
-	  res => assert(res.statusCode, 200)
+	  'Test is current user login in',
+	  'post', '/isLogin', 
+	  (res, data) => assert(data, 'false'),
   ),
   new Task(
 	  'Test catalog filtering by default',
 	  'post', '/filter', 
 	  (res, data1) => fakeCatalogFiltering( 
-		{genre:'1', year_from:'',year_up:'',sort:'RATING'},
+		{genre:1, sort:'RATING'},
 		data2 => assert(data1, data2)
 	  ),
-	  '{"genre":"1","year_from":"2015","year_up":"3000","sort":"RATING"}'
+	  '{"genre":1,"sort":"RATING"}'
   ),
   new Task(
 	  'Test valid catalog filtering data by years',
 	  'post', '/filter', 
 	  (res, data1) => fakeCatalogFiltering( 
-		{genre:'1', year_from:'2015',year_up:'3000',sort:'RATING'},
+		{genre:1, year_from:2015,year_up:3000,sort:'RATING'},
 		data2 => assert(data1, data2)
 	  ),
-	  '{"genre":"1","year_from":"2015","year_up":"3000","sort":"RATING"}'
+	  '{"genre":1,"year_from":2015,"year_up":3000,"sort":"RATING"}'
   ),
   new Task(
 	  'Test catalog default data',
