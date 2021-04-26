@@ -32,10 +32,13 @@ Filmhub - це сервіс для перегляду фільмів, який �
 
 ### Dockerize
 1. Build
+```
 sudo docker build -f Dockerfile . -t filmhub:latest
+```
 2. Run
+```
 sudo docker run -p 8000:8000 --rm -it filmhub:latest
-
+```
 
 ## Authors
 
