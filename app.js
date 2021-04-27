@@ -11,10 +11,7 @@ class App {
 
   // старт приложения
   start() {
-    this.interfaces.db = new Database({
-      connectionString: process.env.DATABASE_URL || 'postgresql://postgres:admin@localhost:5432/postgres',
-      ssl: !!process.env.DATABASE_URL
-    });
+    const username = process.env.USER;
     if (process.env.DATABASE_URL) {
       this.interfaces.db = new Database({
         connectionString: process.env.DATABASE_URL,
@@ -24,15 +21,19 @@ class App {
       });
     } else {
       this.interfaces.db = new Database({
-        connectionString: 'postgresql://postgres:admin@localhost:5432/postgres',
+	      connectionString: `postgresql://${username}:${username}@localhost:5432/application`,
         ssl: false
       });
     }
     this.interfaces.db.isReady.then(() => {
-      this.interfaces.http = new Http(process.env.PORT || 80, this.interfaces.db);
+      this.interfaces.http = new Http(process.env.PORT || 8000, this.interfaces.db);
     });
 
     return this;
+  }
+  stop() {
+    this.interfaces.http.close();
+    this.interfaces.db.Pool().end();
   }
 }
 

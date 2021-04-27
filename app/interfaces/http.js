@@ -210,13 +210,14 @@ class Http {
 
     this.app.route('/addComment').post(AddComment);
 
-    this.app.listen(this.port, () => {
+    this.handle = this.app.listen(this.port, () => {
       Core.log.info('Http server started');
     });
   }
-
-  App() {
-    return this.app;
+  close() {
+	  if(this.handle) {
+    this.handle.close();
+	  }
   }
 }
 

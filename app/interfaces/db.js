@@ -15,14 +15,13 @@ class DB {
     this.isReady = this.pool.query('SELECT NOW();')
       .then(() => {
         Core.log.info('Connection established');
-        Core.log.info('Initializing database');
-        const initSql = fs.readFileSync('app/interfaces/init_db.sql').toString();
-        return this.pool.query(initSql)
-          .then(() => Core.log.info('Database ready'))
-          .catch(err => Core.log.warning('Database init ' + err));
       }).catch(err => Core.log.warning('Database not connected ' + err));
   }
-
+  
+  Pool() {
+    return this.pool;
+  }
+  
   sql() {
     return Sql(this.pool);
   }
