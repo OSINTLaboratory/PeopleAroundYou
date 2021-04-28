@@ -1,0 +1,193 @@
+2021-04-28T01:00:45.114Z [info] Listen port 8000 in worker 1
+2021-04-28T01:00:45.141Z [error] /application/api/adminpanel.1/getUsername.js:1;context => async ({ id }) {;                          ^;;SyntaxError: Unexpected token '{';  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:00:45.150Z [error] /application/api/catalog.1/filter.js:14;    query += ' ORDER BY year DESC');;                                  ^;;SyntaxError: Unexpected token ')';  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:00:45.159Z [error] /application/api/moderpanel.1/addFilm.js:5;  const posterName = .title + `.${posterType.slice(posterType.indexOf('/') + 1)}`;;                     ^;;SyntaxError: Unexpected token '.';  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:00:45.187Z [error] /application/api/player.1/addComment.js:1;context => async ({ filmid, userid, textdata }) {;                                                ^;;SyntaxError: Unexpected token '{';  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:00:45.189Z [error] /application/api/player.1/addScore.js:11;    let rating = parseFloat(result[0].rating);;        ^^^^^^;;SyntaxError: Identifier 'rating' has already been declared;  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:00:45.192Z [error] /application/api/player.1/getFilm.js:10;module.exports = GetFilm;;^^^^^^;;SyntaxError: Unexpected identifier;  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:00:45.194Z [error] /application/api/player.1/getFilmById.js:12;;;;SyntaxError: Unexpected end of input;  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:00:47.030Z [debug] Connect to pg
+2021-04-28T01:00:47.033Z [info] Application started in worker 1
+2021-04-28T01:00:52.951Z [info] Graceful shutdown in worker 1
+2021-04-28T01:04:50.566Z [info] Listen port 8000 in worker 1
+2021-04-28T01:04:50.675Z [error] /application/api/player.1/getFilm.js:10;module.exports = GetFilm;;^^^^^^;;SyntaxError: Unexpected identifier;  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:04:50.677Z [error] /application/api/player.1/getFilmById.js:12;;;;SyntaxError: Unexpected end of input;  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:04:52.504Z [debug] Connect to pg
+2021-04-28T01:04:52.514Z [info] Application started in worker 1
+2021-04-28T01:04:52.520Z [info] Graceful shutdown in worker 1
+2021-04-28T01:05:45.415Z [info] Listen port 8000 in worker 1
+2021-04-28T01:05:45.520Z [error] /application/api/player.1/getFilm.js:10;;;;SyntaxError: Unexpected end of input;  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:05:45.523Z [error] /application/api/player.1/getFilmById.js:11;)};;^;;SyntaxError: Unexpected token ')';  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:05:47.305Z [debug] Connect to pg
+2021-04-28T01:05:47.307Z [info] Application started in worker 1
+2021-04-28T01:05:47.309Z [info] Graceful shutdown in worker 1
+2021-04-28T01:06:02.848Z [info] Listen port 8000 in worker 1
+2021-04-28T01:06:02.930Z [error] /application/api/player.1/getFilm.js:10;;;;SyntaxError: Unexpected end of input;  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:06:04.704Z [debug] Connect to pg
+2021-04-28T01:06:04.705Z [info] Application started in worker 1
+2021-04-28T01:06:04.706Z [info] Graceful shutdown in worker 1
+2021-04-28T01:06:20.551Z [info] Listen port 8000 in worker 1
+2021-04-28T01:06:22.442Z [debug] Connect to pg
+2021-04-28T01:06:22.444Z [info] Application started in worker 1
+2021-04-28T01:06:57.887Z [info] Graceful shutdown in worker 1
+2021-04-28T12:22:21.719Z [info] Listen port 8000 in worker 1
+2021-04-28T12:22:23.386Z [debug] Connect to pg
+2021-04-28T12:22:23.388Z [info] Application started in worker 1
+2021-04-28T12:22:43.681Z [debug] Deleted: /static/.index.html.swx
+2021-04-28T12:22:43.683Z [debug] Reload: /static/.index.html.swp
+2021-04-28T12:22:46.877Z [info] Graceful shutdown in worker 1
+2021-04-28T12:25:37.460Z [info] Listen port 8000 in worker 1
+2021-04-28T12:25:39.322Z [debug] Connect to pg
+2021-04-28T12:25:39.324Z [info] Application started in worker 1
+2021-04-28T12:25:59.146Z [debug] Deleted: /static/.index.html.swx
+2021-04-28T12:25:59.148Z [debug] Reload: /static/.index.html.swp
+2021-04-28T12:26:03.582Z [debug] Reload: /static/.index.html.swp
+2021-04-28T12:26:11.258Z [debug] Deleted: /static/4913
+2021-04-28T12:26:11.260Z [debug] Deleted: /static/index.html~
+2021-04-28T12:26:11.260Z [debug] Deleted: /static/.index.html.swp
+2021-04-28T12:26:11.261Z [debug] Reload: /static/index.html
+2021-04-28T12:26:54.654Z [debug] Deleted: /static/btns.js
+2021-04-28T12:27:04.841Z [debug] Deleted: /static/.btns.js.swx
+2021-04-28T12:27:04.842Z [debug] Reload: /static/.btns.js.swp
+2021-04-28T12:27:16.156Z [debug] Deleted: /static/.btns.js.swp
+2021-04-28T12:27:16.157Z [debug] Reload: /static/btns.js
+2021-04-28T12:27:32.362Z [debug] Deleted: /static/.index.html.swx
+2021-04-28T12:27:32.363Z [debug] Reload: /static/.index.html.swp
+2021-04-28T12:27:34.841Z [info] Graceful shutdown in worker 1
+2021-04-28T12:28:45.210Z [info] Listen port 8000 in worker 1
+2021-04-28T12:28:47.022Z [debug] Connect to pg
+2021-04-28T12:28:47.025Z [info] Application started in worker 1
+2021-04-28T12:29:07.645Z [debug] Reload: /static/image/favicon.png
+2021-04-28T12:29:33.995Z [debug] Deleted: /static/style/.index.css.swx
+2021-04-28T12:29:33.996Z [debug] Reload: /static/style/.index.css.swp
+2021-04-28T12:29:42.988Z [debug] Reload: /static/style/.index.css.swp
+2021-04-28T12:29:52.097Z [debug] Reload: /static/style/.index.css.swp
+2021-04-28T12:29:58.993Z [debug] Reload: /static/style/.index.css.swp
+2021-04-28T12:30:16.283Z [debug] Reload: /static/style/.index.css.swp
+2021-04-28T12:31:48.015Z [debug] Deleted: /static/style/4913
+2021-04-28T12:31:48.016Z [debug] Deleted: /static/style/index.css~
+2021-04-28T12:31:48.016Z [debug] Deleted: /static/style/.index.css.swp
+2021-04-28T12:31:48.017Z [debug] Reload: /static/style/index.css
+2021-04-28T12:32:02.132Z [info] Graceful shutdown in worker 1
+2021-04-28T13:39:22.936Z [info] Listen port 8000 in worker 1
+2021-04-28T13:39:24.496Z [debug] Connect to pg
+2021-04-28T13:39:24.497Z [info] Application started in worker 1
+2021-04-28T13:39:57.230Z [debug] Deleted: /static/script/.index.js.swx
+2021-04-28T13:39:57.231Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T13:40:04.780Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T13:40:28.937Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T13:40:48.293Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T13:40:56.003Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T13:41:20.847Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T13:41:36.567Z [debug] Deleted: /static/script/4913
+2021-04-28T13:41:36.570Z [debug] Deleted: /static/script/index.js~
+2021-04-28T13:41:36.570Z [debug] Deleted: /static/script/.index.js.swp
+2021-04-28T13:41:36.571Z [debug] Reload: /static/script/index.js
+2021-04-28T13:41:51.523Z [debug] Deleted: /static/script/.catalog.js.swx
+2021-04-28T13:41:51.525Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:42:09.068Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:42:12.074Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:42:24.939Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:42:37.691Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:42:57.025Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:43:09.135Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:43:31.934Z [info] Graceful shutdown in worker 1
+2021-04-28T13:44:12.030Z [info] Listen port 8000 in worker 1
+2021-04-28T13:44:13.545Z [debug] Connect to pg
+2021-04-28T13:44:13.548Z [info] Application started in worker 1
+2021-04-28T13:44:50.571Z [debug] Deleted: /static/script/.catalog.js.swx
+2021-04-28T13:44:50.571Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:45:14.082Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:45:25.594Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:45:36.793Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:45:39.516Z [debug] Deleted: /static/script/4913
+2021-04-28T13:45:39.517Z [debug] Deleted: /static/script/catalog.js~
+2021-04-28T13:45:39.517Z [debug] Deleted: /static/script/.catalog.js.swp
+2021-04-28T13:45:39.518Z [debug] Reload: /static/script/catalog.js
+2021-04-28T13:45:53.408Z [debug] Deleted: /static/script/.btns.js.swx
+2021-04-28T13:45:53.409Z [debug] Reload: /static/script/.btns.js.swp
+2021-04-28T13:45:57.453Z [debug] Reload: /static/script/.btns.js.swp
+2021-04-28T13:46:00.829Z [debug] Reload: /static/script/.btns.js.swp
+2021-04-28T13:46:04.622Z [debug] Deleted: /static/script/4913
+2021-04-28T13:46:04.625Z [debug] Deleted: /static/script/btns.js~
+2021-04-28T13:46:04.625Z [debug] Deleted: /static/script/.btns.js.swp
+2021-04-28T13:46:04.626Z [debug] Reload: /static/script/btns.js
+2021-04-28T13:46:18.203Z [debug] Deleted: /static/script/.index.js.swx
+2021-04-28T13:46:18.204Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T13:46:37.779Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T13:46:54.809Z [debug] Deleted: /static/script/.index.js.swp
+2021-04-28T13:47:06.701Z [debug] Deleted: /static/script/btns.js
+2021-04-28T13:47:06.703Z [debug] Reload: /static/script/buttons.js
+2021-04-28T13:47:10.085Z [debug] Deleted: /static/script/.buttons.js.swx
+2021-04-28T13:47:10.086Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-28T13:47:14.148Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-28T13:47:20.168Z [debug] Deleted: /static/script/.buttons.js.swp
+2021-04-28T13:47:23.013Z [debug] Deleted: /static/script/.buttons.js.swx
+2021-04-28T13:47:23.014Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-28T13:47:27.109Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-28T13:47:33.896Z [debug] Deleted: /static/script/4913
+2021-04-28T13:47:33.897Z [debug] Deleted: /static/script/buttons.js~
+2021-04-28T13:47:33.899Z [debug] Reload: /static/script/buttons.js
+2021-04-28T13:48:13.697Z [info] Graceful shutdown in worker 1
+2021-04-28T13:48:38.287Z [info] Listen port 8000 in worker 1
+2021-04-28T13:48:40.321Z [debug] Connect to pg
+2021-04-28T13:48:40.327Z [info] Application started in worker 1
+2021-04-28T14:15:43.259Z [debug] Reload: /static/favicon.ico
+2021-04-28T14:17:59.346Z [debug] Deleted: /static/.index.js.swx
+2021-04-28T14:17:59.348Z [debug] Reload: /static/.index.js.swp
+2021-04-28T14:18:01.705Z [debug] Deleted: /static/.index.js.swp
+2021-04-28T14:18:11.736Z [debug] Deleted: /static/script/.index.js.swx
+2021-04-28T14:18:11.737Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T14:18:21.835Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T14:19:11.448Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T14:19:17.518Z [debug] Deleted: /static/script/4913
+2021-04-28T14:19:17.519Z [debug] Deleted: /static/script/index.js~
+2021-04-28T14:19:17.519Z [debug] Deleted: /static/script/.index.js.swp
+2021-04-28T14:19:17.520Z [debug] Reload: /static/script/index.js
+2021-04-28T14:21:49.515Z [debug] Deleted: /api/catalog.1/.random.js.swp
+2021-04-28T14:22:02.721Z [debug] Deleted: /static/.index.html.swx
+2021-04-28T14:22:02.722Z [debug] Reload: /static/.index.html.swp
+2021-04-28T14:22:10.252Z [debug] Deleted: /static/.index.html.swp
+2021-04-28T14:22:26.678Z [debug] Deleted: /static/script/.metacom.js.swx
+2021-04-28T14:22:26.679Z [debug] Reload: /static/script/.metacom.js.swp
+2021-04-28T14:22:30.740Z [debug] Reload: /static/script/.metacom.js.swp
+2021-04-28T14:22:40.856Z [debug] Deleted: /static/script/.metacom.js.swp
+2021-04-28T14:22:45.082Z [debug] Deleted: /static/script/.events.js.swx
+2021-04-28T14:22:45.083Z [debug] Reload: /static/script/.events.js.swp
+2021-04-28T14:22:46.948Z [debug] Deleted: /static/script/.events.js.swp
+2021-04-28T14:22:54.885Z [debug] Deleted: /static/.index.html.swx
+2021-04-28T14:22:54.886Z [debug] Reload: /static/.index.html.swp
+2021-04-28T14:22:58.945Z [debug] Reload: /static/.index.html.swp
+2021-04-28T14:23:06.348Z [debug] Deleted: /static/.index.html.swp
+2021-04-28T14:23:11.521Z [debug] Deleted: /static/script/.index.js.swx
+2021-04-28T14:23:11.521Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T14:23:18.135Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T14:23:20.258Z [debug] Deleted: /static/script/4913
+2021-04-28T14:23:20.259Z [debug] Deleted: /static/script/index.js~
+2021-04-28T14:23:20.259Z [debug] Deleted: /static/script/.index.js.swp
+2021-04-28T14:23:20.260Z [debug] Reload: /static/script/index.js
+2021-04-28T14:23:23.957Z [info] Graceful shutdown in worker 1
+2021-04-28T14:23:30.609Z [info] Listen port 8000 in worker 1
+2021-04-28T14:23:32.640Z [debug] Connect to pg
+2021-04-28T14:23:32.642Z [info] Application started in worker 1
+2021-04-28T14:23:42.243Z [debug] Deleted: /static/script/.index.js.swx
+2021-04-28T14:23:42.245Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T14:23:44.220Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T14:23:53.795Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T14:23:57.805Z [debug] Deleted: /static/script/4913
+2021-04-28T14:23:57.806Z [debug] Deleted: /static/script/index.js~
+2021-04-28T14:23:57.807Z [debug] Deleted: /static/script/.index.js.swp
+2021-04-28T14:23:57.808Z [debug] Reload: /static/script/index.js
+2021-04-28T14:24:51.943Z [info] Graceful shutdown in worker 1
+2021-04-28T14:27:12.109Z [info] Listen port 8000 in worker 1
+2021-04-28T14:27:13.760Z [debug] Connect to pg
+2021-04-28T14:27:13.762Z [info] Application started in worker 1
+2021-04-28T14:28:18.522Z [info] Graceful shutdown in worker 1
+2021-04-28T14:30:01.249Z [info] Listen port 8000 in worker 1
+2021-04-28T14:30:02.848Z [debug] Connect to pg
+2021-04-28T14:30:02.849Z [info] Application started in worker 1
+2021-04-28T14:30:16.121Z [info] Graceful shutdown in worker 1
+2021-04-28T14:30:18.455Z [info] Listen port 8000 in worker 1
+2021-04-28T14:30:20.815Z [debug] Connect to pg
+2021-04-28T14:30:20.818Z [info] Application started in worker 1
+2021-04-28T14:30:48.073Z [info] Graceful shutdown in worker 1

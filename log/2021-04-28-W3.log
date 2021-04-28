@@ -1,0 +1,258 @@
+2021-04-28T01:00:45.090Z [info] Listen port 8002 in worker 3
+2021-04-28T01:00:45.117Z [error] /application/api/adminpanel.1/getUsername.js:1;context => async ({ id }) {;                          ^;;SyntaxError: Unexpected token '{';  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:00:45.129Z [error] /application/api/catalog.1/filter.js:14;    query += ' ORDER BY year DESC');;                                  ^;;SyntaxError: Unexpected token ')';  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:00:45.151Z [error] /application/api/moderpanel.1/addFilm.js:5;  const posterName = .title + `.${posterType.slice(posterType.indexOf('/') + 1)}`;;                     ^;;SyntaxError: Unexpected token '.';  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:00:45.176Z [error] /application/api/player.1/addComment.js:1;context => async ({ filmid, userid, textdata }) {;                                                ^;;SyntaxError: Unexpected token '{';  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:00:45.181Z [error] /application/api/player.1/addScore.js:11;    let rating = parseFloat(result[0].rating);;        ^^^^^^;;SyntaxError: Identifier 'rating' has already been declared;  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:00:45.184Z [error] /application/api/player.1/getFilm.js:10;module.exports = GetFilm;;^^^^^^;;SyntaxError: Unexpected identifier;  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:00:45.190Z [error] /application/api/player.1/getFilmById.js:12;;;;SyntaxError: Unexpected end of input;  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:00:47.083Z [info] Application started in worker 3
+2021-04-28T01:00:52.951Z [info] Graceful shutdown in worker 3
+2021-04-28T01:04:50.632Z [info] Listen port 8002 in worker 3
+2021-04-28T01:04:50.696Z [error] /application/api/player.1/getFilm.js:10;module.exports = GetFilm;;^^^^^^;;SyntaxError: Unexpected identifier;  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:04:50.697Z [error] /application/api/player.1/getFilmById.js:12;;;;SyntaxError: Unexpected end of input;  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:04:52.442Z [info] Application started in worker 3
+2021-04-28T01:04:52.454Z [info] Graceful shutdown in worker 3
+2021-04-28T01:05:45.405Z [info] Listen port 8002 in worker 3
+2021-04-28T01:05:45.527Z [error] /application/api/player.1/getFilm.js:10;;;;SyntaxError: Unexpected end of input;  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:05:45.529Z [error] /application/api/player.1/getFilmById.js:11;)};;^;;SyntaxError: Unexpected token ')';  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:05:47.313Z [info] Application started in worker 3
+2021-04-28T01:05:47.315Z [info] Graceful shutdown in worker 3
+2021-04-28T01:06:02.865Z [info] Listen port 8002 in worker 3
+2021-04-28T01:06:02.965Z [error] /application/api/player.1/getFilm.js:10;;;;SyntaxError: Unexpected end of input;  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:06:04.744Z [info] Application started in worker 3
+2021-04-28T01:06:04.746Z [info] Graceful shutdown in worker 3
+2021-04-28T01:06:20.565Z [info] Listen port 8002 in worker 3
+2021-04-28T01:06:22.434Z [info] Application started in worker 3
+2021-04-28T01:06:31.567Z [log] 127.0.0.1	GET	/
+2021-04-28T01:06:32.817Z [log] 127.0.0.1	GET	/styles.css
+2021-04-28T01:06:32.818Z [log] 127.0.0.1	GET	/btns.js
+2021-04-28T01:06:32.819Z [log] 127.0.0.1	GET	/onload.js
+2021-04-28T01:06:32.821Z [log] 127.0.0.1	GET	/request.js
+2021-04-28T01:06:32.822Z [log] 127.0.0.1	GET	/catalog.js
+2021-04-28T01:06:32.825Z [log] 127.0.0.1	GET	/dis_auth.js
+2021-04-28T01:06:32.881Z [log] 127.0.0.1	GET	/header.jpg
+2021-04-28T01:06:32.882Z [log] 127.0.0.1	GET	/logo.png
+2021-04-28T01:06:32.914Z [log] 127.0.0.1	GET	/logo.ico
+2021-04-28T01:06:32.918Z [error] 127.0.0.1	POST	/catalog	404	Not Found
+2021-04-28T01:06:32.920Z [error] 127.0.0.1	POST	/genres	404	Not Found
+2021-04-28T01:06:32.921Z [error] 127.0.0.1	POST	/islogin	404	Not Found
+2021-04-28T01:06:32.921Z [error] 127.0.0.1	POST	/islogin	404	Not Found
+2021-04-28T01:06:57.887Z [info] Graceful shutdown in worker 3
+2021-04-28T12:22:21.747Z [info] Listen port 8002 in worker 3
+2021-04-28T12:22:23.393Z [info] Application started in worker 3
+2021-04-28T12:22:25.570Z [log] 127.0.0.1	GET	/
+2021-04-28T12:22:25.594Z [log] 127.0.0.1	GET	/styles.css
+2021-04-28T12:22:25.595Z [error] 127.0.0.1	GET	/request.js	404	Not Found
+2021-04-28T12:22:25.597Z [log] 127.0.0.1	GET	/catalog.js
+2021-04-28T12:22:25.598Z [log] 127.0.0.1	GET	/btns.js
+2021-04-28T12:22:25.598Z [log] 127.0.0.1	GET	/dis_auth.js
+2021-04-28T12:22:25.599Z [log] 127.0.0.1	GET	/onload.js
+2021-04-28T12:22:25.620Z [log] 127.0.0.1	GET	/header.jpg
+2021-04-28T12:22:25.620Z [error] 127.0.0.1	GET	/logo.png	404	Not Found
+2021-04-28T12:22:46.883Z [info] Graceful shutdown in worker 3
+2021-04-28T12:25:37.413Z [info] Listen port 8002 in worker 3
+2021-04-28T12:25:39.335Z [info] Application started in worker 3
+2021-04-28T12:25:40.234Z [log] 127.0.0.1	GET	/
+2021-04-28T12:25:40.249Z [log] 127.0.0.1	GET	/catalog.js
+2021-04-28T12:25:40.251Z [log] 127.0.0.1	GET	/onload.js
+2021-04-28T12:25:40.252Z [log] 127.0.0.1	GET	/btns.js
+2021-04-28T12:25:40.253Z [log] 127.0.0.1	GET	/dis_auth.js
+2021-04-28T12:25:40.254Z [error] 127.0.0.1	GET	/style/index.css	404	Not Found
+2021-04-28T12:25:40.256Z [log] 127.0.0.1	GET	/styles.css
+2021-04-28T12:25:40.276Z [error] 127.0.0.1	GET	/style/index.css	404	Not Found
+2021-04-28T12:25:40.288Z [error] 127.0.0.1	GET	/favicon.png	404	Not Found
+2021-04-28T12:25:40.289Z [log] 127.0.0.1	GET	/image/favicon.ico
+2021-04-28T12:25:40.297Z [log] 127.0.0.1	GET	/header.jpg
+2021-04-28T12:25:40.298Z [error] 127.0.0.1	GET	/logo.png	404	Not Found
+2021-04-28T12:27:34.842Z [info] Graceful shutdown in worker 3
+2021-04-28T12:28:45.219Z [info] Listen port 8002 in worker 3
+2021-04-28T12:28:47.004Z [info] Application started in worker 3
+2021-04-28T12:28:47.022Z [log] 127.0.0.1	GET	/
+2021-04-28T12:28:47.050Z [log] 127.0.0.1	GET	/catalog.js
+2021-04-28T12:28:47.051Z [log] 127.0.0.1	GET	/dis_auth.js
+2021-04-28T12:28:47.053Z [log] 127.0.0.1	GET	/style/index.css
+2021-04-28T12:28:47.054Z [log] 127.0.0.1	GET	/btns.js
+2021-04-28T12:28:47.055Z [log] 127.0.0.1	GET	/onload.js
+2021-04-28T12:28:47.086Z [error] 127.0.0.1	GET	/image/favicon.png	404	Not Found
+2021-04-28T12:28:47.093Z [error] 127.0.0.1	GET	/style/header.jpg	404	Not Found
+2021-04-28T12:28:47.094Z [error] 127.0.0.1	GET	/style/logo.png	404	Not Found
+2021-04-28T12:30:35.940Z [log] 127.0.0.1	GET	/
+2021-04-28T12:30:35.978Z [log] 127.0.0.1	GET	/catalog.js
+2021-04-28T12:30:35.979Z [log] 127.0.0.1	GET	/dis_auth.js
+2021-04-28T12:30:35.980Z [log] 127.0.0.1	GET	/btns.js
+2021-04-28T12:30:35.981Z [log] 127.0.0.1	GET	/onload.js
+2021-04-28T12:30:36.002Z [log] 127.0.0.1	GET	/style/index.css
+2021-04-28T12:30:36.160Z [error] 127.0.0.1	GET	/style/header.jpg	404	Not Found
+2021-04-28T12:30:36.160Z [error] 127.0.0.1	GET	/style/logo.png	404	Not Found
+2021-04-28T12:31:48.858Z [log] 127.0.0.1	GET	/
+2021-04-28T12:31:48.895Z [log] 127.0.0.1	GET	/catalog.js
+2021-04-28T12:31:48.896Z [log] 127.0.0.1	GET	/btns.js
+2021-04-28T12:31:48.896Z [log] 127.0.0.1	GET	/dis_auth.js
+2021-04-28T12:31:48.897Z [log] 127.0.0.1	GET	/onload.js
+2021-04-28T12:31:48.901Z [log] 127.0.0.1	GET	/style/index.css
+2021-04-28T12:31:48.957Z [error] 127.0.0.1	GET	/style/header.jpg	404	Not Found
+2021-04-28T12:31:48.958Z [error] 127.0.0.1	GET	/style/logo.png	404	Not Found
+2021-04-28T12:32:02.133Z [info] Graceful shutdown in worker 3
+2021-04-28T13:39:22.784Z [info] Listen port 8002 in worker 3
+2021-04-28T13:39:24.482Z [info] Application started in worker 3
+2021-04-28T13:39:27.043Z [log] 127.0.0.1	GET	/
+2021-04-28T13:39:27.073Z [log] 127.0.0.1	GET	/script/index.js
+2021-04-28T13:39:27.079Z [log] 127.0.0.1	GET	/style/index.css
+2021-04-28T13:39:27.186Z [log] 127.0.0.1	GET	/script/metacom.js
+2021-04-28T13:39:27.187Z [log] 127.0.0.1	GET	/script/btns.js
+2021-04-28T13:39:27.188Z [log] 127.0.0.1	GET	/script/catalog.js
+2021-04-28T13:39:27.198Z [error] 127.0.0.1	GET	/style/header.jpg	404	Not Found
+2021-04-28T13:39:27.201Z [error] 127.0.0.1	GET	/style/logo.png	404	Not Found
+2021-04-28T13:39:27.223Z [log] 127.0.0.1	GET	/script/events.js
+2021-04-28T13:41:39.906Z [log] 127.0.0.1	GET	/
+2021-04-28T13:41:39.928Z [log] 127.0.0.1	GET	/script/index.js
+2021-04-28T13:41:39.930Z [log] 127.0.0.1	GET	/style/index.css
+2021-04-28T13:41:39.997Z [log] 127.0.0.1	GET	/script/metacom.js
+2021-04-28T13:41:39.998Z [log] 127.0.0.1	GET	/script/catalog.js
+2021-04-28T13:41:39.999Z [log] 127.0.0.1	GET	/script/btns.js
+2021-04-28T13:41:40.021Z [error] 127.0.0.1	GET	/style/header.jpg	404	Not Found
+2021-04-28T13:41:40.022Z [error] 127.0.0.1	GET	/style/logo.png	404	Not Found
+2021-04-28T13:41:40.039Z [log] 127.0.0.1	GET	/script/events.js
+2021-04-28T13:43:31.934Z [info] Graceful shutdown in worker 3
+2021-04-28T13:44:12.028Z [info] Listen port 8002 in worker 3
+2021-04-28T13:44:13.592Z [info] Application started in worker 3
+2021-04-28T13:44:32.274Z [log] 127.0.0.1	GET	/
+2021-04-28T13:44:32.289Z [log] 127.0.0.1	GET	/script/index.js
+2021-04-28T13:44:32.291Z [log] 127.0.0.1	GET	/style/index.css
+2021-04-28T13:44:32.353Z [log] 127.0.0.1	GET	/script/metacom.js
+2021-04-28T13:44:32.354Z [log] 127.0.0.1	GET	/script/catalog.js
+2021-04-28T13:44:32.355Z [log] 127.0.0.1	GET	/script/btns.js
+2021-04-28T13:44:32.366Z [error] 127.0.0.1	GET	/style/header.jpg	404	Not Found
+2021-04-28T13:44:32.368Z [error] 127.0.0.1	GET	/style/logo.png	404	Not Found
+2021-04-28T13:44:32.386Z [log] 127.0.0.1	GET	/script/events.js
+2021-04-28T13:45:40.453Z [log] 127.0.0.1	GET	/
+2021-04-28T13:45:40.473Z [log] 127.0.0.1	GET	/script/index.js
+2021-04-28T13:45:40.474Z [log] 127.0.0.1	GET	/style/index.css
+2021-04-28T13:45:40.506Z [log] 127.0.0.1	GET	/script/metacom.js
+2021-04-28T13:45:40.508Z [log] 127.0.0.1	GET	/script/catalog.js
+2021-04-28T13:45:40.508Z [log] 127.0.0.1	GET	/script/btns.js
+2021-04-28T13:45:40.543Z [error] 127.0.0.1	GET	/style/header.jpg	404	Not Found
+2021-04-28T13:45:40.544Z [error] 127.0.0.1	GET	/style/logo.png	404	Not Found
+2021-04-28T13:45:40.545Z [log] 127.0.0.1	GET	/script/events.js
+2021-04-28T13:46:05.357Z [log] 127.0.0.1	GET	/
+2021-04-28T13:46:05.377Z [log] 127.0.0.1	GET	/script/index.js
+2021-04-28T13:46:05.378Z [log] 127.0.0.1	GET	/style/index.css
+2021-04-28T13:46:05.409Z [log] 127.0.0.1	GET	/script/metacom.js
+2021-04-28T13:46:05.410Z [log] 127.0.0.1	GET	/script/btns.js
+2021-04-28T13:46:05.413Z [log] 127.0.0.1	GET	/script/catalog.js
+2021-04-28T13:46:05.435Z [error] 127.0.0.1	GET	/style/header.jpg	404	Not Found
+2021-04-28T13:46:05.442Z [error] 127.0.0.1	GET	/style/logo.png	404	Not Found
+2021-04-28T13:46:05.470Z [log] 127.0.0.1	GET	/script/events.js
+2021-04-28T13:47:37.475Z [log] 127.0.0.1	GET	/
+2021-04-28T13:47:37.497Z [log] 127.0.0.1	GET	/script/index.js
+2021-04-28T13:47:37.498Z [log] 127.0.0.1	GET	/style/index.css
+2021-04-28T13:47:37.538Z [log] 127.0.0.1	GET	/script/metacom.js
+2021-04-28T13:47:37.539Z [log] 127.0.0.1	GET	/script/catalog.js
+2021-04-28T13:47:37.540Z [error] 127.0.0.1	GET	/script/btns.js	404	Not Found
+2021-04-28T13:47:37.552Z [error] 127.0.0.1	GET	/style/header.jpg	404	Not Found
+2021-04-28T13:47:37.552Z [error] 127.0.0.1	GET	/style/logo.png	404	Not Found
+2021-04-28T13:47:37.572Z [log] 127.0.0.1	GET	/script/events.js
+2021-04-28T13:48:13.697Z [info] Graceful shutdown in worker 3
+2021-04-28T13:48:38.272Z [info] Listen port 8002 in worker 3
+2021-04-28T13:48:39.912Z [error] 127.0.0.1	GET	/	404	Not Found
+2021-04-28T13:48:40.302Z [info] Application started in worker 3
+2021-04-28T14:15:45.640Z [log] 127.0.0.1	GET	/
+2021-04-28T14:15:45.680Z [log] 127.0.0.1	GET	/script/index.js
+2021-04-28T14:15:45.681Z [log] 127.0.0.1	GET	/style/index.css
+2021-04-28T14:15:45.751Z [log] 127.0.0.1	GET	/script/buttons.js
+2021-04-28T14:15:45.754Z [log] 127.0.0.1	GET	/script/metacom.js
+2021-04-28T14:15:45.755Z [log] 127.0.0.1	GET	/script/catalog.js
+2021-04-28T14:15:45.760Z [error] 127.0.0.1	GET	/style/header.jpg	404	Not Found
+2021-04-28T14:15:45.761Z [error] 127.0.0.1	GET	/style/logo.png	404	Not Found
+2021-04-28T14:15:45.785Z [log] 127.0.0.1	GET	/script/events.js
+2021-04-28T14:19:21.335Z [log] 127.0.0.1	GET	/
+2021-04-28T14:19:21.357Z [log] 127.0.0.1	GET	/script/index.js
+2021-04-28T14:19:21.359Z [log] 127.0.0.1	GET	/style/index.css
+2021-04-28T14:19:21.393Z [log] 127.0.0.1	GET	/script/metacom.js
+2021-04-28T14:19:21.395Z [log] 127.0.0.1	GET	/script/catalog.js
+2021-04-28T14:19:21.395Z [log] 127.0.0.1	GET	/script/buttons.js
+2021-04-28T14:19:21.422Z [error] 127.0.0.1	GET	/style/header.jpg	404	Not Found
+2021-04-28T14:19:21.427Z [error] 127.0.0.1	GET	/style/logo.png	404	Not Found
+2021-04-28T14:19:21.449Z [log] 127.0.0.1	GET	/script/events.js
+2021-04-28T14:19:21.462Z [error] 127.0.0.1	GET	/worker.js	404	Not Found
+2021-04-28T14:19:21.623Z [log] 127.0.0.1	system/introspect
+2021-04-28T14:19:21.652Z [debug] SELECT * FROM "films"	[]
+2021-04-28T14:19:21.656Z [error] 127.0.0.1	GET	/api	500	Error: connect ECONNREFUSED 127.0.0.1:5432;  TCPConnectWrap.afterConnect [as oncomplete] (net.js:1138:16)
+2021-04-28T14:19:21.657Z [log] 127.0.0.1	catalog/list
+2021-04-28T14:20:23.067Z [log] 127.0.0.1	GET	/
+2021-04-28T14:20:23.089Z [log] 127.0.0.1	GET	/script/index.js
+2021-04-28T14:20:23.090Z [log] 127.0.0.1	GET	/style/index.css
+2021-04-28T14:20:23.137Z [log] 127.0.0.1	GET	/script/metacom.js
+2021-04-28T14:20:23.142Z [log] 127.0.0.1	GET	/script/catalog.js
+2021-04-28T14:20:23.143Z [log] 127.0.0.1	GET	/script/buttons.js
+2021-04-28T14:20:23.151Z [error] 127.0.0.1	GET	/style/header.jpg	404	Not Found
+2021-04-28T14:20:23.151Z [error] 127.0.0.1	GET	/style/logo.png	404	Not Found
+2021-04-28T14:20:23.175Z [log] 127.0.0.1	GET	/script/events.js
+2021-04-28T14:20:23.186Z [error] 127.0.0.1	GET	/worker.js	404	Not Found
+2021-04-28T14:20:23.321Z [log] 127.0.0.1	system/introspect
+2021-04-28T14:20:23.347Z [debug] SELECT * FROM "films"	[]
+2021-04-28T14:20:23.353Z [error] 127.0.0.1	GET	/api	500	error: database "imnetcat" does not exist;  Parser.parseErrorMessage (/node_modules/pg-protocol/dist/parser.js:278:15);  Parser.handlePacket (/node_modules/pg-protocol/dist/parser.js:126:29);  Parser.parse (/node_modules/pg-protocol/dist/parser.js:39:38);  Socket.<anonymous> (/node_modules/pg-protocol/dist/index.js:10:42);  Socket.emit (events.js:314:20);  addChunk (_stream_readable.js:297:12);  readableAddChunk (_stream_readable.js:272:9);  Socket.Readable.push (_stream_readable.js:213:10);  TCP.onStreamRead (internal/stream_base_commons.js:188:23)
+2021-04-28T14:20:23.353Z [log] 127.0.0.1	catalog/list
+2021-04-28T14:23:23.957Z [info] Graceful shutdown in worker 3
+2021-04-28T14:23:30.821Z [info] Listen port 8002 in worker 3
+2021-04-28T14:23:32.655Z [info] Application started in worker 3
+2021-04-28T14:23:32.904Z [log] 127.0.0.1	GET	/
+2021-04-28T14:23:32.988Z [log] 127.0.0.1	GET	/script/index.js
+2021-04-28T14:23:32.989Z [log] 127.0.0.1	GET	/style/index.css
+2021-04-28T14:23:33.019Z [log] 127.0.0.1	GET	/script/metacom.js
+2021-04-28T14:23:33.020Z [log] 127.0.0.1	GET	/script/catalog.js
+2021-04-28T14:23:33.021Z [log] 127.0.0.1	GET	/script/buttons.js
+2021-04-28T14:23:33.037Z [log] 127.0.0.1	GET	/script/events.js
+2021-04-28T14:23:33.038Z [error] 127.0.0.1	GET	/style/header.jpg	404	Not Found
+2021-04-28T14:23:33.039Z [error] 127.0.0.1	GET	/style/logo.png	404	Not Found
+2021-04-28T14:23:33.094Z [error] 127.0.0.1	GET	/.worker.js	404	Not Found
+2021-04-28T14:23:33.157Z [log] 127.0.0.1	system/introspect
+2021-04-28T14:23:33.230Z [debug] SELECT * FROM "films"	[]
+2021-04-28T14:23:33.237Z [error] 127.0.0.1	GET	/api	500	error: database "imnetcat" does not exist;  Parser.parseErrorMessage (/node_modules/pg-protocol/dist/parser.js:278:15);  Parser.handlePacket (/node_modules/pg-protocol/dist/parser.js:126:29);  Parser.parse (/node_modules/pg-protocol/dist/parser.js:39:38);  Socket.<anonymous> (/node_modules/pg-protocol/dist/index.js:10:42);  Socket.emit (events.js:314:20);  addChunk (_stream_readable.js:297:12);  readableAddChunk (_stream_readable.js:272:9);  Socket.Readable.push (_stream_readable.js:213:10);  TCP.onStreamRead (internal/stream_base_commons.js:188:23)
+2021-04-28T14:23:33.237Z [log] 127.0.0.1	catalog/list
+2021-04-28T14:24:51.943Z [info] Graceful shutdown in worker 3
+2021-04-28T14:27:12.123Z [info] Listen port 8002 in worker 3
+2021-04-28T14:27:13.765Z [info] Application started in worker 3
+2021-04-28T14:27:17.405Z [log] 127.0.0.1	GET	/
+2021-04-28T14:27:17.427Z [log] 127.0.0.1	GET	/script/index.js
+2021-04-28T14:27:17.428Z [log] 127.0.0.1	GET	/style/index.css
+2021-04-28T14:27:17.474Z [log] 127.0.0.1	GET	/script/metacom.js
+2021-04-28T14:27:17.475Z [log] 127.0.0.1	GET	/script/catalog.js
+2021-04-28T14:27:17.476Z [log] 127.0.0.1	GET	/script/buttons.js
+2021-04-28T14:27:17.491Z [error] 127.0.0.1	GET	/style/header.jpg	404	Not Found
+2021-04-28T14:27:17.500Z [error] 127.0.0.1	GET	/style/logo.png	404	Not Found
+2021-04-28T14:27:17.509Z [log] 127.0.0.1	GET	/script/events.js
+2021-04-28T14:27:17.520Z [log] 127.0.0.1	GET	/script/worker.js
+2021-04-28T14:27:17.594Z [log] 127.0.0.1	GET	/
+2021-04-28T14:27:17.595Z [error] 127.0.0.1	GET	/events.js	404	Not Found
+2021-04-28T14:27:17.596Z [error] 127.0.0.1	GET	/console.css	404	Not Found
+2021-04-28T14:27:17.598Z [error] 127.0.0.1	GET	/metacom.js	404	Not Found
+2021-04-28T14:27:17.598Z [error] 127.0.0.1	GET	/console.js	404	Not Found
+2021-04-28T14:27:17.599Z [log] 127.0.0.1	GET	/favicon.ico
+2021-04-28T14:27:17.599Z [error] 127.0.0.1	GET	/metarhia.png	404	Not Found
+2021-04-28T14:27:17.600Z [error] 127.0.0.1	GET	/metarhia.svg	404	Not Found
+2021-04-28T14:27:17.604Z [error] 127.0.0.1	GET	/favicon.png	404	Not Found
+2021-04-28T14:27:31.169Z [log] 127.0.0.1	system/introspect
+2021-04-28T14:27:31.172Z [debug] SELECT * FROM "films"	[]
+2021-04-28T14:27:31.185Z [log] 127.0.0.1	catalog/list
+2021-04-28T14:28:18.522Z [info] Graceful shutdown in worker 3
+2021-04-28T14:30:01.216Z [info] Listen port 8002 in worker 3
+2021-04-28T14:30:02.747Z [info] Application started in worker 3
+2021-04-28T14:30:16.121Z [info] Graceful shutdown in worker 3
+2021-04-28T14:30:18.666Z [info] Listen port 8002 in worker 3
+2021-04-28T14:30:20.071Z [error] 127.0.0.1	GET	/	404	Not Found
+2021-04-28T14:30:20.846Z [info] Application started in worker 3
+2021-04-28T14:30:29.280Z [log] 127.0.0.1	GET	/
+2021-04-28T14:30:29.311Z [log] 127.0.0.1	GET	/script/index.js
+2021-04-28T14:30:29.313Z [log] 127.0.0.1	GET	/style/index.css
+2021-04-28T14:30:29.355Z [log] 127.0.0.1	GET	/script/metacom.js
+2021-04-28T14:30:29.356Z [log] 127.0.0.1	GET	/script/catalog.js
+2021-04-28T14:30:29.359Z [log] 127.0.0.1	GET	/script/buttons.js
+2021-04-28T14:30:29.374Z [error] 127.0.0.1	GET	/style/header.jpg	404	Not Found
+2021-04-28T14:30:29.377Z [error] 127.0.0.1	GET	/style/logo.png	404	Not Found
+2021-04-28T14:30:29.394Z [log] 127.0.0.1	GET	/script/events.js
+2021-04-28T14:30:41.447Z [log] 127.0.0.1	system/introspect
+2021-04-28T14:30:41.452Z [debug] SELECT * FROM "films"	[]
+2021-04-28T14:30:41.465Z [log] 127.0.0.1	catalog/list
+2021-04-28T14:30:48.073Z [info] Graceful shutdown in worker 3

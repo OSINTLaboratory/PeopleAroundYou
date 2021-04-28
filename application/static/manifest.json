@@ -1,0 +1,23 @@
+{
+  "name": "Filmhub",
+  "short_name": "Filmhub",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#009933",
+  "background_color": "#552277",
+  "description": "",
+  "categories": [],
+  "icons": [
+    {
+      "src": "image/favicon.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "image/logo.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    }
+  ]
+}

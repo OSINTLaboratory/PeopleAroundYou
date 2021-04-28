@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<head>
+  <title>Filmhub</title>
+  <meta name="description" content="Каталог фильмов по жанрам удовлетворит любые запросы. Вы можете смотреть фильмы по жанрам прямо на сайте">
+   
+  <script src="script/index.js" type="module"></script>
+
+      <meta charset="utf-8">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style/index.css">
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="apple-touch-icon-precomposed" href="image/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" href="image/favicon.ico" type="image/vnd.microsoft.icon" />
+    <link rel="icon" href="image/favicon.ico" type="image/vnd.microsoft.icon" />
+    <link rel="apple-touch-icon" href="image/favicon.png" />
+
+
+  <body>
+  <iframe hidden name="dummy"></iframe>
+    <div class="background-img "></div>
+    
+    <noscript>
+      <div class="pop-message">Внимание! В вашем браузере отключен JavaScript! Без него большая часть функционала сайта
+        работать не будет или будет работать некорректно!
+      </div>
+    </noscript>
+
+    <div class="top">
+
+      <div class="container clearfix">
+        <div class="auth-block">
+          <div class="login-block">
+            <div class="login" id="login-btn-1">Вход</div>
+            <form action="/login" method="post" target="dummy" class="login-form" id="login-form-1">
+              <input name="email" placeholder="E-mail" type="text">
+              <input name="password" placeholder="Пароль" type="password">
+              <input class="login" type="submit" value="Войти">
+              <a href="/password/reset">Не помню пароль...</a>
+            </form>	
+				<form action="/register" target="dummy" method="post" class="register-form" id="register-form">
+				<input name="email" placeholder="E-mail" type="text">
+				<input name="password" placeholder="Пароль" type="password">
+				<input class="register" type="submit" value="Зарегистрироваться">
+			  </form>
+          </div>
+              <div class="register" id="register-btn">Регистрация</div>
+        </div>
+      </div>
+    </div>
+
+    <header class="header">
+      <div class="container clearfix">
+
+        <div class="logo-block">
+          <a class="logo" href="/"></a>
+          <div class="top-desktop">
+            
+          </div>
+          <div class="mobile-menu-button">Меню</div>
+        </div>
+
+        <ul class="menu clearfix">
+          <li class="sub-menu-link">
+            <a href="/">Каталог</a>
+          </li>
+          <li>
+            <a onclick="GetTop()">ТОП-10</a>
+          </li>
+          <li>
+            <a onclick="rand()">Случайное</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="content-block container clearfix">
+      <div class="search-block-wrapper main-search clearfix">
+        <form action="/search" method="post" class="search-block" target="dummy" id="search">
+          <input autocomplete="off" class="search" name="word" type="text" placeholder="Поиск" value="">
+          <input type="submit" class="filter-button search-submit" value="Искать">
+        </form>
+
+        <div class="live-search-wrapper" style="display: block;">
+          <ul class="live-search"></ul>
+          <a href="/" class="live-search-results"></a>
+        </div>
+      </div>
+        <div class="content">
+          <aside class="sidebar">
+
+            <div class="sidebar-block" id="filter-block">
+              <form class="filter-block main" action="/filter" target="dummy" method="post" id="filter-form">
+            <div class="block-header">Фильтр</div>
+            <div class="filter-body">
+              <div class="filter-cell">
+                <label>Жанры</label>
+                <select name="selected_category" id="selected_category">
+                </select>
+              </div>
+              <div class="filter-cell">
+                <label>Год</label>
+                <input name="from_year" class="filter-year" placeholder="от" type="text">
+                <input name="to_year" class="filter-year" placeholder="до" type="text">
+              </div>
+              <div class="filter-cell">
+                <label>Сортировать по</label>
+                <select name="sort">
+                  <option value="RATING">Рейтингу</option>
+                  <option value="ALP_ASC">Алфавиту (А-Я)</option>
+                  <option value="ALP_DESC">Алфавиту (Я-А)</option>
+                  <option value="YEAR_DESC">Дате выхода (сначала новые)</option>
+                  <option value="YEAR_ASC">Дате выхода (сначала старые)</option>
+                  <option value="VIEWS">Количеству просмотров</option>
+                </select>
+			  </div>
+            </div>
+            <div class="filter-footer">
+              <input class="filter-button list" type="submit" value="Фильтровать"> 
+            </div>
+          </form>           
+			  </div>
+
+
+              <div class="block-header">Рекомендуем</div>
+              <div class="sidebar-block" id="recomendations">
+              </div>
+
+            <div style="margin-left: 25px">
+              <div class="auth-block">
+                <div class="login-block">
+                  <div class="login" id="login-btn-2">Вход</div>
+                  <form action="/login" method="post" target="dummy" class="login-form"  id="login-form-2">
+                    <input name="email" placeholder="E-mail" type="text">
+                    <input name="password" placeholder="Пароль" type="password">
+                    <input class="login" type="submit" value="Войти">
+                    <a href="/password/reset">Не помню пароль...</a>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="sidebar-block">
+
+              </aside>
+
+              <div class="content-page categories-page">
+                <h1>Каталог</h1>
+                <ul class="pagination" id="pagination">
+                </ul>
+
+                <div style="width: 100%; height: auto; display: flex; align-items: center; flex-wrap: wrap; justify-content: space-around;" id="catalog">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <footer>
+              <p>Все видео на сайте предоставлены только для ознакомления и не предполагают скачивание.</p>
+           </footer>
