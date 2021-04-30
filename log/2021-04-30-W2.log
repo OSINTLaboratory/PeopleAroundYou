@@ -8,3 +8,5 @@
 2021-04-30T20:32:47.410Z [info] Listen port 8001 in worker 2
 2021-04-30T20:32:48.980Z [info] Application started in worker 2
 2021-04-30T21:22:22.290Z [info] Graceful shutdown in worker 2
+2021-04-30T21:23:37.485Z [info] Listen port 8001 in worker 2
+2021-04-30T21:23:39.412Z [info] Application started in worker 2

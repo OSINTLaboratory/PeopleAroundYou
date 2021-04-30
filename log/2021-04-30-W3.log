@@ -247,3 +247,51 @@
 2021-04-30T20:40:00.634Z [log] 127.0.0.1	player/getCommentsForFilm
 2021-04-30T21:21:51.088Z [error] 127.0.0.1	GET	/adminpanel	404	Not Found
 2021-04-30T21:22:22.290Z [info] Graceful shutdown in worker 3
+2021-04-30T21:23:37.300Z [info] Listen port 8002 in worker 3
+2021-04-30T21:23:39.403Z [info] Application started in worker 3
+2021-04-30T21:23:42.382Z [error] 127.0.0.1	GET	/admin,html	404	Not Found
+2021-04-30T21:23:47.005Z [log] 127.0.0.1	GET	/admin.html
+2021-04-30T21:23:47.044Z [error] 127.0.0.1	GET	/styles.css	404	Not Found
+2021-04-30T21:23:47.045Z [error] 127.0.0.1	GET	/request.js	404	Not Found
+2021-04-30T21:23:47.046Z [log] 127.0.0.1	GET	/admin.css
+2021-04-30T21:23:47.047Z [error] 127.0.0.1	GET	/player.css	404	Not Found
+2021-04-30T21:26:36.028Z [log] 127.0.0.1	GET	/admin.html
+2021-04-30T21:26:36.049Z [error] 127.0.0.1	GET	/player.css	404	Not Found
+2021-04-30T21:26:36.050Z [error] 127.0.0.1	GET	/styles.css	404	Not Found
+2021-04-30T21:26:36.051Z [error] 127.0.0.1	GET	/admin.css	404	Not Found
+2021-04-30T21:26:36.052Z [error] 127.0.0.1	GET	/script/admin.js	404	Not Found
+2021-04-30T21:26:36.064Z [log] 127.0.0.1	GET	/style/index.css
+2021-04-30T21:26:36.134Z [error] 127.0.0.1	GET	/style/header.jpg	404	Not Found
+2021-04-30T21:26:36.135Z [error] 127.0.0.1	GET	/style/logo.png	404	Not Found
+2021-04-30T21:26:36.151Z [log] 127.0.0.1	GET	/image/favicon.png
+2021-04-30T21:26:36.153Z [log] 127.0.0.1	GET	/image/favicon.ico
+2021-04-30T21:36:28.000Z [log] 127.0.0.1	GET	/admin.html
+2021-04-30T21:36:28.052Z [error] 127.0.0.1	GET	/player.css	404	Not Found
+2021-04-30T21:36:28.052Z [error] 127.0.0.1	GET	/styles.css	404	Not Found
+2021-04-30T21:36:28.061Z [error] 127.0.0.1	GET	/admin.css	404	Not Found
+2021-04-30T21:36:28.062Z [log] 127.0.0.1	GET	/script/admin.js
+2021-04-30T21:36:28.063Z [log] 127.0.0.1	GET	/style/index.css
+2021-04-30T21:36:28.109Z [log] 127.0.0.1	GET	/script/metacom.js
+2021-04-30T21:36:28.110Z [error] 127.0.0.1	GET	/style/header.jpg	404	Not Found
+2021-04-30T21:36:28.111Z [error] 127.0.0.1	GET	/style/logo.png	404	Not Found
+2021-04-30T21:36:28.136Z [log] 127.0.0.1	GET	/script/events.js
+2021-04-30T21:36:28.244Z [log] 127.0.0.1	system/introspect
+2021-04-30T21:37:04.646Z [log] 127.0.0.1	GET	/admin.html
+2021-04-30T21:37:04.683Z [error] 127.0.0.1	GET	/index.css	404	Not Found
+2021-04-30T21:37:04.684Z [error] 127.0.0.1	GET	/admin.css	404	Not Found
+2021-04-30T21:37:04.685Z [log] 127.0.0.1	GET	/script/admin.js
+2021-04-30T21:37:04.686Z [log] 127.0.0.1	GET	/style/index.css
+2021-04-30T21:37:04.713Z [log] 127.0.0.1	GET	/script/metacom.js
+2021-04-30T21:37:04.722Z [error] 127.0.0.1	GET	/style/header.jpg	404	Not Found
+2021-04-30T21:37:04.723Z [error] 127.0.0.1	GET	/style/logo.png	404	Not Found
+2021-04-30T21:37:04.737Z [log] 127.0.0.1	GET	/script/events.js
+2021-04-30T21:37:04.816Z [log] 127.0.0.1	system/introspect
+2021-04-30T21:37:33.381Z [log] 127.0.0.1	GET	/admin.html
+2021-04-30T21:37:33.417Z [log] 127.0.0.1	GET	/style/index.css
+2021-04-30T21:37:33.420Z [log] 127.0.0.1	GET	/style/admin.css
+2021-04-30T21:37:33.420Z [log] 127.0.0.1	GET	/script/admin.js
+2021-04-30T21:37:33.464Z [log] 127.0.0.1	GET	/script/metacom.js
+2021-04-30T21:37:33.465Z [error] 127.0.0.1	GET	/style/header.jpg	404	Not Found
+2021-04-30T21:37:33.466Z [error] 127.0.0.1	GET	/style/logo.png	404	Not Found
+2021-04-30T21:37:33.490Z [log] 127.0.0.1	GET	/script/events.js
+2021-04-30T21:37:33.567Z [log] 127.0.0.1	system/introspect
