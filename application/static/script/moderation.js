@@ -1,25 +1,17 @@
-const modal = document.querySelector("modal");
-const overlay = document.querySelector("overlay");
+import { Metacom } from "./metacom.js";
 
-overlay.addEventListener("click", () => {
-  modal.classList.remove("active");
-  overlay.classList.remove("active");
-  document.querySelector("table")
-    ? document.querySelector("table").remove()
-    : 0;
-  document.querySelector(".filmForm")
-    ? document.querySelector(".filmForm").remove()
-    : 0;
-});
+let modal;
+let overlay;
 
 async function removeFilm(id) {
-  await makeRequest(JSON.stringify({ id }), "POST", "/removeFilm");
+  await window.metacom.api.moderpanel.removeFilm({ id });
   document.querySelector(`#film_${id}`).remove();
 }
 
-function showFilms() {
-  makeRequest("", "POST", "/showFilms").then((res) => {
-    const data = JSON.parse(res);
+async function showFilms() {
+  const r = await window.metacom.api.moderpanel.showFilms();
+  const res = r.data;
+
     const tableHead = `
                 <thead>
                     <tr>
@@ -60,18 +52,16 @@ function showFilms() {
     modal.appendChild(table);
     modal.classList.add("active");
     overlay.classList.add("active");
-  });
 }
 
 async function addFilm() {
   const genres = [];
+  const r =  await window.metacom.api.catalog.genres();
+  const data = r.data;
 
-  await makeRequest("", "POST", "/genres").then((res) => {
-    res = JSON.parse(res);
-    res.map((element) => {
+    data.map((element) => {
       genres.push(element["lable"]);
     });
-  });
 
   let options = "";
 
@@ -118,7 +108,7 @@ async function addFilm() {
 }
 
 async function approveComment(id) {
-  await makeRequest(JSON.stringify({ id }), "POST", "/approveComment");
+  await window.metacom.api.moderpanel.approveComment({ id });
   const el = document.querySelector(`#approveBtn_${id}`);
   el.style.color = "green";
   el.onclick = "";
@@ -126,13 +116,13 @@ async function approveComment(id) {
 }
 
 async function removeComment(id) {
-  await makeRequest(JSON.stringify({ id }), "POST", "/removeComment");
+  await window.metacom.api.moderpanel.removeComment({ id });
   document.querySelector(`#comment_${id}`).remove();
 }
 
-function showComments() {
-  makeRequest("", "POST", "/showComments").then((res) => {
-    const data = JSON.parse(res);
+async function showComments() {
+  const r = await window.metacom.api.moderpanel.showComments();
+  const data = r.data;
     const tableHead = `
                 <thead>
                     <tr>
@@ -176,5 +166,39 @@ function showComments() {
     modal.appendChild(table);
     modal.classList.add("active");
     overlay.classList.add("active");
-  });
 }
+
+
+window.addEventListener("load", async () => {
+  const protocol = location.protocol === "http:" ? "ws" : "wss";
+  window.metacom = Metacom.create(`${protocol}://${location.host}/api`);
+  window.api = window.metacom.api;
+  await window.metacom.load("auth", "catalog", "moderpanel");
+  const token = localStorage.getItem("metarhia.session.token");
+  let logged = false;
+  if (token) {
+    const res = await api.auth.restore({ token });
+    logged = res.status === "logged";
+  }
+  modal = document.querySelector("modal");
+  overlay = document.querySelector("overlay");
+
+  overlay.addEventListener("click", () => {
+    modal.classList.remove("active");
+    overlay.classList.remove("active");
+    document.querySelector("table")
+      ? document.querySelector("table").remove()
+      : 0;
+    document.querySelector(".filmForm")
+      ? document.querySelector(".filmForm").remove()
+      : 0;
+  });
+  window.addFilm = addFilm;
+  window.showFilms = showFilms;
+  window.showComments = showComments;
+});
+
+if (navigator.serviceWorker) {
+  navigator.serviceWorker.register("/script/worker.js");
+}
+
