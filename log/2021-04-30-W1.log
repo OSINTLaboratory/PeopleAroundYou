@@ -1,0 +1,92 @@
+2021-04-30T17:05:35.228Z [info] Listen port 8000 in worker 1
+2021-04-30T17:05:36.937Z [debug] Connect to pg
+2021-04-30T17:05:36.944Z [info] Application started in worker 1
+2021-04-30T20:11:07.019Z [info] Graceful shutdown in worker 1
+2021-04-30T20:32:37.750Z [info] Listen port 8000 in worker 1
+2021-04-30T20:32:37.850Z [error] /application/api/player.1/getFilm.js:3;  method: async ({ filmid }) {;                             ^;;SyntaxError: Unexpected token '{';  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-30T20:32:39.365Z [debug] Connect to pg
+2021-04-30T20:32:39.367Z [info] Application started in worker 1
+2021-04-30T20:32:40.332Z [info] Graceful shutdown in worker 1
+2021-04-30T20:32:47.416Z [info] Listen port 8000 in worker 1
+2021-04-30T20:32:49.044Z [debug] Connect to pg
+2021-04-30T20:32:49.046Z [info] Application started in worker 1
+2021-04-30T20:33:51.647Z [debug] Deleted: /api/player.1/.getFilm.js.swx
+2021-04-30T20:33:51.649Z [debug] Reload: /api/player.1/.getFilm.js.swp
+2021-04-30T20:33:56.622Z [debug] Reload: /api/player.1/.getFilm.js.swp
+2021-04-30T20:34:00.228Z [debug] Reload: /api/player.1/.getFilm.js.swp
+2021-04-30T20:34:03.589Z [debug] Deleted: /api/player.1/4913
+2021-04-30T20:34:03.590Z [debug] Deleted: /api/player.1/getFilm.js~
+2021-04-30T20:34:03.590Z [debug] Deleted: /api/player.1/.getFilm.js.swp
+2021-04-30T20:34:03.591Z [debug] Reload: /api/player.1/getFilm.js
+2021-04-30T20:34:20.416Z [debug] Deleted: /static/script/.player.js.swx
+2021-04-30T20:34:20.417Z [debug] Reload: /static/script/.player.js.swp
+2021-04-30T20:34:42.162Z [debug] Reload: /static/script/.player.js.swp
+2021-04-30T20:34:45.149Z [debug] Reload: /static/script/.player.js.swp
+2021-04-30T20:34:54.661Z [debug] Reload: /static/script/.player.js.swp
+2021-04-30T20:35:00.250Z [debug] Deleted: /static/script/4913
+2021-04-30T20:35:00.250Z [debug] Deleted: /static/script/player.js~
+2021-04-30T20:35:00.250Z [debug] Reload: /static/script/player.js
+2021-04-30T20:35:00.250Z [debug] Reload: /static/script/.player.js.swp
+2021-04-30T20:35:10.156Z [debug] Reload: /static/script/.player.js.swp
+2021-04-30T20:35:20.079Z [debug] Deleted: /api/player.1/.getFilm.js.swx
+2021-04-30T20:35:20.080Z [debug] Reload: /api/player.1/.getFilm.js.swp
+2021-04-30T20:35:24.138Z [debug] Reload: /api/player.1/.getFilm.js.swp
+2021-04-30T20:35:35.741Z [debug] Reload: /static/script/.player.js.swp
+2021-04-30T20:35:46.020Z [debug] Deleted: /static/script/4913
+2021-04-30T20:35:46.021Z [debug] Deleted: /static/script/player.js~
+2021-04-30T20:35:46.023Z [debug] Reload: /static/script/player.js
+2021-04-30T20:35:46.024Z [debug] Reload: /static/script/.player.js.swp
+2021-04-30T20:35:51.575Z [debug] Reload: /static/script/.player.js.swp
+2021-04-30T20:36:09.991Z [debug] Reload: /static/script/.player.js.swp
+2021-04-30T20:36:14.201Z [debug] Deleted: /static/script/4913
+2021-04-30T20:36:14.202Z [debug] Deleted: /static/script/player.js~
+2021-04-30T20:36:14.203Z [debug] Reload: /static/script/player.js
+2021-04-30T20:36:14.204Z [debug] Reload: /static/script/.player.js.swp
+2021-04-30T20:36:18.918Z [debug] Reload: /static/script/.player.js.swp
+2021-04-30T20:36:29.244Z [debug] Reload: /static/script/.player.js.swp
+2021-04-30T20:36:36.139Z [debug] Reload: /static/script/.player.js.swp
+2021-04-30T20:36:41.299Z [debug] Deleted: /static/script/4913
+2021-04-30T20:36:41.300Z [debug] Deleted: /static/script/player.js~
+2021-04-30T20:36:41.303Z [debug] Reload: /static/script/player.js
+2021-04-30T20:36:41.303Z [debug] Reload: /static/script/.player.js.swp
+2021-04-30T20:36:45.902Z [debug] Reload: /static/script/.player.js.swp
+2021-04-30T20:36:53.471Z [debug] Deleted: /static/script/.player.js.swp
+2021-04-30T20:36:58.620Z [debug] Deleted: /static/script/.buttons.js.swx
+2021-04-30T20:36:58.621Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-30T20:37:14.800Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-30T20:37:31.739Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-30T20:37:35.977Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-30T20:38:16.460Z [debug] Deleted: /static/script/4913
+2021-04-30T20:38:16.461Z [debug] Deleted: /static/script/buttons.js~
+2021-04-30T20:38:16.461Z [debug] Deleted: /static/script/.buttons.js.swp
+2021-04-30T20:38:16.461Z [debug] Reload: /static/script/buttons.js
+2021-04-30T20:38:22.516Z [debug] Deleted: /static/script/.buttons.js.swx
+2021-04-30T20:38:22.517Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-30T20:38:37.347Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-30T20:38:40.908Z [debug] Deleted: /static/script/4913
+2021-04-30T20:38:40.909Z [debug] Deleted: /static/script/buttons.js~
+2021-04-30T20:38:40.910Z [debug] Reload: /static/script/buttons.js
+2021-04-30T20:38:40.910Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-30T20:38:45.396Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-30T20:38:55.673Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-30T20:39:06.288Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-30T20:39:29.818Z [debug] Deleted: /static/script/4913
+2021-04-30T20:39:29.818Z [debug] Deleted: /static/script/buttons.js~
+2021-04-30T20:39:29.818Z [debug] Reload: /static/script/buttons.js
+2021-04-30T20:39:35.143Z [debug] Deleted: /static/script/.buttons.js.swx
+2021-04-30T20:39:35.143Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-30T20:39:46.292Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-30T20:39:53.974Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-30T20:40:00.029Z [debug] Deleted: /static/script/4913
+2021-04-30T20:40:00.030Z [debug] Deleted: /static/script/buttons.js~
+2021-04-30T20:40:00.030Z [debug] Reload: /static/script/buttons.js
+2021-04-30T20:40:00.031Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-30T20:40:04.652Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-30T21:21:25.485Z [debug] Deleted: /static/script/.player.js.swx
+2021-04-30T21:21:25.485Z [debug] Reload: /static/script/.player.js.swp
+2021-04-30T21:21:30.994Z [debug] Reload: /static/script/.player.js.swp
+2021-04-30T21:21:32.786Z [debug] Deleted: /static/script/4913
+2021-04-30T21:21:32.787Z [debug] Deleted: /static/script/player.js~
+2021-04-30T21:21:32.788Z [debug] Deleted: /static/script/.player.js.swp
+2021-04-30T21:21:32.788Z [debug] Reload: /static/script/player.js
+2021-04-30T21:22:22.290Z [info] Graceful shutdown in worker 1

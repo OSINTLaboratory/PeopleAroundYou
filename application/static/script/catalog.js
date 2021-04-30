@@ -6,7 +6,7 @@ class Page {
 
 let filmCatalog = new Array();
 
-const ShowPage = (page) => {
+export const ShowPage = (page) => {
   if (filmCatalog[page] === undefined) {
     return;
   }
@@ -41,12 +41,12 @@ const ShowPage = (page) => {
 };
 
 const FilmHtml = (film) => `
-            <a class="image-block" href="/player?id=${film.filmid}">
+            <a class="image-block" onclick="player(${film.filmid})">
 				<span class="year-block">${film.year}</span>
 				<img src="/posters/${film.poster}" alt="${film.title}">
 			</a>
 			<div class="anime-column-info">
-				<a class="anime-title" href="/player?id=${film.filmid}">${film.title}</a>
+				<div class="anime-title">${film.title}</a>
 				<div class="icons-row">
 					<div title="Количество просмотров"><i class="fa fa-eye"></i>${film.views}</div>
 				</div>
@@ -59,10 +59,11 @@ const FilmHtml = (film) => `
 			</div>`;
 
 const Paginate = (res) => {
+  console.log(res);
   let i = 0;
   let page = new Page(new Array());
   filmCatalog = new Array();
-  for (const film of res) {
+  for (const film of res.data) {
     if (i === 12) {
       filmCatalog.push(page);
       page = new Page(new Array());
@@ -80,22 +81,21 @@ const Paginate = (res) => {
 };
 
 export const Filter = async (event) => {
-  const data = new Object();
-  data.genre = event.target[0].value;
-  data.year_from = event.target[1].value;
-  data.year_up = event.target[2].value;
-  data.sort = event.target[3].value;
+  const data = await window.metacom.api.catalog.filter({
+    genre: event.target[0].value,
+    yearFrom: event.target[1].value,
+    yearTo: event.target[2].value,
+    sort: event.target[3].value,
+  });
 
-  const res = await window.metacom.api.catalog.filter(data);
-
-  Paginate(res);
+  Paginate(data);
 
   // Show first page
   ShowPage(0);
 };
 
 export const GetTop = async () => {
-  const data = await window.metacom.api.top();
+  const data = await window.metacom.api.catalog.top();
 
   Paginate(data);
 
@@ -104,7 +104,9 @@ export const GetTop = async () => {
 };
 
 export const Search = async (event) => {
-  const data = await window.metacom.api.catalog.search(event.target[0].value);
+  const data = await window.metacom.api.catalog.search({
+    title: event.target[0].value,
+  });
 
   Paginate(data);
 
@@ -137,7 +139,7 @@ export const LoadCatalog = async () => {
   const selecttag = document.getElementById("selected_category");
   selecttag.innerHTML = "";
   let i = 1;
-  for (const genre of genres) {
+  for (const genre of genres.data) {
     const option = document.createElement("option");
     option.value = `${i}`;
     option.innerHTML = genre.lable;
@@ -152,8 +154,12 @@ export const LoadRecoms = async (loggedin) => {
   }
 };
 
+export const redirectToFilm = async (id) => {
+  localStorage.viewedFilm = id;
+  window.location.href = "/player.html";
+};
+
 export const rand = async () => {
   const data = await window.metacom.api.catalog.random();
-
-  window.location.href = `/player?id=${data[0].filmid}`;
+  redirectToFilm(data.data[0].filmid);
 };

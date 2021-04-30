@@ -1,4 +1,4 @@
-async ({ filmid, userid, textdata }) => {
+async ({ filmid, textdata }) => {
   await domain.db.insert("comments", {
     filmid,
     userid,
