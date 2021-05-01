@@ -1,8 +1,0 @@
-2021-04-30T17:05:36.938Z [info] Application started in worker 5
-2021-04-30T20:11:07.024Z [info] Graceful shutdown in worker 5
-2021-04-30T20:32:37.847Z [error] /application/api/player.1/getFilm.js:3;  method: async ({ filmid }) {;                             ^;;SyntaxError: Unexpected token '{';  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
-2021-04-30T20:32:39.383Z [info] Application started in worker 5
-2021-04-30T20:32:40.336Z [info] Graceful shutdown in worker 5
-2021-04-30T20:32:49.000Z [info] Application started in worker 5
-2021-04-30T21:22:22.293Z [info] Graceful shutdown in worker 5
-2021-04-30T21:23:39.386Z [info] Application started in worker 5
