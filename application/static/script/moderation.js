@@ -12,7 +12,7 @@ async function showFilms() {
   const r = await window.metacom.api.moderpanel.showFilms();
   const res = r.data;
 
-    const tableHead = `
+  const tableHead = `
                 <thead>
                     <tr>
                         <th>ID фильма</th>
@@ -28,10 +28,10 @@ async function showFilms() {
                     </tr>
                 </thead>`;
 
-    let tableBody = "";
-    for (let i = 0; i < data.length; i++) {
-      const id = data[i].filmid;
-      tableBody += `
+  let tableBody = "";
+  for (let i = 0; i < data.length; i++) {
+    const id = data[i].filmid;
+    tableBody += `
                 <tr id="film_${id}">
                     <td>${id}</td>
                     <td>${data[i].title}</td>
@@ -44,24 +44,24 @@ async function showFilms() {
                     <td>${data[i].url}</td>
                     <td class="removeBtn" onclick="removeFilm(${id})">X</td>
                 </tr>`;
-    }
+  }
 
-    const table = document.createElement("table");
-    table.innerHTML += tableHead + tableBody;
+  const table = document.createElement("table");
+  table.innerHTML += tableHead + tableBody;
 
-    modal.appendChild(table);
-    modal.classList.add("active");
-    overlay.classList.add("active");
+  modal.appendChild(table);
+  modal.classList.add("active");
+  overlay.classList.add("active");
 }
 
 async function addFilm() {
   const genres = [];
-  const r =  await window.metacom.api.catalog.genres();
+  const r = await window.metacom.api.catalog.genres();
   const data = r.data;
 
-    data.map((element) => {
-      genres.push(element["lable"]);
-    });
+  data.map((element) => {
+    genres.push(element["lable"]);
+  });
 
   let options = "";
 
@@ -123,7 +123,7 @@ async function removeComment(id) {
 async function showComments() {
   const r = await window.metacom.api.moderpanel.showComments();
   const data = r.data;
-    const tableHead = `
+  const tableHead = `
                 <thead>
                     <tr>
                         <th>ID комментария</th>
@@ -136,19 +136,19 @@ async function showComments() {
                     </tr>
                 </thead>`;
 
-    let tableBody = "";
-    for (let i = 0; i < data.length; i++) {
-      const id = data[i].commentid;
+  let tableBody = "";
+  for (let i = 0; i < data.length; i++) {
+    const id = data[i].commentid;
 
-      let approved = "";
+    let approved = "";
 
-      if (data[i].approved) {
-        approved = '<td style="color:green;">Подтвержден</td>';
-      } else {
-        approved = `<td class="approveBtn" id="approveBtn_${id}" onclick="approveComment(${id})">Подтвердить</td>`;
-      }
+    if (data[i].approved) {
+      approved = '<td style="color:green;">Подтвержден</td>';
+    } else {
+      approved = `<td class="approveBtn" id="approveBtn_${id}" onclick="approveComment(${id})">Подтвердить</td>`;
+    }
 
-      tableBody += `
+    tableBody += `
                 <tr id="comment_${id}">
                     <td>${id}</td>
                     <td>${data[i].filmid}</td>
@@ -158,16 +158,15 @@ async function showComments() {
                     ${approved}
                     <td class="removeBtn" onclick="removeComment(${id})">X</td>
                 </tr>`;
-    }
+  }
 
-    const table = document.createElement("table");
-    table.innerHTML += tableHead + tableBody;
+  const table = document.createElement("table");
+  table.innerHTML += tableHead + tableBody;
 
-    modal.appendChild(table);
-    modal.classList.add("active");
-    overlay.classList.add("active");
+  modal.appendChild(table);
+  modal.classList.add("active");
+  overlay.classList.add("active");
 }
-
 
 window.addEventListener("load", async () => {
   const protocol = location.protocol === "http:" ? "ws" : "wss";
@@ -201,4 +200,3 @@ window.addEventListener("load", async () => {
 if (navigator.serviceWorker) {
   navigator.serviceWorker.register("/script/worker.js");
 }
-

@@ -12,20 +12,24 @@ window.addEventListener("load", async () => {
     logged = res.status === "logged";
   }
 
-  document.getElementById('add-admin').addEventListener('submit', async event => {
-    event.preventDefault();
-    const login = event.target[0].value;
-    const password = event.target[1].value;
-    if (event.target[2].value === 'Администратор') {
-      await window.metacom.api.adminpanel.addAdmin({
-        login, password
-      });
-    } else {
-      await window.metacom.api.adminpanel.addModer({
-	login, password
-      });
-    }
-  });
+  document
+    .getElementById("add-admin")
+    .addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const login = event.target[0].value;
+      const password = event.target[1].value;
+      if (event.target[2].value === "Администратор") {
+        await window.metacom.api.adminpanel.addAdmin({
+          login,
+          password,
+        });
+      } else {
+        await window.metacom.api.adminpanel.addModer({
+          login,
+          password,
+        });
+      }
+    });
 });
 
 if (navigator.serviceWorker) {
