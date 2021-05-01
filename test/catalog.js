@@ -1,9 +1,23 @@
 'use strict';
 const metatests = require('metatests');
-const { api, loadApi, fakeDomainContext } = require('./helpers');
+const { api, apiReady, fakeDomainContext } = require('./helpers');
+
+metatests.test('api/catalog genres', async (test) => {
+  await apiReady;
+
+  const genres = api.catalog.genres;
+
+  test.strictSame(typeof genres.method, 'function');
+  test.strictSame(genres.access, 'public');
+
+  genres.method();
+
+  test.strictSame(fakeDomainContext.db.queryString, 'SELECT lable FROM genres');
+  test.end(); 
+});
 
 metatests.test('api/catalog filter', async (test) => {
-  await loadApi('catalog');
+  await apiReady;
   const filter = api.catalog.filter;
   test.strictSame(typeof filter.method, 'function');
   test.strictSame(filter.access, 'public');

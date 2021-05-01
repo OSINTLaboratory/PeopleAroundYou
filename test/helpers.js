@@ -51,19 +51,21 @@ const createScript = async (fileName) => {
 
 let api = {};
 
-const loadApi = async (module) => {
-  api[module] = {};
+const loadApi = async () => {
   const modules = await fsp.readdir(root);
-  for(let m of modules) {
-    if(m.split('.')[0] !== module) continue;
-      const files = await fsp.readdir(root + m);
-      for(let file of files) {
-        if(file.startsWith('.')) continue; 
-        const fileName = file.split('.')[0];
-        api[module][fileName] = await createScript(root + m + '/' + file);
-      }
-     return;
+  for(let module of modules) {
+    if(module.startsWith('.')) continue; 
+    if(module.startsWith('system.')) continue; 
+    api[module.split('.')[0]] = {};
+    const files = await fsp.readdir(root + module);
+    for(let file of files) {
+      if(file.startsWith('.')) continue; 
+      const fileName = file.split('.')[0];
+      api[module.split('.')[0]][fileName] = await createScript(root + module + '/' + file);
+    }
   }
 }
 
-module.exports = { api, loadApi, fakeDomainContext };
+let apiReady = loadApi();
+
+module.exports = { api, apiReady, fakeDomainContext };
