@@ -1,30 +1,36 @@
 {
   "name": "filmhub",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "node tests/framework/start.js",
-    "lint": "eslint . --fix",
-    "start": "node index.js"
-  },
+  "version": "3.0.0",
+  "author": "Guskov Danil<guskov.danil@gmail.com>",
+  "description": "University team work",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/UniversityTeam/filmhub"
+    "url": "https://github.com/University/filmhub"
   },
-  "author": "",
-  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/UniversityTeam/filmhub/issues"
+    "url": "https://github.com/University/filmhub/issues"
   },
-  "homepage": "https://github.com/UniversityTeam/filmhub#readme",
+  "main": "server.js",
+  "types": "types/global.d.ts",
+  "scripts": {
+    "test": "npm run lint && npm run types && node test/system.js",
+    "types": "tsc -p types/tsconfig.json",
+    "lint": "eslint . --fix && prettier -c \"**/*.js\" \"**/*.json\" \"**/*.md\" \"**/*.yml\" \"**/*.ts\"",
+    "fmt": "prettier --write \"**/*.js\" \"**/*.json\" \"**/*.md\" \"**/*.yml\" \"**/*.ts\""
+  },
+  "engines": {
+    "node": "^12.9 || 14 || 15"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.41",
+    "eslint": "^7.24.0",
+    "metatests": "^0.7.2",
+    "prettier": "^2.2.1",
+    "typescript": "^4.2.4"
+  },
   "dependencies": {
-    "ansi-256-colors": "^1.1.0",
-    "cookie-parser": "^1.4.5",
-    "eslint": "^7.15.0",
-    "express": "^4.17.1",
-    "express-fileupload": "^1.2.0",
-    "express-useragent": "^1.0.15",
-    "pg": "^8.3.3"
+    "impress": "^2.2.0",
+    "metasql": "^1.0.1"
   }
 }

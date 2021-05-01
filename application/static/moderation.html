@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+    <title>Filmhub</title>
+    <meta name="description" content="Каталог фильмов по жанрам удовлетворит любые запросы. Вы можете смотреть фильмы по жанрам прямо на сайте">
+    <link rel="stylesheet" href="/style/index.css">
+    <link rel="stylesheet" href="/style/moderation.css">
+
+    <script src="script/moderation.js" type="module"></script>
+
+      <meta charset="utf-8">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style/index.css">
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="apple-touch-icon-precomposed" href="image/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" href="image/favicon.ico" type="image/vnd.microsoft.icon" />
+    <link rel="icon" href="image/favicon.ico" type="image/vnd.microsoft.icon" />
+    <link rel="apple-touch-icon" href="image/favicon.png" />
+
+<body>
+<iframe hidden name="dummy"></iframe>
+<div class="background-img "></div>
+
+<noscript>
+    <div class="pop-message">Внимание! В вашем браузере отключен JavaScript! Без него большая часть функционала сайта
+        работать не будет или будет работать некорректно!
+    </div>
+</noscript>
+
+<div class="top">
+
+    <div class="container clearfix">
+
+    </div>
+</div>
+
+<header class="header">
+    <div class="container clearfix">
+
+        <div class="logo-block">
+            <a class="logo" href="/"></a>
+            <div class="top-desktop">
+
+            </div>
+        </div>
+
+        <ul class="menu clearfix">
+            <li class="sub-menu-link">
+                <a onclick="addFilm()">Добавить фильм</a>
+            </li>
+            <li>
+                <a onclick="showFilms()">Показать фильмы</a>
+            </li>
+            <li>
+                <a onclick="showComments()">Показать комментарии</a>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<modal></modal>
+<overlay></overlay>
+
+<div class="content-block container clearfix">
+
+</div>
+
+<footer>
+
+</footer>

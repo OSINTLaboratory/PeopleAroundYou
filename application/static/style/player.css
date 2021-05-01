@@ -1,0 +1,62 @@
+@charset "UTF-8";
+*{margin:0;padding:0;border:none;outline:none;-moz-box-sizing:border-box;box-sizing:border-box}
+html{height:100%}
+body{font-family:open sans,sans-serif;font-size:14px;background: #1f1d1d;color: #333333;min-height:100%;position:relative;-webkit-tap-highlight-color:transparent;overflow-y:scroll; height: 100%;}
+body{}
+
+body .content-block{background-color: #333; margin-bottom:20px; width: 70%; display: flex; flex-direction: column; justify-content: space-around; align-items: center;}
+body .film-video {width: 100%; height: 60%; position:relative;}
+body #add-rating-form {margin: 20px 0;}
+body #add-rating-form label {color:#fff;}
+body #add-rating-form output {color:#fff;}
+body .meta {width: 100%; height: 40%; color: #fff; font-size: 2rem;}
+.main-data {height: 25%; width: 100%; background-color:#ffa31a; display: flex; justify-content: space-between; align-items: center}
+  .left-data { width: calc(50%-10px);  margin-left: 10px;}
+  .right-data {height: 100%; width: calc(50%-10px); display: flex; margin-right: 10px; flex-direction: column; justify-content: space-around; align-items: flex-end; margin-bottom: 0;}
+  .date {font-size: 50%;}
+  .genre {font-size: 50%}
+
+.new-comment {color: #fff; margin-top: 10px; height: calc(25% - 10px); width: 100%; background-color: #333;display: flex; justify-content: space-between; align-items: center; border: 3px solid black}
+  .comment-field { background-color: #000 !important; overflow-y: scroll; width: 70%; height: 100% !important; padding: 0 !important;}
+  .comment-button { cursor: pointer; background-color: #ffa31a; color: #fff; width: calc(30% - 20px); height: 100%; border: none; border-left: 3px solid black;}
+
+.comment-list {margin-top: 10px; width: 100%; height: 400px; overflow-y: scroll; background-color: #333; border: 3px solid black; }
+
+
+
+.menu a:hover{
+  background-color: #ff7700;
+}
+
+#film-rating {
+  color: #ff7700;
+}
+
+.menu a {
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.new-comment, .main-data {
+  height: 70px;
+}
+
+footer {
+  background-color: #000;
+  color: #fff;
+  height: 171px;
+  margin-top: 20px;
+}
+
+.comment {
+  word-break: break-word;
+  padding: 15px;
+}
+
+.comment p {
+  font-size: 15px;
+}
+
+.comment h5 {
+  color: #f15e07;
+}

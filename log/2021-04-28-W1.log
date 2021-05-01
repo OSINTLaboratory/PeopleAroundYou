@@ -1,0 +1,753 @@
+2021-04-28T01:00:45.114Z [info] Listen port 8000 in worker 1
+2021-04-28T01:00:45.141Z [error] /application/api/adminpanel.1/getUsername.js:1;context => async ({ id }) {;                          ^;;SyntaxError: Unexpected token '{';  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:00:45.150Z [error] /application/api/catalog.1/filter.js:14;    query += ' ORDER BY year DESC');;                                  ^;;SyntaxError: Unexpected token ')';  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:00:45.159Z [error] /application/api/moderpanel.1/addFilm.js:5;  const posterName = .title + `.${posterType.slice(posterType.indexOf('/') + 1)}`;;                     ^;;SyntaxError: Unexpected token '.';  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:00:45.187Z [error] /application/api/player.1/addComment.js:1;context => async ({ filmid, userid, textdata }) {;                                                ^;;SyntaxError: Unexpected token '{';  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:00:45.189Z [error] /application/api/player.1/addScore.js:11;    let rating = parseFloat(result[0].rating);;        ^^^^^^;;SyntaxError: Identifier 'rating' has already been declared;  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:00:45.192Z [error] /application/api/player.1/getFilm.js:10;module.exports = GetFilm;;^^^^^^;;SyntaxError: Unexpected identifier;  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:00:45.194Z [error] /application/api/player.1/getFilmById.js:12;;;;SyntaxError: Unexpected end of input;  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:00:47.030Z [debug] Connect to pg
+2021-04-28T01:00:47.033Z [info] Application started in worker 1
+2021-04-28T01:00:52.951Z [info] Graceful shutdown in worker 1
+2021-04-28T01:04:50.566Z [info] Listen port 8000 in worker 1
+2021-04-28T01:04:50.675Z [error] /application/api/player.1/getFilm.js:10;module.exports = GetFilm;;^^^^^^;;SyntaxError: Unexpected identifier;  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:04:50.677Z [error] /application/api/player.1/getFilmById.js:12;;;;SyntaxError: Unexpected end of input;  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:04:52.504Z [debug] Connect to pg
+2021-04-28T01:04:52.514Z [info] Application started in worker 1
+2021-04-28T01:04:52.520Z [info] Graceful shutdown in worker 1
+2021-04-28T01:05:45.415Z [info] Listen port 8000 in worker 1
+2021-04-28T01:05:45.520Z [error] /application/api/player.1/getFilm.js:10;;;;SyntaxError: Unexpected end of input;  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:05:45.523Z [error] /application/api/player.1/getFilmById.js:11;)};;^;;SyntaxError: Unexpected token ')';  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:05:47.305Z [debug] Connect to pg
+2021-04-28T01:05:47.307Z [info] Application started in worker 1
+2021-04-28T01:05:47.309Z [info] Graceful shutdown in worker 1
+2021-04-28T01:06:02.848Z [info] Listen port 8000 in worker 1
+2021-04-28T01:06:02.930Z [error] /application/api/player.1/getFilm.js:10;;;;SyntaxError: Unexpected end of input;  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20);  async Interfaces.load (/node_modules/impress/lib/cache.js:18:12);  async Interfaces.load (/node_modules/impress/lib/cache.js:17:31)
+2021-04-28T01:06:04.704Z [debug] Connect to pg
+2021-04-28T01:06:04.705Z [info] Application started in worker 1
+2021-04-28T01:06:04.706Z [info] Graceful shutdown in worker 1
+2021-04-28T01:06:20.551Z [info] Listen port 8000 in worker 1
+2021-04-28T01:06:22.442Z [debug] Connect to pg
+2021-04-28T01:06:22.444Z [info] Application started in worker 1
+2021-04-28T01:06:57.887Z [info] Graceful shutdown in worker 1
+2021-04-28T12:22:21.719Z [info] Listen port 8000 in worker 1
+2021-04-28T12:22:23.386Z [debug] Connect to pg
+2021-04-28T12:22:23.388Z [info] Application started in worker 1
+2021-04-28T12:22:43.681Z [debug] Deleted: /static/.index.html.swx
+2021-04-28T12:22:43.683Z [debug] Reload: /static/.index.html.swp
+2021-04-28T12:22:46.877Z [info] Graceful shutdown in worker 1
+2021-04-28T12:25:37.460Z [info] Listen port 8000 in worker 1
+2021-04-28T12:25:39.322Z [debug] Connect to pg
+2021-04-28T12:25:39.324Z [info] Application started in worker 1
+2021-04-28T12:25:59.146Z [debug] Deleted: /static/.index.html.swx
+2021-04-28T12:25:59.148Z [debug] Reload: /static/.index.html.swp
+2021-04-28T12:26:03.582Z [debug] Reload: /static/.index.html.swp
+2021-04-28T12:26:11.258Z [debug] Deleted: /static/4913
+2021-04-28T12:26:11.260Z [debug] Deleted: /static/index.html~
+2021-04-28T12:26:11.260Z [debug] Deleted: /static/.index.html.swp
+2021-04-28T12:26:11.261Z [debug] Reload: /static/index.html
+2021-04-28T12:26:54.654Z [debug] Deleted: /static/btns.js
+2021-04-28T12:27:04.841Z [debug] Deleted: /static/.btns.js.swx
+2021-04-28T12:27:04.842Z [debug] Reload: /static/.btns.js.swp
+2021-04-28T12:27:16.156Z [debug] Deleted: /static/.btns.js.swp
+2021-04-28T12:27:16.157Z [debug] Reload: /static/btns.js
+2021-04-28T12:27:32.362Z [debug] Deleted: /static/.index.html.swx
+2021-04-28T12:27:32.363Z [debug] Reload: /static/.index.html.swp
+2021-04-28T12:27:34.841Z [info] Graceful shutdown in worker 1
+2021-04-28T12:28:45.210Z [info] Listen port 8000 in worker 1
+2021-04-28T12:28:47.022Z [debug] Connect to pg
+2021-04-28T12:28:47.025Z [info] Application started in worker 1
+2021-04-28T12:29:07.645Z [debug] Reload: /static/image/favicon.png
+2021-04-28T12:29:33.995Z [debug] Deleted: /static/style/.index.css.swx
+2021-04-28T12:29:33.996Z [debug] Reload: /static/style/.index.css.swp
+2021-04-28T12:29:42.988Z [debug] Reload: /static/style/.index.css.swp
+2021-04-28T12:29:52.097Z [debug] Reload: /static/style/.index.css.swp
+2021-04-28T12:29:58.993Z [debug] Reload: /static/style/.index.css.swp
+2021-04-28T12:30:16.283Z [debug] Reload: /static/style/.index.css.swp
+2021-04-28T12:31:48.015Z [debug] Deleted: /static/style/4913
+2021-04-28T12:31:48.016Z [debug] Deleted: /static/style/index.css~
+2021-04-28T12:31:48.016Z [debug] Deleted: /static/style/.index.css.swp
+2021-04-28T12:31:48.017Z [debug] Reload: /static/style/index.css
+2021-04-28T12:32:02.132Z [info] Graceful shutdown in worker 1
+2021-04-28T13:39:22.936Z [info] Listen port 8000 in worker 1
+2021-04-28T13:39:24.496Z [debug] Connect to pg
+2021-04-28T13:39:24.497Z [info] Application started in worker 1
+2021-04-28T13:39:57.230Z [debug] Deleted: /static/script/.index.js.swx
+2021-04-28T13:39:57.231Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T13:40:04.780Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T13:40:28.937Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T13:40:48.293Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T13:40:56.003Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T13:41:20.847Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T13:41:36.567Z [debug] Deleted: /static/script/4913
+2021-04-28T13:41:36.570Z [debug] Deleted: /static/script/index.js~
+2021-04-28T13:41:36.570Z [debug] Deleted: /static/script/.index.js.swp
+2021-04-28T13:41:36.571Z [debug] Reload: /static/script/index.js
+2021-04-28T13:41:51.523Z [debug] Deleted: /static/script/.catalog.js.swx
+2021-04-28T13:41:51.525Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:42:09.068Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:42:12.074Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:42:24.939Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:42:37.691Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:42:57.025Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:43:09.135Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:43:31.934Z [info] Graceful shutdown in worker 1
+2021-04-28T13:44:12.030Z [info] Listen port 8000 in worker 1
+2021-04-28T13:44:13.545Z [debug] Connect to pg
+2021-04-28T13:44:13.548Z [info] Application started in worker 1
+2021-04-28T13:44:50.571Z [debug] Deleted: /static/script/.catalog.js.swx
+2021-04-28T13:44:50.571Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:45:14.082Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:45:25.594Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:45:36.793Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T13:45:39.516Z [debug] Deleted: /static/script/4913
+2021-04-28T13:45:39.517Z [debug] Deleted: /static/script/catalog.js~
+2021-04-28T13:45:39.517Z [debug] Deleted: /static/script/.catalog.js.swp
+2021-04-28T13:45:39.518Z [debug] Reload: /static/script/catalog.js
+2021-04-28T13:45:53.408Z [debug] Deleted: /static/script/.btns.js.swx
+2021-04-28T13:45:53.409Z [debug] Reload: /static/script/.btns.js.swp
+2021-04-28T13:45:57.453Z [debug] Reload: /static/script/.btns.js.swp
+2021-04-28T13:46:00.829Z [debug] Reload: /static/script/.btns.js.swp
+2021-04-28T13:46:04.622Z [debug] Deleted: /static/script/4913
+2021-04-28T13:46:04.625Z [debug] Deleted: /static/script/btns.js~
+2021-04-28T13:46:04.625Z [debug] Deleted: /static/script/.btns.js.swp
+2021-04-28T13:46:04.626Z [debug] Reload: /static/script/btns.js
+2021-04-28T13:46:18.203Z [debug] Deleted: /static/script/.index.js.swx
+2021-04-28T13:46:18.204Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T13:46:37.779Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T13:46:54.809Z [debug] Deleted: /static/script/.index.js.swp
+2021-04-28T13:47:06.701Z [debug] Deleted: /static/script/btns.js
+2021-04-28T13:47:06.703Z [debug] Reload: /static/script/buttons.js
+2021-04-28T13:47:10.085Z [debug] Deleted: /static/script/.buttons.js.swx
+2021-04-28T13:47:10.086Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-28T13:47:14.148Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-28T13:47:20.168Z [debug] Deleted: /static/script/.buttons.js.swp
+2021-04-28T13:47:23.013Z [debug] Deleted: /static/script/.buttons.js.swx
+2021-04-28T13:47:23.014Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-28T13:47:27.109Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-28T13:47:33.896Z [debug] Deleted: /static/script/4913
+2021-04-28T13:47:33.897Z [debug] Deleted: /static/script/buttons.js~
+2021-04-28T13:47:33.899Z [debug] Reload: /static/script/buttons.js
+2021-04-28T13:48:13.697Z [info] Graceful shutdown in worker 1
+2021-04-28T13:48:38.287Z [info] Listen port 8000 in worker 1
+2021-04-28T13:48:40.321Z [debug] Connect to pg
+2021-04-28T13:48:40.327Z [info] Application started in worker 1
+2021-04-28T14:15:43.259Z [debug] Reload: /static/favicon.ico
+2021-04-28T14:17:59.346Z [debug] Deleted: /static/.index.js.swx
+2021-04-28T14:17:59.348Z [debug] Reload: /static/.index.js.swp
+2021-04-28T14:18:01.705Z [debug] Deleted: /static/.index.js.swp
+2021-04-28T14:18:11.736Z [debug] Deleted: /static/script/.index.js.swx
+2021-04-28T14:18:11.737Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T14:18:21.835Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T14:19:11.448Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T14:19:17.518Z [debug] Deleted: /static/script/4913
+2021-04-28T14:19:17.519Z [debug] Deleted: /static/script/index.js~
+2021-04-28T14:19:17.519Z [debug] Deleted: /static/script/.index.js.swp
+2021-04-28T14:19:17.520Z [debug] Reload: /static/script/index.js
+2021-04-28T14:21:49.515Z [debug] Deleted: /api/catalog.1/.random.js.swp
+2021-04-28T14:22:02.721Z [debug] Deleted: /static/.index.html.swx
+2021-04-28T14:22:02.722Z [debug] Reload: /static/.index.html.swp
+2021-04-28T14:22:10.252Z [debug] Deleted: /static/.index.html.swp
+2021-04-28T14:22:26.678Z [debug] Deleted: /static/script/.metacom.js.swx
+2021-04-28T14:22:26.679Z [debug] Reload: /static/script/.metacom.js.swp
+2021-04-28T14:22:30.740Z [debug] Reload: /static/script/.metacom.js.swp
+2021-04-28T14:22:40.856Z [debug] Deleted: /static/script/.metacom.js.swp
+2021-04-28T14:22:45.082Z [debug] Deleted: /static/script/.events.js.swx
+2021-04-28T14:22:45.083Z [debug] Reload: /static/script/.events.js.swp
+2021-04-28T14:22:46.948Z [debug] Deleted: /static/script/.events.js.swp
+2021-04-28T14:22:54.885Z [debug] Deleted: /static/.index.html.swx
+2021-04-28T14:22:54.886Z [debug] Reload: /static/.index.html.swp
+2021-04-28T14:22:58.945Z [debug] Reload: /static/.index.html.swp
+2021-04-28T14:23:06.348Z [debug] Deleted: /static/.index.html.swp
+2021-04-28T14:23:11.521Z [debug] Deleted: /static/script/.index.js.swx
+2021-04-28T14:23:11.521Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T14:23:18.135Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T14:23:20.258Z [debug] Deleted: /static/script/4913
+2021-04-28T14:23:20.259Z [debug] Deleted: /static/script/index.js~
+2021-04-28T14:23:20.259Z [debug] Deleted: /static/script/.index.js.swp
+2021-04-28T14:23:20.260Z [debug] Reload: /static/script/index.js
+2021-04-28T14:23:23.957Z [info] Graceful shutdown in worker 1
+2021-04-28T14:23:30.609Z [info] Listen port 8000 in worker 1
+2021-04-28T14:23:32.640Z [debug] Connect to pg
+2021-04-28T14:23:32.642Z [info] Application started in worker 1
+2021-04-28T14:23:42.243Z [debug] Deleted: /static/script/.index.js.swx
+2021-04-28T14:23:42.245Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T14:23:44.220Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T14:23:53.795Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T14:23:57.805Z [debug] Deleted: /static/script/4913
+2021-04-28T14:23:57.806Z [debug] Deleted: /static/script/index.js~
+2021-04-28T14:23:57.807Z [debug] Deleted: /static/script/.index.js.swp
+2021-04-28T14:23:57.808Z [debug] Reload: /static/script/index.js
+2021-04-28T14:24:51.943Z [info] Graceful shutdown in worker 1
+2021-04-28T14:27:12.109Z [info] Listen port 8000 in worker 1
+2021-04-28T14:27:13.760Z [debug] Connect to pg
+2021-04-28T14:27:13.762Z [info] Application started in worker 1
+2021-04-28T14:28:18.522Z [info] Graceful shutdown in worker 1
+2021-04-28T14:30:01.249Z [info] Listen port 8000 in worker 1
+2021-04-28T14:30:02.848Z [debug] Connect to pg
+2021-04-28T14:30:02.849Z [info] Application started in worker 1
+2021-04-28T14:30:16.121Z [info] Graceful shutdown in worker 1
+2021-04-28T14:30:18.455Z [info] Listen port 8000 in worker 1
+2021-04-28T14:30:20.815Z [debug] Connect to pg
+2021-04-28T14:30:20.818Z [info] Application started in worker 1
+2021-04-28T14:30:48.073Z [info] Graceful shutdown in worker 1
+2021-04-28T14:39:38.580Z [info] Listen port 8000 in worker 1
+2021-04-28T14:39:40.452Z [debug] Connect to pg
+2021-04-28T14:39:40.454Z [info] Application started in worker 1
+2021-04-28T14:39:46.921Z [info] Graceful shutdown in worker 1
+2021-04-28T14:40:45.152Z [info] Listen port 8000 in worker 1
+2021-04-28T14:40:47.238Z [debug] Connect to pg
+2021-04-28T14:40:47.240Z [info] Application started in worker 1
+2021-04-28T14:41:02.721Z [debug] Deleted: /static/script/.catalog.js.swx
+2021-04-28T14:41:02.724Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:41:07.482Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:41:16.458Z [debug] Deleted: /static/script/4913
+2021-04-28T14:41:16.460Z [debug] Deleted: /static/script/catalog.js~
+2021-04-28T14:41:16.460Z [debug] Deleted: /static/script/.catalog.js.swp
+2021-04-28T14:41:16.460Z [debug] Reload: /static/script/catalog.js
+2021-04-28T14:41:59.193Z [debug] Deleted: /static/script/.catalog.js.swx
+2021-04-28T14:41:59.194Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:42:07.197Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:42:15.971Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:42:19.969Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:42:28.513Z [debug] Deleted: /static/script/4913
+2021-04-28T14:42:28.516Z [debug] Deleted: /static/script/catalog.js~
+2021-04-28T14:42:28.516Z [debug] Deleted: /static/script/.catalog.js.swp
+2021-04-28T14:42:28.517Z [debug] Reload: /static/script/catalog.js
+2021-04-28T14:42:32.804Z [debug] Deleted: /static/script/.index.js.swx
+2021-04-28T14:42:32.805Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T14:42:40.693Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T14:42:48.116Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T14:43:10.214Z [debug] Deleted: /static/script/4913
+2021-04-28T14:43:10.215Z [debug] Deleted: /static/script/index.js~
+2021-04-28T14:43:10.216Z [debug] Deleted: /static/script/.index.js.swp
+2021-04-28T14:43:10.216Z [debug] Reload: /static/script/index.js
+2021-04-28T14:43:11.455Z [debug] Deleted: /static/script/.catalog.js.swx
+2021-04-28T14:43:11.456Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:43:20.777Z [debug] Deleted: /static/script/4913
+2021-04-28T14:43:20.779Z [debug] Deleted: /static/script/catalog.js~
+2021-04-28T14:43:20.779Z [debug] Deleted: /static/script/.catalog.js.swp
+2021-04-28T14:43:20.779Z [debug] Reload: /static/script/catalog.js
+2021-04-28T14:43:41.457Z [debug] Deleted: /static/script/.catalog.js.swx
+2021-04-28T14:43:41.458Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:43:57.271Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:44:02.495Z [debug] Deleted: /static/script/4913
+2021-04-28T14:44:02.495Z [debug] Deleted: /static/script/catalog.js~
+2021-04-28T14:44:02.496Z [debug] Deleted: /static/script/.catalog.js.swp
+2021-04-28T14:44:02.496Z [debug] Reload: /static/script/catalog.js
+2021-04-28T14:45:16.925Z [debug] Deleted: /static/posters/Palm Trees.png
+2021-04-28T14:45:16.926Z [debug] Reload: /static/posters/Palm%20Trees.png
+2021-04-28T14:46:42.224Z [debug] Deleted: /api/catalog.1/.filter.js.swx
+2021-04-28T14:46:42.225Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T14:46:48.253Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T14:46:53.565Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T14:46:53.566Z [debug] Deleted: /api/catalog.1/filter.js~
+2021-04-28T14:46:53.566Z [debug] Deleted: /api/catalog.1/.filter.js.swp
+2021-04-28T14:46:53.567Z [debug] Reload: /api/catalog.1/filter.js
+2021-04-28T14:47:05.635Z [debug] Deleted: /api/catalog.1/.filter.js.swx
+2021-04-28T14:47:05.636Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T14:47:12.037Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T14:47:17.305Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T14:47:33.183Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T14:47:58.046Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T14:48:15.326Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T14:48:15.327Z [debug] Deleted: /api/catalog.1/filter.js~
+2021-04-28T14:48:15.327Z [debug] Reload: /api/catalog.1/filter.js
+2021-04-28T14:48:44.162Z [info] Graceful shutdown in worker 1
+2021-04-28T14:48:51.001Z [info] Listen port 8000 in worker 1
+2021-04-28T14:48:52.936Z [debug] Connect to pg
+2021-04-28T14:48:52.938Z [info] Application started in worker 1
+2021-04-28T14:51:17.121Z [debug] Deleted: /static/script/.catalog.js.swx
+2021-04-28T14:51:17.123Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:51:30.402Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:51:35.951Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:51:42.099Z [debug] Deleted: /static/script/4913
+2021-04-28T14:51:42.100Z [debug] Deleted: /static/script/catalog.js~
+2021-04-28T14:51:42.100Z [debug] Deleted: /static/script/.catalog.js.swp
+2021-04-28T14:51:42.100Z [debug] Reload: /static/script/catalog.js
+2021-04-28T14:52:19.444Z [debug] Deleted: /api/catalog.1/.search.js.swx
+2021-04-28T14:52:19.445Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T14:52:35.572Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T14:52:41.532Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T14:52:41.533Z [debug] Deleted: /api/catalog.1/search.js~
+2021-04-28T14:52:41.533Z [debug] Deleted: /api/catalog.1/.search.js.swp
+2021-04-28T14:52:41.534Z [debug] Reload: /api/catalog.1/search.js
+2021-04-28T14:52:44.905Z [info] Graceful shutdown in worker 1
+2021-04-28T14:52:51.489Z [info] Listen port 8000 in worker 1
+2021-04-28T14:52:53.276Z [debug] Connect to pg
+2021-04-28T14:52:53.277Z [info] Application started in worker 1
+2021-04-28T14:53:19.736Z [debug] Deleted: /api/catalog.1/.search.js.swx
+2021-04-28T14:53:19.738Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T14:53:22.723Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T14:53:24.001Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T14:53:24.002Z [debug] Deleted: /api/catalog.1/search.js~
+2021-04-28T14:53:24.002Z [debug] Deleted: /api/catalog.1/.search.js.swp
+2021-04-28T14:53:24.003Z [debug] Reload: /api/catalog.1/search.js
+2021-04-28T14:53:32.778Z [debug] Deleted: /static/script/.catalog.js.swx
+2021-04-28T14:53:32.779Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:53:47.805Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:54:12.154Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:55:07.088Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:55:37.775Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:55:42.940Z [debug] Deleted: /static/script/4913
+2021-04-28T14:55:42.941Z [debug] Deleted: /static/script/catalog.js~
+2021-04-28T14:55:42.942Z [debug] Reload: /static/script/catalog.js
+2021-04-28T14:55:42.943Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:55:52.409Z [debug] Deleted: /api/catalog.1/.filter.js.swx
+2021-04-28T14:55:52.410Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:55:52.410Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T14:55:59.389Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T14:56:18.810Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T14:56:18.811Z [debug] Deleted: /api/catalog.1/filter.js~
+2021-04-28T14:56:18.812Z [debug] Deleted: /api/catalog.1/.filter.js.swp
+2021-04-28T14:56:18.813Z [debug] Reload: /api/catalog.1/filter.js
+2021-04-28T14:56:41.488Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:56:51.937Z [debug] Deleted: /static/script/4913
+2021-04-28T14:56:51.938Z [debug] Deleted: /static/script/catalog.js~
+2021-04-28T14:56:51.939Z [debug] Reload: /static/script/catalog.js
+2021-04-28T14:56:51.940Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:56:55.888Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T14:57:05.502Z [debug] Deleted: /static/script/4913
+2021-04-28T14:57:05.503Z [debug] Deleted: /static/script/catalog.js~
+2021-04-28T14:57:05.503Z [debug] Deleted: /static/script/.catalog.js.swp
+2021-04-28T14:57:05.504Z [debug] Reload: /static/script/catalog.js
+2021-04-28T14:57:07.375Z [info] Graceful shutdown in worker 1
+2021-04-28T14:57:54.858Z [info] Listen port 8000 in worker 1
+2021-04-28T14:57:56.705Z [debug] Connect to pg
+2021-04-28T14:57:56.707Z [info] Application started in worker 1
+2021-04-28T15:01:53.381Z [debug] Deleted: /api/catalog.1/.search.js.swx
+2021-04-28T15:01:53.385Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:01:53.708Z [info] Graceful shutdown in worker 1
+2021-04-28T15:02:07.636Z [info] Listen port 8000 in worker 1
+2021-04-28T15:02:09.214Z [debug] Connect to pg
+2021-04-28T15:02:09.216Z [info] Application started in worker 1
+2021-04-28T15:02:11.015Z [debug] Deleted: /api/catalog.1/.search.js.swx
+2021-04-28T15:02:11.016Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:02:13.606Z [debug] Deleted: /api/catalog.1/.search.js.swp
+2021-04-28T15:02:41.119Z [info] Graceful shutdown in worker 1
+2021-04-28T15:03:36.785Z [info] Listen port 8000 in worker 1
+2021-04-28T15:03:38.398Z [debug] Connect to pg
+2021-04-28T15:03:38.400Z [info] Application started in worker 1
+2021-04-28T15:04:04.807Z [debug] Deleted: /api/catalog.1/.search.js.swx
+2021-04-28T15:04:04.808Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:04:08.830Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:05:29.538Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:05:35.011Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:05:39.056Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T15:05:39.056Z [debug] Deleted: /api/catalog.1/search.js~
+2021-04-28T15:05:39.056Z [debug] Deleted: /api/catalog.1/.search.js.swp
+2021-04-28T15:05:39.057Z [debug] Reload: /api/catalog.1/search.js
+2021-04-28T15:05:41.413Z [info] Graceful shutdown in worker 1
+2021-04-28T15:05:48.100Z [info] Listen port 8000 in worker 1
+2021-04-28T15:05:49.701Z [debug] Connect to pg
+2021-04-28T15:05:49.703Z [info] Application started in worker 1
+2021-04-28T15:06:17.269Z [debug] Deleted: /api/catalog.1/.search.js.swx
+2021-04-28T15:06:17.271Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:06:21.909Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:06:35.642Z [debug] Deleted: /api/catalog.1/.search.js.swp
+2021-04-28T15:06:35.645Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T15:06:35.646Z [debug] Deleted: /api/catalog.1/search.js~
+2021-04-28T15:06:35.646Z [debug] Reload: /api/catalog.1/search.js
+2021-04-28T15:06:37.456Z [info] Graceful shutdown in worker 1
+2021-04-28T15:06:44.039Z [info] Listen port 8000 in worker 1
+2021-04-28T15:06:45.680Z [debug] Connect to pg
+2021-04-28T15:06:45.682Z [info] Application started in worker 1
+2021-04-28T15:07:03.956Z [debug] Deleted: /api/catalog.1/.search.js.swx
+2021-04-28T15:07:03.958Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:07:12.954Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:13:02.145Z [info] Graceful shutdown in worker 1
+2021-04-28T15:13:09.168Z [info] Listen port 8000 in worker 1
+2021-04-28T15:13:10.788Z [debug] Connect to pg
+2021-04-28T15:13:10.790Z [info] Application started in worker 1
+2021-04-28T15:13:12.237Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:14:37.161Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:14:48.433Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T15:14:48.435Z [debug] Deleted: /api/catalog.1/search.js~
+2021-04-28T15:14:48.436Z [debug] Reload: /api/catalog.1/search.js
+2021-04-28T15:14:48.440Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:14:56.925Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:15:11.565Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:15:23.423Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T15:15:23.425Z [debug] Deleted: /api/catalog.1/search.js~
+2021-04-28T15:15:23.425Z [debug] Reload: /api/catalog.1/search.js
+2021-04-28T15:15:23.427Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:15:27.983Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:15:42.085Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:15:46.417Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T15:15:46.417Z [debug] Deleted: /api/catalog.1/search.js~
+2021-04-28T15:15:46.419Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:15:46.420Z [debug] Reload: /api/catalog.1/search.js
+2021-04-28T15:15:51.001Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:16:38.197Z [info] Graceful shutdown in worker 1
+2021-04-28T15:17:02.861Z [info] Listen port 8000 in worker 1
+2021-04-28T15:17:04.711Z [debug] Connect to pg
+2021-04-28T15:17:04.714Z [info] Application started in worker 1
+2021-04-28T15:17:06.440Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:17:18.192Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:17:20.752Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T15:17:20.755Z [debug] Deleted: /api/catalog.1/search.js~
+2021-04-28T15:17:20.756Z [debug] Reload: /api/catalog.1/search.js
+2021-04-28T15:17:20.756Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:17:26.733Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:17:45.296Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:17:48.663Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T15:17:48.664Z [debug] Deleted: /api/catalog.1/search.js~
+2021-04-28T15:17:48.665Z [debug] Reload: /api/catalog.1/search.js
+2021-04-28T15:17:48.667Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:17:54.293Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:20:09.208Z [debug] Reload: /api/catalog.1/.search.js.swp
+2021-04-28T15:20:19.285Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T15:20:19.286Z [debug] Deleted: /api/catalog.1/search.js~
+2021-04-28T15:20:19.287Z [debug] Deleted: /api/catalog.1/.search.js.swp
+2021-04-28T15:20:19.287Z [debug] Reload: /api/catalog.1/search.js
+2021-04-28T15:21:05.643Z [debug] Deleted: /api/catalog.1/.filter.js.swx
+2021-04-28T15:21:05.644Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T15:21:09.673Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T15:21:12.705Z [info] Graceful shutdown in worker 1
+2021-04-28T15:23:48.782Z [info] Listen port 8000 in worker 1
+2021-04-28T15:23:50.407Z [debug] Connect to pg
+2021-04-28T15:23:50.408Z [info] Application started in worker 1
+2021-04-28T15:23:52.312Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T15:25:24.302Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T15:25:51.583Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T15:26:01.732Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T15:26:15.838Z [info] Graceful shutdown in worker 1
+2021-04-28T15:35:19.955Z [info] Listen port 8000 in worker 1
+2021-04-28T15:35:21.793Z [debug] Connect to pg
+2021-04-28T15:35:21.799Z [info] Application started in worker 1
+2021-04-28T15:35:27.090Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T15:35:27.092Z [debug] Deleted: /api/catalog.1/filter.js~
+2021-04-28T15:35:27.093Z [debug] Deleted: /api/catalog.1/.filter.js.swp
+2021-04-28T15:35:27.094Z [debug] Reload: /api/catalog.1/filter.js
+2021-04-28T15:35:57.625Z [debug] Deleted: /api/catalog.1/.filter.js.swx
+2021-04-28T15:35:57.626Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T15:36:04.878Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T15:36:09.091Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T15:36:18.415Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T15:36:18.416Z [debug] Deleted: /api/catalog.1/filter.js~
+2021-04-28T15:36:18.417Z [debug] Deleted: /api/catalog.1/.filter.js.swp
+2021-04-28T15:36:18.417Z [debug] Reload: /api/catalog.1/filter.js
+2021-04-28T15:36:34.620Z [debug] Deleted: /api/catalog.1/.filter.js.swx
+2021-04-28T15:36:34.621Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T15:36:38.631Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T15:36:45.819Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T15:36:45.819Z [debug] Deleted: /api/catalog.1/filter.js~
+2021-04-28T15:36:45.820Z [debug] Deleted: /api/catalog.1/.filter.js.swp
+2021-04-28T15:36:45.820Z [debug] Reload: /api/catalog.1/filter.js
+2021-04-28T15:37:01.001Z [debug] Deleted: /api/catalog.1/.filter.js.swx
+2021-04-28T15:37:01.002Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T15:37:05.499Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T15:37:08.352Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T15:37:08.353Z [debug] Deleted: /api/catalog.1/filter.js~
+2021-04-28T15:37:08.353Z [debug] Reload: /api/catalog.1/filter.js
+2021-04-28T15:37:08.354Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T15:37:08.360Z [error] /application/api/catalog.1/filter.js:28;    return { data.rows };;                 ^;;SyntaxError: Unexpected token '.';  new Script (vm.js:88:7);  new MetaScript (/node_modules/impress/node_modules/metavm/lib/vm.js:41:19);  Interfaces.createScript (/node_modules/impress/lib/interfaces.js:30:27);  async Interfaces.change (/node_modules/impress/lib/interfaces.js:72:20)
+2021-04-28T15:37:09.544Z [debug] Deleted: /api/catalog.1/.filter.js.swp
+2021-04-28T15:37:11.920Z [debug] Deleted: /api/catalog.1/.filter.js.swx
+2021-04-28T15:37:11.921Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T15:37:15.563Z [debug] Reload: /api/catalog.1/.filter.js.swp
+2021-04-28T15:37:18.153Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T15:37:18.154Z [debug] Deleted: /api/catalog.1/filter.js~
+2021-04-28T15:37:18.154Z [debug] Deleted: /api/catalog.1/.filter.js.swp
+2021-04-28T15:37:18.154Z [debug] Reload: /api/catalog.1/filter.js
+2021-04-28T15:37:42.779Z [info] Graceful shutdown in worker 1
+2021-04-28T15:47:44.346Z [info] Listen port 8000 in worker 1
+2021-04-28T15:47:45.926Z [debug] Connect to pg
+2021-04-28T15:47:45.928Z [info] Application started in worker 1
+2021-04-28T15:48:40.644Z [info] Graceful shutdown in worker 1
+2021-04-28T15:49:51.281Z [info] Listen port 8000 in worker 1
+2021-04-28T15:49:52.879Z [debug] Connect to pg
+2021-04-28T15:49:52.887Z [info] Application started in worker 1
+2021-04-28T15:49:54.654Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T15:50:19.731Z [info] Graceful shutdown in worker 1
+2021-04-28T15:51:08.731Z [info] Listen port 8000 in worker 1
+2021-04-28T15:51:10.298Z [debug] Connect to pg
+2021-04-28T15:51:10.300Z [info] Application started in worker 1
+2021-04-28T15:51:33.597Z [debug] Deleted: /static/script/.buttons.js.swx
+2021-04-28T15:51:33.600Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-28T15:51:37.620Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-28T15:52:05.628Z [debug] Deleted: /static/script/.catalog.js.swx
+2021-04-28T15:52:05.630Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T15:52:16.873Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T16:06:16.667Z [debug] Deleted: /static/script/.buttons.js.swx
+2021-04-28T16:06:16.668Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-28T16:06:20.698Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-28T16:06:31.513Z [debug] Deleted: /static/script/.buttons.js.swp
+2021-04-28T16:06:38.055Z [debug] Deleted: /static/script/.catalog.js.swx
+2021-04-28T16:06:38.056Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T16:06:44.436Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T16:06:46.037Z [debug] Deleted: /static/script/.catalog.js.swp
+2021-04-28T16:06:50.594Z [debug] Deleted: /static/script/.index.js.swx
+2021-04-28T16:06:50.595Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T16:07:01.627Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T16:07:22.356Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T16:07:29.989Z [debug] Deleted: /static/script/4913
+2021-04-28T16:07:29.989Z [debug] Deleted: /static/script/index.js~
+2021-04-28T16:07:29.990Z [debug] Reload: /static/script/index.js
+2021-04-28T16:07:29.993Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T16:07:34.555Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T16:07:43.852Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T16:07:50.713Z [debug] Deleted: /static/script/4913
+2021-04-28T16:07:50.713Z [debug] Deleted: /static/script/index.js~
+2021-04-28T16:07:50.714Z [debug] Reload: /static/script/index.js
+2021-04-28T16:07:50.715Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T16:07:56.432Z [debug] Deleted: /static/script/.index.js.swp
+2021-04-28T16:07:58.464Z [debug] Deleted: /static/script/.buttons.js.swx
+2021-04-28T16:07:58.465Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-28T16:08:09.302Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-28T16:08:12.919Z [debug] Deleted: /static/script/4913
+2021-04-28T16:08:12.920Z [debug] Deleted: /static/script/buttons.js~
+2021-04-28T16:08:12.921Z [debug] Reload: /static/script/buttons.js
+2021-04-28T16:08:12.922Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-28T16:08:18.091Z [debug] Reload: /static/script/.buttons.js.swp
+2021-04-28T16:16:13.940Z [debug] Deleted: /static/.index.html.swp
+2021-04-28T16:16:21.773Z [debug] Deleted: /static/.index.html.swx
+2021-04-28T16:16:21.774Z [debug] Reload: /static/.index.html.swp
+2021-04-28T16:16:27.602Z [debug] Deleted: /static/.index.html.swp
+2021-04-28T16:16:32.114Z [debug] Deleted: /static/script/.index.js.swx
+2021-04-28T16:16:32.115Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T16:16:43.797Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T16:16:46.953Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T16:17:10.792Z [debug] Reload: /static/script/.index.js.swp
+2021-04-28T16:17:15.465Z [debug] Deleted: /static/script/4913
+2021-04-28T16:17:15.465Z [debug] Deleted: /static/script/index.js~
+2021-04-28T16:17:15.465Z [debug] Deleted: /static/script/.index.js.swp
+2021-04-28T16:17:15.465Z [debug] Reload: /static/script/index.js
+2021-04-28T16:50:51.199Z [debug] Deleted: /api/catalog.1/.random.js.swx
+2021-04-28T16:50:51.200Z [debug] Reload: /api/catalog.1/.random.js.swp
+2021-04-28T16:50:55.888Z [debug] Reload: /api/catalog.1/.random.js.swp
+2021-04-28T16:50:57.406Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T16:50:57.407Z [debug] Deleted: /api/catalog.1/random.js~
+2021-04-28T16:50:57.408Z [debug] Deleted: /api/catalog.1/.random.js.swp
+2021-04-28T16:50:57.409Z [debug] Reload: /api/catalog.1/random.js
+2021-04-28T16:51:57.746Z [debug] Deleted: /static/script/.catalog.js.swx
+2021-04-28T16:51:57.747Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T16:52:08.657Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T16:52:11.634Z [debug] Deleted: /static/script/4913
+2021-04-28T16:52:11.634Z [debug] Deleted: /static/script/catalog.js~
+2021-04-28T16:52:11.634Z [debug] Deleted: /static/script/.catalog.js.swp
+2021-04-28T16:52:11.635Z [debug] Reload: /static/script/catalog.js
+2021-04-28T16:52:25.065Z [debug] Deleted: /static/script/.catalog.js.swx
+2021-04-28T16:52:25.066Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T16:52:39.824Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T16:53:02.422Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T16:53:13.346Z [debug] Deleted: /static/script/4913
+2021-04-28T16:53:13.347Z [debug] Deleted: /static/script/catalog.js~
+2021-04-28T16:53:13.348Z [debug] Reload: /static/script/catalog.js
+2021-04-28T16:53:13.349Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T16:53:18.077Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T16:53:26.988Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T16:53:32.121Z [debug] Deleted: /static/script/4913
+2021-04-28T16:53:32.122Z [debug] Deleted: /static/script/catalog.js~
+2021-04-28T16:53:32.122Z [debug] Reload: /static/script/catalog.js
+2021-04-28T16:53:32.124Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T16:53:36.770Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T16:53:57.599Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T16:54:07.504Z [debug] Deleted: /static/script/4913
+2021-04-28T16:54:07.506Z [debug] Deleted: /static/script/catalog.js~
+2021-04-28T16:54:07.507Z [debug] Reload: /static/script/catalog.js
+2021-04-28T16:54:09.285Z [debug] Deleted: /api/catalog.1/.random.js.swx
+2021-04-28T16:54:09.286Z [debug] Reload: /api/catalog.1/.random.js.swp
+2021-04-28T16:54:13.796Z [debug] Reload: /api/catalog.1/.random.js.swp
+2021-04-28T16:54:20.851Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T16:54:20.852Z [debug] Deleted: /api/catalog.1/random.js~
+2021-04-28T16:54:20.853Z [debug] Reload: /api/catalog.1/random.js
+2021-04-28T16:54:32.390Z [debug] Deleted: /static/script/.catalog.js.swx
+2021-04-28T16:54:32.391Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T16:54:42.233Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T16:54:48.193Z [debug] Deleted: /static/script/4913
+2021-04-28T16:54:48.194Z [debug] Deleted: /static/script/catalog.js~
+2021-04-28T16:54:48.194Z [debug] Reload: /static/script/catalog.js
+2021-04-28T16:54:48.195Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T16:54:52.762Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T16:55:19.259Z [debug] Deleted: /static/script/.catalog.js.swp
+2021-04-28T16:55:19.260Z [debug] Deleted: /api/catalog.1/.random.js.swx
+2021-04-28T16:55:19.260Z [debug] Reload: /api/catalog.1/.random.js.swp
+2021-04-28T16:55:23.289Z [debug] Reload: /api/catalog.1/.random.js.swp
+2021-04-28T16:55:48.789Z [debug] Deleted: /api/catalog.1/.random.js.swp
+2021-04-28T16:55:50.068Z [debug] Deleted: /static/script/.catalog.js.swx
+2021-04-28T16:55:50.069Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T16:55:56.549Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T16:56:01.593Z [debug] Deleted: /static/script/4913
+2021-04-28T16:56:01.593Z [debug] Deleted: /static/script/catalog.js~
+2021-04-28T16:56:01.594Z [debug] Deleted: /static/script/.catalog.js.swp
+2021-04-28T16:56:01.594Z [debug] Reload: /static/script/catalog.js
+2021-04-28T16:56:23.026Z [debug] Deleted: /api/catalog.1/.top.js.swx
+2021-04-28T16:56:23.027Z [debug] Reload: /api/catalog.1/.top.js.swp
+2021-04-28T16:56:26.722Z [debug] Reload: /api/catalog.1/.top.js.swp
+2021-04-28T16:56:31.214Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T16:56:31.215Z [debug] Deleted: /api/catalog.1/top.js~
+2021-04-28T16:56:31.217Z [debug] Reload: /api/catalog.1/top.js
+2021-04-28T16:56:42.118Z [info] Graceful shutdown in worker 1
+2021-04-28T16:56:53.067Z [info] Listen port 8000 in worker 1
+2021-04-28T16:56:54.962Z [debug] Connect to pg
+2021-04-28T16:56:54.963Z [info] Application started in worker 1
+2021-04-28T17:04:19.254Z [info] Graceful shutdown in worker 1
+2021-04-28T17:16:05.257Z [info] Listen port 8000 in worker 1
+2021-04-28T17:16:06.847Z [debug] Connect to pg
+2021-04-28T17:16:06.850Z [info] Application started in worker 1
+2021-04-28T17:16:29.753Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T17:16:33.796Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T17:16:44.172Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T17:17:15.470Z [debug] Deleted: /static/script/4913
+2021-04-28T17:17:15.471Z [debug] Deleted: /static/script/catalog.js~
+2021-04-28T17:17:15.472Z [debug] Reload: /static/script/catalog.js
+2021-04-28T17:17:15.472Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T17:17:20.492Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T17:18:23.072Z [debug] Deleted: /static/script/.catalog.js.swp
+2021-04-28T17:18:51.744Z [debug] Deleted: /api/catalog.1/setViewedFilms.js
+2021-04-28T17:18:51.745Z [debug] Reload: /api/catalog.1/setViewedFilm.js
+2021-04-28T17:19:05.701Z [debug] Deleted: /api/catalog.1/.list.js.swp
+2021-04-28T17:19:17.930Z [debug] Deleted: /static/script/.catalog.js.swx
+2021-04-28T17:19:17.931Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T17:19:21.788Z [debug] Deleted: /static/script/.catalog.js.swp
+2021-04-28T17:19:24.678Z [debug] Deleted: /static/script/.catalog.js.swx
+2021-04-28T17:19:24.679Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T17:19:32.297Z [debug] Reload: /static/script/.catalog.js.swp
+2021-04-28T17:19:39.491Z [debug] Deleted: /static/script/4913
+2021-04-28T17:19:39.493Z [debug] Deleted: /static/script/catalog.js~
+2021-04-28T17:19:39.493Z [debug] Deleted: /static/script/.catalog.js.swp
+2021-04-28T17:19:39.494Z [debug] Reload: /static/script/catalog.js
+2021-04-28T17:22:06.349Z [info] Graceful shutdown in worker 1
+2021-04-28T18:01:57.910Z [info] Listen port 8000 in worker 1
+2021-04-28T18:01:59.691Z [debug] Connect to pg
+2021-04-28T18:01:59.694Z [info] Application started in worker 1
+2021-04-28T18:02:01.141Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:02:33.409Z [debug] Deleted: /static/script/4913
+2021-04-28T18:02:33.410Z [debug] Deleted: /static/script/player.js~
+2021-04-28T18:02:33.410Z [debug] Deleted: /static/script/.player.js.swp
+2021-04-28T18:02:33.410Z [debug] Reload: /static/script/player.js
+2021-04-28T18:02:41.040Z [debug] Deleted: /static/.player.html.swx
+2021-04-28T18:02:41.042Z [debug] Reload: /static/.player.html.swp
+2021-04-28T18:02:45.754Z [debug] Reload: /static/.player.html.swp
+2021-04-28T18:02:47.539Z [debug] Deleted: /static/4913
+2021-04-28T18:02:47.541Z [debug] Deleted: /static/player.html~
+2021-04-28T18:02:47.541Z [debug] Deleted: /static/.player.html.swp
+2021-04-28T18:02:47.542Z [debug] Reload: /static/player.html
+2021-04-28T18:03:01.751Z [debug] Deleted: /static/script/.player.js.swx
+2021-04-28T18:03:01.752Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:03:16.844Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:03:18.616Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:03:36.914Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:04:00.304Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:04:46.943Z [debug] Deleted: /api/player.1/.addComment.js.swx
+2021-04-28T18:04:46.944Z [debug] Reload: /api/player.1/.addComment.js.swp
+2021-04-28T18:04:51.262Z [debug] Reload: /api/player.1/.addComment.js.swp
+2021-04-28T18:04:54.872Z [debug] Deleted: /api/player.1/4913
+2021-04-28T18:04:54.873Z [debug] Deleted: /api/player.1/addComment.js~
+2021-04-28T18:04:54.873Z [debug] Deleted: /api/player.1/.addComment.js.swp
+2021-04-28T18:04:54.876Z [debug] Reload: /api/player.1/addComment.js
+2021-04-28T18:05:46.457Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:06:15.741Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:06:20.094Z [info] Graceful shutdown in worker 1
+2021-04-28T18:24:08.017Z [info] Listen port 8000 in worker 1
+2021-04-28T18:24:09.883Z [debug] Connect to pg
+2021-04-28T18:24:09.885Z [info] Application started in worker 1
+2021-04-28T18:24:11.149Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:24:27.216Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:24:39.473Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:24:46.793Z [debug] Deleted: /static/script/4913
+2021-04-28T18:24:46.794Z [debug] Deleted: /static/script/player.js~
+2021-04-28T18:24:46.796Z [debug] Reload: /static/script/player.js
+2021-04-28T18:24:46.798Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:24:51.470Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:25:05.988Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:25:08.811Z [debug] Deleted: /static/script/4913
+2021-04-28T18:25:08.812Z [debug] Deleted: /static/script/player.js~
+2021-04-28T18:25:08.813Z [debug] Reload: /static/script/player.js
+2021-04-28T18:25:08.816Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:25:13.431Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:25:29.947Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:25:31.702Z [debug] Deleted: /static/script/4913
+2021-04-28T18:25:31.704Z [debug] Deleted: /static/script/player.js~
+2021-04-28T18:25:31.706Z [debug] Reload: /static/script/player.js
+2021-04-28T18:25:31.706Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:25:36.189Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:26:52.759Z [debug] Deleted: /api/player.1/.getFilm.js.swx
+2021-04-28T18:26:52.760Z [debug] Reload: /api/player.1/.getFilm.js.swp
+2021-04-28T18:26:58.621Z [debug] Reload: /api/player.1/.getFilm.js.swp
+2021-04-28T18:27:03.568Z [debug] Deleted: /api/player.1/4913
+2021-04-28T18:27:03.569Z [debug] Deleted: /api/player.1/getFilm.js~
+2021-04-28T18:27:03.570Z [debug] Reload: /api/player.1/getFilm.js
+2021-04-28T18:28:28.414Z [debug] Deleted: /api/player.1/.getViewedFilm.js.swx
+2021-04-28T18:28:28.415Z [debug] Reload: /api/player.1/.getViewedFilm.js.swp
+2021-04-28T18:28:34.310Z [debug] Reload: /api/player.1/.getViewedFilm.js.swp
+2021-04-28T18:28:59.350Z [debug] Reload: /api/player.1/.getViewedFilm.js.swp
+2021-04-28T18:29:04.451Z [debug] Reload: /api/player.1/.getViewedFilm.js.swp
+2021-04-28T18:29:13.381Z [debug] Deleted: /api/player.1/4913
+2021-04-28T18:29:13.382Z [debug] Deleted: /api/player.1/getViewedFilm.js~
+2021-04-28T18:29:13.382Z [debug] Deleted: /api/player.1/.getViewedFilm.js.swp
+2021-04-28T18:29:13.383Z [debug] Reload: /api/player.1/getViewedFilm.js
+2021-04-28T18:29:25.057Z [debug] Deleted: /api/player.1/getFilm.js
+2021-04-28T18:29:39.728Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:30:22.079Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:30:33.888Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:30:49.734Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:31:01.166Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:31:16.632Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:31:32.566Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:31:54.223Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:32:04.134Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:32:14.015Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:32:32.079Z [debug] Deleted: /static/script/4913
+2021-04-28T18:32:32.080Z [debug] Deleted: /static/script/player.js~
+2021-04-28T18:32:32.081Z [debug] Reload: /static/script/player.js
+2021-04-28T18:32:32.082Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:32:43.641Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:33:02.190Z [info] Graceful shutdown in worker 1
+2021-04-28T18:33:08.992Z [info] Listen port 8000 in worker 1
+2021-04-28T18:33:11.137Z [debug] Connect to pg
+2021-04-28T18:33:11.139Z [info] Application started in worker 1
+2021-04-28T18:34:41.151Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:34:55.107Z [debug] Deleted: /static/script/4913
+2021-04-28T18:34:55.112Z [debug] Deleted: /static/script/player.js~
+2021-04-28T18:34:55.114Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:34:55.116Z [debug] Reload: /static/script/player.js
+2021-04-28T18:34:59.715Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:35:04.887Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:35:12.902Z [debug] Deleted: /static/script/4913
+2021-04-28T18:35:12.903Z [debug] Deleted: /static/script/player.js~
+2021-04-28T18:35:12.903Z [debug] Reload: /static/script/player.js
+2021-04-28T18:35:12.904Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:35:21.054Z [debug] Deleted: /api/player.1/.getViewedFilm.js.swx
+2021-04-28T18:35:21.055Z [debug] Reload: /api/player.1/.getViewedFilm.js.swp
+2021-04-28T18:35:23.920Z [debug] Reload: /static/script/.player.js.swp
+2021-04-28T18:35:25.125Z [debug] Reload: /api/player.1/.getViewedFilm.js.swp
+2021-04-28T18:35:34.758Z [info] Graceful shutdown in worker 1
+2021-04-28T18:35:59.367Z [info] Listen port 8000 in worker 1
+2021-04-28T18:36:01.705Z [debug] Connect to pg
+2021-04-28T18:36:01.706Z [info] Application started in worker 1
+2021-04-28T18:36:02.486Z [debug] Reload: /api/player.1/.getViewedFilm.js.swp
+2021-04-28T18:38:47.391Z [debug] Deleted: /api/player.1/4913
+2021-04-28T18:38:47.392Z [debug] Deleted: /api/player.1/getViewedFilm.js~
+2021-04-28T18:38:47.392Z [debug] Deleted: /api/player.1/.getViewedFilm.js.swp
+2021-04-28T18:38:47.392Z [debug] Reload: /api/player.1/getViewedFilm.js
+2021-04-28T18:38:56.238Z [debug] Deleted: /api/catalog.1/.setViewedFilm.js.swx
+2021-04-28T18:38:56.239Z [debug] Reload: /api/catalog.1/.setViewedFilm.js.swp
+2021-04-28T18:39:00.155Z [debug] Reload: /api/catalog.1/.setViewedFilm.js.swp
+2021-04-28T18:39:12.313Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T18:39:12.314Z [debug] Deleted: /api/catalog.1/setViewedFilm.js~
+2021-04-28T18:39:12.314Z [debug] Deleted: /api/catalog.1/.setViewedFilm.js.swp
+2021-04-28T18:39:12.315Z [debug] Reload: /api/catalog.1/setViewedFilm.js
+2021-04-28T18:39:36.890Z [debug] Deleted: /api/catalog.1/.setViewedFilm.js.swx
+2021-04-28T18:39:36.890Z [debug] Reload: /api/catalog.1/.setViewedFilm.js.swp
+2021-04-28T18:39:40.921Z [debug] Reload: /api/catalog.1/.setViewedFilm.js.swp
+2021-04-28T18:40:19.250Z [debug] Reload: /api/catalog.1/.setViewedFilm.js.swp
+2021-04-28T18:40:26.536Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T18:40:26.537Z [debug] Deleted: /api/catalog.1/setViewedFilm.js~
+2021-04-28T18:40:26.538Z [debug] Deleted: /api/catalog.1/.setViewedFilm.js.swp
+2021-04-28T18:40:26.538Z [debug] Reload: /api/catalog.1/setViewedFilm.js
+2021-04-28T18:40:28.361Z [debug] Deleted: /api/player.1/.getViewedFilm.js.swx
+2021-04-28T18:40:28.362Z [debug] Reload: /api/player.1/.getViewedFilm.js.swp
+2021-04-28T18:40:30.712Z [debug] Reload: /api/player.1/.getViewedFilm.js.swp
+2021-04-28T18:40:38.731Z [debug] Deleted: /api/player.1/4913
+2021-04-28T18:40:38.732Z [debug] Deleted: /api/player.1/getViewedFilm.js~
+2021-04-28T18:40:38.732Z [debug] Deleted: /api/player.1/.getViewedFilm.js.swp
+2021-04-28T18:40:38.733Z [debug] Deleted: /api/catalog.1/.setViewedFilm.js.swx
+2021-04-28T18:40:38.734Z [debug] Reload: /api/player.1/getViewedFilm.js
+2021-04-28T18:40:38.734Z [debug] Reload: /api/catalog.1/.setViewedFilm.js.swp
+2021-04-28T18:40:42.391Z [debug] Reload: /api/catalog.1/.setViewedFilm.js.swp
+2021-04-28T18:40:46.765Z [debug] Deleted: /api/catalog.1/4913
+2021-04-28T18:40:46.766Z [debug] Deleted: /api/catalog.1/setViewedFilm.js~
+2021-04-28T18:40:46.766Z [debug] Deleted: /api/catalog.1/.setViewedFilm.js.swp
+2021-04-28T18:40:46.766Z [debug] Reload: /api/catalog.1/setViewedFilm.js
