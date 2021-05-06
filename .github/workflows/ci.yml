@@ -58,9 +58,9 @@ jobs:
 
       # Set up DB
       - name: Create new postgres user
-        run: PGPASSWORD=postgres psql -h postgres -U postgres -c "CREATE USER \"$USER\" WITH PASSWORD '$USER';"
+        run: PGPASSWORD=postgres psql -h postgres -U postgres -c "CREATE USER \"imnetcat\" WITH PASSWORD 'imnetcat';"
       - name: Create new db
-        run: PGPASSWORD=postgres psql -h postgres -U postgres -c "CREATE DATABASE \"$USER\" OWNER \"$USER\";"
+        run: PGPASSWORD=postgres psql -h postgres -U postgres -c "CREATE DATABASE \"imnetcat\" OWNER \"imnetcat\";"
 
       - name: Setup the database schema
         run: PGPASSWORD=marcus   psql -h postgres -d application -U marcus -f application/db/structure.sql
