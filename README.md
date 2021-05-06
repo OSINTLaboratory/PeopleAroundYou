@@ -48,7 +48,13 @@ npm start
 sudo docker build -f Dockerfile . -t filmhub:latest
 ```
 
-2. Run
+2. Test
+
+```
+sudo docker run -p 8000:8000 -p 8001:8001 -p 8002:8002 --rm -it filmhub:latest npm run test
+```
+
+3. Run
 
 ```
 sudo docker run -p 8000:8000 -p 8001:8001 -p 8002:8002 --rm -it filmhub:latest
