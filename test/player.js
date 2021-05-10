@@ -26,6 +26,6 @@ metatests.test('api/player getCommentsForFilm', async (test) => {
 
   getCommentsForFilm.method(4);
 
-  test.strictSame(fakeDomainContext.db.queryString, 'SELECT userid, textdata FROM comments WHERE \'filmid\'=$1');
+  test.strictSame(fakeDomainContext.db.queryString, 'SELECT userid,textdata FROM comments WHERE \'filmid\'=$1');
   test.end(); 
 });
