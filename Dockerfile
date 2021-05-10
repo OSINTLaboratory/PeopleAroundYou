@@ -1,8 +1,8 @@
-FROM mhart/alpine-node:14
+FROM mhart/alpine-node:12
 WORKDIR /usr/server
 COPY . .
-RUN npm ci --only=production
+RUN npm i
 EXPOSE 8000
 EXPOSE 8001
 EXPOSE 8002
-CMD ["node", "server.js"]
+CMD ["npm", "start"]

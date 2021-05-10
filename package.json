@@ -14,7 +14,7 @@
   "main": "server.js",
   "types": "types/global.d.ts",
   "scripts": {
-    "test": "npm run types && metatests test/",
+    "test": "metatests test/",
     "types": "tsc -p types/tsconfig.json",
     "lint": "eslint . --fix && prettier -c \"**/*.js\" \"**/*.json\" \"**/*.md\" \"**/*.yml\" \"**/*.ts\"",
     "fmt": "prettier --write \"**/*.js\" \"**/*.json\" \"**/*.md\" \"**/*.yml\" \"**/*.ts\""
