@@ -15,3 +15,17 @@ metatests.test('api/player getFilm', async (test) => {
   test.strictSame(fakeDomainContext.db.queryString, 'SELECT * FROM films WHERE \'filmid\'=$1');
   test.end(); 
 });
+
+metatests.test('api/player getCommentsForFilm', async (test) => {
+  await apiReady;
+
+  const getCommentsForFilm= api.player.getCommentsForFilm;
+
+  test.strictSame(typeof getCommentsForFilm.method, 'function');
+  test.strictSame(getCommentsForFilm.access, 'public');
+
+  getCommentsForFilm.method(4);
+
+  test.strictSame(fakeDomainContext.db.queryString, 'SELECT userid, textdata FROM comments WHERE \'filmid\'=$1');
+  test.end(); 
+});
