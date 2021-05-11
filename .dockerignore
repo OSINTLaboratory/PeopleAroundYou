@@ -5,8 +5,8 @@
 .eslintignore
 .editorconfig
 .travis.yml
-test
 node_modules
 LICENSE
 README.md
 npm-debug.log
+log
